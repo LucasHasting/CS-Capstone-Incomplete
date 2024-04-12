@@ -1,0 +1,106 @@
+% CS 455, SP'24 Configuration Management Plan template
+% Software design template based on the template from
+% https://tex.stackexchange.com/questions/42602/software-requirements-specification-with-latex
+%
+\documentclass[letterpaper,12pt,oneside,listof=totoc]{scrreprt}
+\usepackage{listings}
+\usepackage{underscore}
+\usepackage[bookmarks=true]{hyperref}
+\hypersetup{
+    bookmarks=false,                                % show bookmarks bar
+    pdftitle={Quality Assurance Plan},       % title
+%    pdfauthor={Yiannis Lazarides},                  % author
+%    pdfsubject={TeX and LaTeX},                     % subject of the document
+%    pdfkeywords={TeX, LaTeX, graphics, images},     % list of keywords
+    colorlinks=true,                                % false: boxed links; true: colored links
+    linkcolor=blue,                                 % color of internal links
+    citecolor=black,                                % color of links to bibliography
+    filecolor=black,                                % color of file links
+    urlcolor=purple,                                % color of external links
+    linktoc=page                                    % only page is linked
+}%
+\def\myversion{0.1}
+
+\date{\today}
+\author{} % suppress warning, do not fill this in
+\begin{document}
+
+% we don't use \maketitle because we overide the default title page here
+\begin{titlepage}
+\flushright
+\rule{\textwidth}{5pt}\vskip1cm
+\Huge{QUALITY ASSURANCE PLAN}\\
+\vspace{1.5cm}
+for\\
+\vspace{1.5cm}
+Risk Management System\\
+\vspace{1.5cm}
+\LARGE{Release 0.1\\}
+\vspace{1.5cm}
+%\LARGE{Version \myversion approved\\}
+\vspace{1.5cm}
+Prepared by Software Risk Tracking Team\\
+\vfill
+\rule{\textwidth}{5pt}
+\end{titlepage}
+
+\tableofcontents
+% this will be automatically created from chapters, sections, and subsections
+
+\listoffigures
+% this will be automatically created from the figure environment
+
+\listoftables
+% this will be automatically created from the table environment
+
+\chapter*{Revision History}
+% Update this table for each revision of the requirements
+% Add the new content followed by a \hline
+
+\begin{tabular}{| c | p{0.30\textwidth} | p{0.60\textwidth} |}
+\hline
+Date     & Description   & Revised by \\
+\hline
+3/6/24 & Baseline & Software Risk Tracking CM Team \\
+\hline
+\end{tabular}
+
+\chapter{INTRODUCTION}
+\section{Purpose}
+The purpose of this document is to define the set of rules to be followed by developers when writing software, and how the software written will be evaluated to ensure quality.
+
+\section{Definitions}
+\section{Standards}
+%Standards to be followed could possibly be copied/pasted from srs
+ISO/IEC 12207: This international standard specifies requirements for software lifecycle processes, guiding the planning, development, testing, and maintenance of software.
+
+\section{References}
+
+\chapter{QUALITY ASSURANCE}
+\section{Overview}
+Quality Assurance involves ensuring quality throughout the development of software, in this case, the Risk Management System (RMS). Ensuring quality prevents taking time to fix mistakes once the RMS is completed.\\
+
+\section{Responsibilities and Applicability}
+Refer to section 1.1\\
+
+\chapter{QUALITY ASSURANCE CHARACTERISTICS}
+\section{Evaluations, Audits and Reviews}
+%List the evaluations to be performed
+After a change is made to the software, it shall be evaluated for proper adherence to design standards, software requirements are properly met, and that the changes are recorded properly according to the CM Plan.
+
+%List the Audits and Reviews to be done
+Upon development of new software, tests should be written to check that the software meets the requirements defined in the SRS Document.
+
+\section{Procedures}
+%Proceducres for error reporting and tracking
+Errors in the software should be reported back to the appropriate software development team, either the View or Model team. Issues will be tracked through GiTea, which all team members will have access to.
+
+
+\section{Documents and Feedback}
+%Documents to be produced by the SQA group
+The SQA team will produce software audits which will document any issues with how software is being produced, tracked, and made available to the customers.
+
+%Amount of feedback provided to the software project team
+The software project team will be provided the results of the audits and will be also receive results from testing in order to make any fixes necessary in a timely manner.
+
+\end{document}
