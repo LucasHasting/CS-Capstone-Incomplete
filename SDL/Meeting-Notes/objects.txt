@@ -1,0 +1,56 @@
+Classes
+- Users
+  - login() - logs in a user
+  - abstract display_report() - display a report of risk by ID
+- admin (inherits user)
+	- risk rank ?
+	- maintains_status_types ?
+	- defines_id_format ?
+	- Database_connection() - add, remove, edit users and their roles
+	- purge_risk() - purge risks by date or ID
+	- display_report()
+- audit (inherits user)
+	display_report()
+- track (inherits user)
+	- add_risk()
+	- edit_risk() 
+	- delete_risk()
+	- display_report()
+- Risk
+	- risk_likelihood
+	- risk_impact
+	- ID
+	- short_descritpion
+	- long_description
+	- likelihood_rank
+	- impact_rank
+	- owner
+	- status
+	- notes
+	- open_date
+	- close_date
+	- get_report(qualifier) - get report of all risks, sorted by qualifier (can make a query)
+	- save() - save risks in a mysql risk table
+- Database Connection
+	- make_query(Query)
+	- add_user(Admin)
+	- edit_user(Admin)
+	- delete_user(Admin)
+	- add_risk(Track)
+	- edit_risk(Track)
+	- delete_risk(Track)
+
+- Report
+  - show_fields()
+  - display_risk_matrix(risk_id)
+- Risk Matrix Class
+	- rank_risk(ranks)
+	- show_risk()
+- Login Screen Class?
+	- Wt::login?
+- Dashboard page Class
+
+Database - mysql
+- contains users and their permissions
+- contains user login info
+- contains risks and its information

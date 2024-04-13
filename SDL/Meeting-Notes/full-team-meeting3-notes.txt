@@ -1,0 +1,17 @@
+Date: 3/4/2024
+
+chapter 17 - pages 345, and 346 contain SQA Plan info.
+ 
+CM Plan is being constructed by the Management Team.
+ 
+We were given no template for the SQA plan and may not have the right format.
+ 
+If you are not in the management team and did not work on the last SRS document version please work on a section of SQA.
+ 
+Since we may not have the right idea, limit each section to no more than 2 sentences.
+ 
+Put your name next to the section in the workspread if you work on the SQA plan.
+ 
+See important links (in teams) for SQA Plan and Work Spread.
+
+I want a name next to a field by 8:00 PM tomorrow, unless stated otherwise after this message.

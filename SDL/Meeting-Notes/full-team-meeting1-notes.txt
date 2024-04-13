@@ -1,0 +1,56 @@
+Date: 2/19/2024
+
+Purpose 
+- establish the requirements for the application 
+- look at example SRSs (in files)
+
+Product Perspectives
+- Any application to record risks
+
+Use Case
+- Look at chapter 7.4 for example
+
+Operating Enviornment
+- Does the CS Sever have a database? (assume yes)
+- Need alot of diskspace
+- There will be many users
+- C++, ask about options (JS, Python?)
+ - Boost/STL
+- What kind of database are we gonna use if we have access to a database?
+
+Restrictions
+- Scalability/Whats its limits
+- Limited on storage/memory
+
+Performance
+- How optomized is it?
+- End users using it
+- Can a user impact performance eaisly
+- Repsonse time for loading pages
+- See Example SRS 2
+
+Saftey/Security Requirements
+- Encryption
+- Regular Backups
+- What does it mean for a piece of software to be safe?
+- Roles should be separate 
+- Admin can remove another Admin
+- Can not login as another user
+- Prevent Data Breach
+- How reliable it is
+- Secure Protocols
+- How a risk may effect the buisness
+- User Privacy
+
+Software Quality Attributes
+- Good front end
+- Works with mobile/different platforms well
+- How reliable it is
+- UI/UX
+- Giving user support for common issues
+- Give customer support?
+- How easily to modify the software front end
+- Works effiecently for the user enough to where they do not get angry
+- Are we able to do a docker?
+
+Refer to SRS-Rough-Draft-1-Work-Spread.xlsx
