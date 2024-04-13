@@ -1,0 +1,10 @@
+Date: 2/29/2024
+
+discussed who does what for the second SRS rough draft
+
+appendix - intro to uml/use case diagram
+- page 119 - use case diagram
+- 8.4 - activity diagram
+- page 148 - sequence diagram
+
+Refer to SRS-Rough-Draft-2-Work-Spread.xlsx

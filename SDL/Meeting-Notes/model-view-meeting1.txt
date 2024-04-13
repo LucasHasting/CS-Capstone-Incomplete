@@ -1,0 +1,5 @@
+Date: 4/1/2024
+
+Discussed how the model and view UML would work, and what a Risk Matrix was
+
+Refer to the model-view-meeting1 folder
