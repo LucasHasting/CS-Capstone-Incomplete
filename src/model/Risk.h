@@ -21,4 +21,7 @@ class risk
 		bool saveRisk();
 		bool vaidateID();
 		bool formatDate();
+        
+        template<class Action>
+        void persist(Action& a);
 }
