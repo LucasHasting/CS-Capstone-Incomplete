@@ -34,7 +34,7 @@ body{
    font-weight: bold;
    text-decoration: none;
    color:black;
-   margin-right:150px; 
+   margin-right:190px; 
 }
 
 .side , .login{
@@ -249,4 +249,233 @@ body{
 	border:1px solid black;
 }	
 
+.abtnContainer {
+	margin-top:100px;
+	font-family: 'Afacad',sans-serif;
+	display:flex;
+	justify-content : space-between;
+	padding-top:20px;
 
+}
+
+.apopup{
+	background-color:red;
+}
+
+.left-btn{
+	margin-left:75px;
+	gap:30px;
+	width:50%;
+//	background-color:red;
+}
+.asortBtn{
+	background-color:black;
+	color:white;
+	width:90px;
+	height:40px;
+	border:none;
+	font-size:15px;
+	border-radius:5px;
+	padding-left:10px;
+	cursor:pointer;
+}
+
+.asortBtn::after{
+	cursor:pointer;
+	content: "\f0dc";
+	font-family:'Font Awesome 5 Free';
+	padding-left:5px;
+	font-weight:900;
+	margin-top:200px;
+}
+
+.asortBtn::hover{
+	cursor:pointer;
+}
+
+.ainputId{
+	width:200px;
+	margin-left: 50px;
+	height:35px;
+	border:0.5px solid black;
+	outline:none;
+	border-radius:5px;
+
+}
+
+.ainputId:placeholder{
+
+	padding:10px 10px;
+}
+
+.arghtbtn{
+	width: 90px;
+	height:40px;
+	border:none;
+	background-color:black;
+	color:white;
+	border-radius:5px;
+	margin-right:75px;
+}
+
+.arghtbtn::before , arghtbtn:hover{
+	content: "\f234";
+	font-family:'Font Awesome 5 Free';
+	font-weight:900;
+	margin-right:10px;
+	cursor:pointer;
+}
+
+.Wt-popupmenu{
+	background-color:#E5E4E2;
+	border:none;
+	margin-top:10px;
+}
+
+.Wt-popupmenu {
+	padding: 8px 10px;
+	color:black;
+	font-size:15px;
+	text-decoration: none;
+	border-radius:5px;
+}
+
+.Wt-popupmenu ul li a{
+	 background-color: #D3D3D3;
+	color: black;
+
+}
+
+.Wt-popupmenu li a {
+
+	color:black;
+	text-decoration:none;
+	background-color:#E5E4E2;
+}
+
+.Wt-popupmenu li :hover{
+	background-color:#D3D3D3;
+}
+
+.wt-popupmenu ul li a:active {
+    background-color: #D3D3D3; !important
+    color: black;
+}
+
+.riskContainer{
+   
+	/* width:100%; */
+	margin-top:10px;
+	height:350px;
+	padding-left:10px;
+	padding-right:10px;
+	background-color:#C0C0C0;
+	width:93%;
+	margin-left:auto;
+	margin-right:auto;
+	border-radius:10px;
+}
+
+.table tr {
+
+	background-color:white;
+}
+
+.table tr:nth-child(odd){
+	background-color:#f2f2f2;
+}
+
+.table tr:nth-child(even){
+	background-color:white;
+}
+
+.table tr:hover{
+	background-color:#899499;
+	cursor:pointer;
+}
+
+.table {
+	width:80%;
+	border-color:000;
+	border-radius:10px;
+	height:300px;
+	margin-left:45px;
+}
+
+.table tr{
+	border-color:#000;
+	margin-left:auto;
+	margin-right:auto;
+	height:30px;
+	line-height:45px;
+	text-align:center;
+}
+
+.td{
+	text-align:center;
+}
+.table th{
+	background-color:#E5E4E2;
+}
+
+.table{
+	margin-top:50px;
+	max-height:100px;
+	background-color:#fff;
+}
+
+.table td {
+	text-align:center;
+	height:15px;
+}
+.tbody tr{
+	text-align:center;
+	height:15px;
+}
+
+.riskrep{
+	margin-left:auto;
+	margin-right:auto;
+	border-radius:10px;
+	font-family: 'Afacad',sans-serif;
+	width:100%;
+	padding:20px;
+}
+
+
+.riskDets{
+	width:90%;
+	margin-left:auto;
+	margin-right:auto;
+	/* margin-top:10px;*/
+	background-color:red;
+	height:400px;
+	padding:30px;
+}
+
+.editButton{
+	width:50px;
+	height:30px;
+	background-color:black;
+	border-radius:5px;
+	color:white;
+	cursor:pointer;
+	outline:none;
+	border:none;
+}
+
+.deleteButton{
+	height:50px;
+	height:30px;
+	outline:none;
+	border:none;
+	background-color:#ff0800;
+	border-radius:5px;
+	color:white;
+	cursor:pointer;
+}
+
+.risMat{
+
+	width:100%;
+}
