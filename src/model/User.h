@@ -1,5 +1,5 @@
-#include <string>
 #include <Wt/Dbo/Dbo.h>
+#include <string>
 #ifndef USER_H
 #define USER_H
 
@@ -18,14 +18,13 @@ public:
   std::string getPassword();
   std::string getEmail();
   bool saveUser();
-    bool operator==(User);
-template<class Action>
-void persist(Action& a){
+  bool operator==(User);
+  template <class Action> void persist(Action &a) {
     Wt::Dbo::field(a, role, "role");
     Wt::Dbo::field(a, username, "username");
     Wt::Dbo::field(a, password, "password");
     Wt::Dbo::field(a, email, "email");
-}
+  }
 };
 
 #endif

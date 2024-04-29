@@ -1,18 +1,19 @@
-#include <string>
 #include "User.h"
+#include <string>
 
 User::User() {
-    role = "";
-    username = "";
-    password = "";
-    email = "";
+  role = "";
+  username = "";
+  password = "";
+  email = "";
 }
 
-User::User(std::string role, std::string username, std::string password, std::string email) {
-    this->role = role;
-    this->username = username;
-    this->password = password;
-    this->email = email;
+User::User(std::string role, std::string username, std::string password,
+           std::string email) {
+  this->role = role;
+  this->username = username;
+  this->password = password;
+  this->email = email;
 }
 
 /*
@@ -39,7 +40,6 @@ std::string User::getPassword() { return password; }
  */
 std::string User::getEmail() { return email; }
 
-
-bool User::operator==(User user){
-    return (password == user.getPassword() && username == user.getUsername());
+bool User::operator==(User user) {
+  return (password == user.getPassword() && username == user.getUsername());
 }
