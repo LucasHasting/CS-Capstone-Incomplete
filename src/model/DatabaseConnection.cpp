@@ -7,7 +7,6 @@
 /* Constructor initializes the connection to the database */
 DatabaseConnection::DatabaseConnection() {
   // get the connection to the database
-
   connection =
       new Wt::Dbo::backend::MySQL("SRT_DB", "risk", "niuco9Aish", "localhost",
                                   3306, "/var/run/mysql/mysql.sock");
