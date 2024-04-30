@@ -25,10 +25,10 @@ namespace{
 	};
 
 	Risk risks[] = {
-		//Risk("758943","Risk1" , "longsesc" , "shortdes" , "qwer" , 19 , "jdsklf" ),
-		//Risk("758943","Risk1" , "longsesc" , "shortdes" , "wert" , 19 , "jdsklf" ),
-		//Risk("758943","Risk1" , "longsesc" , "shortdes" , "wert" , 19 , "jdsklf" ),
-		//Risk("758943","Risk1" , "longsesc" , "shortdes" , "2w43" , 19 , "jdsklf" ),
+		Risk("758943","Risk1" , "longsesc" , "shortdes" , "qwer" , 19 , "jdsklf" ),
+		Risk("758943","Risk1" , "longsesc" , "shortdes" , "wert" , 19 , "jdsklf" ),
+		Risk("758943","Risk1" , "longsesc" , "shortdes" , "wert" , 19 , "jdsklf" ),
+		Risk("758943","Risk1" , "longsesc" , "shortdes" , "2w43" , 19 , "jdsklf" ),
 		
 	};
 
@@ -60,8 +60,9 @@ void RiskReport::showRiskReport(){
 	
 	int length = sizeof(risks)/sizeof(risks[0]);
 	auto table = container->addWidget(make_unique<WTable>());
-
+	cout<<"Length -----------------------" << length<<endl; 
 	if(length == 0) {
+		std::cerr<<"IN the lenght = 0 " <<std::endl;
 		table->setStyleClass("table table-striped table-hover table-bordered");
 		table->setHeaderCount(1);
 		table->setWidth(Wt::WLength("100%"));
@@ -81,7 +82,9 @@ void RiskReport::showRiskReport(){
 		table->elementAt(1,4)->setColumnSpan(7);
 		txt->setTextAlignment(AlignmentFlag::Center);
 	}	
-	else {  table->setStyleClass("table table-striped table-hover table-bordered");
+	else { 
+
+	  table->setStyleClass("table table-striped table-hover table-bordered");
 	  table->setHeaderCount(1);
 	  table->setWidth(Wt::WLength("100%"));
 
@@ -109,7 +112,7 @@ void RiskReport::showRiskReport(){
 		table->elementAt(row , 4)->addNew<WText>(currentRisk.likelihood);
 		table->elementAt(row , 5)->addNew<WText>(to_string(currentRisk.impact));
 		table->elementAt(row , 6)->addNew<WText>(currentRisk.status);
-		edit = table->elementAt(row , 7)->addNew<WPushButton>("Edit");
+		edit = table->elementAt(row , 7)->addNew<WPushButton>("edit");
 	  	edit->setStyleClass("editButton");
 		delet = table->elementAt(row , 8)->addNew<WPushButton>("Delete");
 	  	delet->setStyleClass("deleteButton");

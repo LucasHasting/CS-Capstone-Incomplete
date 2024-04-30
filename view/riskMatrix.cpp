@@ -25,6 +25,7 @@ RiskMatrix :: RiskMatrix(WContainerWidget* parent) : WContainerWidget(){
 
 
 	container->setStyleClass("MatContainer");
+	container->setWidth("100%");
 	But->setStyleClass("But");
 	Mat->setStyleClass("Mat");
 }
@@ -73,7 +74,7 @@ void RiskMatrix :: createButton(WContainerWidget*But)
 	auto butCon = But->addWidget(make_unique<WContainerWidget>());
 	auto userTitle =  butCon->addWidget(make_unique<WContainerWidget>());
 
-	auto txt = butCon->addWidget(make_unique<WText>("User Actions"));
+	auto txt = userTitle->addWidget(make_unique<WText>("User Actions"));
 
 	auto buttons = But->addWidget(make_unique<WContainerWidget>());
 
@@ -81,5 +82,10 @@ void RiskMatrix :: createButton(WContainerWidget*But)
 	auto addUser = buttons->addWidget(make_unique<WPushButton>("Add"));
 	auto deleteUser = buttons->addWidget(make_unique<WPushButton>("Delete"));
 
+	editButton->setStyleClass("edit");
+	addUser->setStyleClass("add");
+	deleteUser->setStyleClass("delete");
+	txt->setStyleClass("txt");
+	buttons->setStyleClass("just-btn");
 	userTitle->setStyleClass("userCon");
 }

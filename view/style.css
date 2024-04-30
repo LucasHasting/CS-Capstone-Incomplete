@@ -374,6 +374,7 @@ body{
 	margin-left:auto;
 	margin-right:auto;
 	border-radius:10px;
+	font-family : 'Afacad' , sans-serif;
 }
 
 .table tr {
@@ -477,5 +478,7 @@ body{
 
 .risMat{
 
-	width:100%;
+	width:94%;
+	margin-left:22px;
+	margin-right:auto;
 }
