@@ -1,11 +1,10 @@
-#include "risk.h"
-#include "DatabaseConnection.h"
+#include "Risk.h"
 
 // Constructor
-risk::Riskt(std::string ID, std::string shortDescription,
-            std::string longDescription, likelihoodRank, impactRank,
+Risk::Risk(std::string ID, std::string shortDescription,
+            std::string longDescription, int likelihoodRank, int impactRank,
             std::string owner, std::string status, std::string notes,
-            std::string openDate, std::string closeDate);
+            std::string openDate, std::string closeDate)
 {
 
   this->ID = ID;
@@ -19,33 +18,9 @@ risk::Riskt(std::string ID, std::string shortDescription,
   this->openDate = openDate;
   this->closeDate = closeDate;
 
-  this->connection = DatabaseConnection(/*ARGUMENTS*/)
-}
-
-// saveRisk() function that saves the risks to database added by the user
-bool risk::saveRisk() {
-  if (connection.isConnected()) {
-    // will put the code here for saving
-    std::cout << "Risk saved to database\n";
-    return true;
-  }
-
-  else {
-    std::cout << "Failed to save risk. Database connection might not be "
-                 "established. \n";
-    return false;
-  }
 }
 
 // validateID() fucntion checks for the ID entered by the user with th database
 // to see if it actually exists.
 
-bool risk::vaidateID() { return !ID.empty(); }
-
-// formatDate() function helps format the date entered
-
-bool risk::formatDate() {
-  // code goes here
-  std::cout << "Date formatted successfully\n";
-  return true;
-}
+bool Risk::vaidateID() { return !ID.empty(); }

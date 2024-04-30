@@ -1,7 +1,7 @@
 #include "DatabaseConnection.h"
 #include <string>
 
-class risk {
+class Risk {
 private:
   std::string ID;
   std::string closeDate;
@@ -25,4 +25,4 @@ public:
   bool formatDate();
 
   template <class Action> void persist(Action &a);
-}
+};
