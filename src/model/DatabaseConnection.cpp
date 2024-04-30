@@ -13,6 +13,8 @@ DatabaseConnection::DatabaseConnection() {
 
   // set the connection to the current session
   session.setConnection(connection->clone());
+
+  // mapt the User class to the user table in the database
   session.mapClass<User>("user");
 
   // if the table does not exist make it
@@ -22,7 +24,7 @@ DatabaseConnection::DatabaseConnection() {
   }
 }
 
-/* addUser will return false if a user cannot be added, and ture if it is
+/* addUser will return false if a user cannot be added, and true if it is
  * successfully added */
 bool DatabaseConnection::addUser(std::unique_ptr<User> user) {
   try {
@@ -31,7 +33,7 @@ bool DatabaseConnection::addUser(std::unique_ptr<User> user) {
     Wt::Dbo::ptr<User> u =
         session.find<User>().where("username = ?").bind(user->getUsername());
 
-    // used to throw an exception if no user are found
+    // used to throw an exception if no user is found
     u.modify()->getUsername();
 
     return false;
@@ -64,7 +66,7 @@ DatabaseConnection::authenticateUser(std::string username,
     Wt::Dbo::ptr<User> pass =
         session.find<User>().where("password = ?").bind(password);
 
-    // check to see if the userrs are the same person
+    // check to see if the users are the same person
     if (*user.modify() == *pass.modify())
       return CreateUserFromDB(user.modify());
     else
