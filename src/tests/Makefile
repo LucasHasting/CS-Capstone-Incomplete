@@ -1,8 +1,7 @@
-CXXFLAGS=-Wall -I/usr/local/include
+CXXFLAGS=-Wall -I/usr/local/include -g -O0
 SRCS=main.cpp userTest.cpp User.cpp
 OBJS=${SRCS:S/cpp$/o/g}
 LDFLAGS=-L/usr/local/lib -lgtest -lgtest_main
-LDFLAGS+=-lwhttp -lwt
 
 .PHONY: all clean
 
