@@ -22,8 +22,9 @@ class LoginPage : public WApplication{
 		void showLogin();
 		void showAdmin();
 		void onInternalPathChange();
+		void showPassword();
 		WContainerWidget* container;
-
+		void createDialog(WContainerWidget*);
 };
 
 

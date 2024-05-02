@@ -17,7 +17,7 @@ class VerifyEmail : public WContainerWidget {
 		WLineEdit* oneCode_;
 		WContainerWidget* container;
 		void createHeader();
-		void showAdmin();
+		void showSetNewPassword();
 		void showVerifyScreen();
 		void verifyEmailCodeView();
 		void onInternalPathChange();
