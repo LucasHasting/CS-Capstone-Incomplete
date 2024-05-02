@@ -51,8 +51,8 @@ LoginPage :: LoginPage(const WEnvironment& env) : WApplication(env){
 	container->setStyleClass("parent");
 	createHeader();
 	loginCard();
-	createDialog(container);
-	cout<<"dilog 3"<<endl;
+	//createDialog(container);
+	//cout<<"dilog 3"<<endl;
 }	
 
 /*
@@ -169,8 +169,8 @@ void LoginPage::onInternalPathChange(){
 	else if(internalPath() == "/admin"){
 		showAdmin();
 	}
-	else if(internalPath() == "/admin" || internalPath()=="/"){
-		//container->clear();i
+	else if(internalPath() == "/admin" || internalPath() == "/login" ){
+		container->clear();
 		showLogin();
 	}
 	else if(internalPath() == "/setpassword"){
@@ -247,9 +247,9 @@ void LoginPage :: createDialog(WContainerWidget* container) {
 	//dialog->finished().connect([=]{});
 
 	dialog->show();
-	cout<<"First Dialogie"<<endl;
+	//cout<<"First Dialogie"<<endl;
 	container->addWidget(move(dialog));
-	cout<<"second"<<endl;
+	//cout<<"second"<<endl;
 	//dialog->setModal(true);
 //	dialog->setStyleClass("dial");
 

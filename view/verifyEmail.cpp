@@ -10,16 +10,19 @@
 #include <Wt/WBreak.h>
 #include <Wt/WPushButton.h>
 #include <Wt/WLink.h>
+#include <Wt/WString.h>
 
 using namespace std;
 using namespace Wt;
 
-VerifyEmail :: VerifyEmail (WContainerWidget* parent) : WContainerWidget() {
+VerifyEmail :: VerifyEmail (WContainerWidget* parent , const WString& email) :  WContainerWidget() , email_(email){
 	
 	auto app = WApplication::instance();	
 	app->useStyleSheet("style.css");
 
 
+	cout<<"Recived " <<email_<<endl;
+	cout<<"Got the value "<<endl;
 	app->internalPathChanged().connect(this,&VerifyEmail::onInternalPathChange);
 
 	container = addWidget(make_unique<WContainerWidget>());
@@ -46,6 +49,8 @@ void VerifyEmail::onInternalPathChange(){
 
 void VerifyEmail::verifyEmailCodeView(){
 
+	//auto emailText = getEmail();
+	//cout<<"Email Text is :"<<emailText<<endl;
 	auto card = container->addWidget(make_unique<WContainerWidget>());
 
 	auto title = card->addWidget(make_unique<WContainerWidget>());
@@ -55,8 +60,12 @@ void VerifyEmail::verifyEmailCodeView(){
 	card->addWidget(make_unique<WBreak>());
 
 	auto codeSection = card->addWidget(make_unique<WContainerWidget>());
-        auto codeTxt = codeSection->addWidget(make_unique<WText>("Enter the code you recived on your email "));	
+	
+	auto texts = make_unique<WText>(email_);
 
+        auto codeTxt = codeSection->addWidget(make_unique<WText>("Enter the code you recived on your email at " + texts->text()));	
+
+	texts->setStyleClass("bld");
 	oneCode_ = codeSection->addWidget(make_unique<WLineEdit>());
 
 	card->addWidget(make_unique<WBreak>());

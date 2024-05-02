@@ -38,7 +38,7 @@ void NewPassword::createHeader(){
 
 void NewPassword:: onInternalPathChange(){
 	
-	if(WApplication::instance()->internalPath() == "/admin"){
+	if(WApplication::instance()->internalPath() == "/login"){
 	
 		showLoginPage();
 	}
@@ -70,8 +70,8 @@ void NewPassword::viewPasswordCard(){
 	passwords->addWidget(make_unique<WBreak>());
 	
 	auto submit = passwords->addWidget(make_unique<WPushButton>("Set Password"));
-	submit->setStyleClass("submit");
-	submit->setLink(WLink(LinkType::InternalPath,"/admin"));
+	submit->setStyleClass("submitB");
+	submit->setLink(WLink(LinkType::InternalPath,"/login"));
 	card->setStyleClass("card");
 	headCon->setStyleClass( "headContainer");
 	text->setStyleClass("text");

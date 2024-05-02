@@ -488,3 +488,17 @@ body{
 	height:500px;
 
 }
+
+.bld{
+	font-size:12px;
+	font-weight:bold;
+	color:green;
+}
+
+.verror{
+	widht:100%;
+	background-color:red
+	height:10px;
+	display:flex;
+	justify-content:center;
+}
