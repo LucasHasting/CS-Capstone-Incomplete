@@ -1,14 +1,14 @@
-CXXFLAGS=-Wall -I/usr/local/include -g -O0
-SRCS=main.cpp userTest.cpp User.cpp
+CXXFLAGS=-Wall -I/usr/local/include
+SRCS=../view/main.cpp userTest.cpp ../model/User.cpp
 OBJS=${SRCS:S/cpp$/o/g}
 LDFLAGS=-L/usr/local/lib -lgtest -lgtest_main
-
+LDFLAGS+=-lwthttp -lwt
 .PHONY: all clean
 
 all: utest
 
 utest: ${OBJS}
-	${CXX} ${CXXFLAGS} -o $@ ${OBJS} ${LDFLAGS}
+	${CXX} ${CXXFLAGS} -o $@ ${OBJS:T} ${LDFLAGS}
 
 
 clean:
