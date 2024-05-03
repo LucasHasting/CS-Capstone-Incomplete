@@ -60,9 +60,12 @@
 	border: none;
 	color:white;
 	cursor:pointer;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	
+
 }
 
-.edit :before {
+.edit ::before {
 	font-family: 'Font Awesome 5 Free';
 	content : '\f007';
 	font-size : 16px;
@@ -74,13 +77,15 @@
 	height:40px;
 	background-color:black;
 	color:white;
-	cursor:pointer
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	cursor:pointer;
+	border:none;
 }
 
 .add::before{
 	font-family: 'Font Awesome 5 Free';
-	content:'\f234';
-	font-size:16px;
+	content:'\f044  ';
+	font-size: 14px;
 }
 
 
@@ -91,12 +96,14 @@
 	background-color:red;
 	color:white;
 	cursor:pointer;
+	border:none
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .delete::before{
 
 	font-family: 'Font Awesome 5 Free';
-	content : '\f014';
+	content : '\f014 ';
 }
 
 

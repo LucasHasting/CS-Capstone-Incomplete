@@ -1,5 +1,5 @@
 #include "riskMatrix.h"
-
+#include "editUser.h"
 #include <Wt/WApplication.h>
 #include <Wt/WContainerWidget.h>
 #include <Wt/WTable.h>
@@ -79,6 +79,27 @@ void RiskMatrix :: createButton(WContainerWidget*But)
 	auto buttons = But->addWidget(make_unique<WContainerWidget>());
 
 	auto editButton = buttons->addWidget(make_unique<WPushButton>("Edit"));
+
+	editButton->clicked().connect([this,But]{
+			if(!dialog){
+				cout<<"Not Exist"<<endl;
+				dialog = make_unique<WDialog>("Edit User");
+				auto editUser = make_unique<EditUser>();
+				dialog->contents()->addWidget(move(editUser));
+
+				auto closeButton = make_unique<WPushButton>("X");
+				closeButton->clicked().connect([dialog = dialog.get()]{
+						dialog->accept();
+					});
+				dialog->finished().connect([this]{
+					dialog.reset();	
+					});		
+				dialog->footer()->addWidget(move(closeButton));
+				dialog->show();
+			}
+			else cout<<"Not Exist"<<endl;
+	});
+
 	auto addUser = buttons->addWidget(make_unique<WPushButton>("Add"));
 	auto deleteUser = buttons->addWidget(make_unique<WPushButton>("Delete"));
 

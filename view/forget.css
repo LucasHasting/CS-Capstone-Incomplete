@@ -58,3 +58,83 @@
 	font-size:14px;
 
 }
+
+.updateContainer{
+	width:500px;
+	height:500px;
+}
+
+.updateContainer{
+	margin-left:auto;
+	margin-right:auto;
+	background:gold;
+}
+
+.widCon{
+	width:100%;
+}
+
+.id{
+
+	width:90%;
+	height:30px;
+}
+
+.openClose{
+	display:flex;
+	gap:10px;
+}
+
+.openDate{
+	height:30px;
+	widht:50%
+}
+
+.closeDate{
+	height:30px;
+	width:50%;
+}
+
+.notes{
+	width:90%;
+}
+
+.statown{
+	display:flex;
+	width:100%;
+}
+
+.status{
+	width:45%;
+	height:30px;
+}
+
+.owner{
+	width:45%;
+	height:30px;
+}
+
+.likeImp{
+	display:flex;
+	width:100%;
+}
+
+.likeCombo{
+	width:50%;
+	height:30px;
+}
+
+.impactRank{
+	width:50%;
+	height:30px;
+}
+
+.shortDes{
+	width:90%;
+	height:30px;
+}
+
+.longDes{
+	width:90%;
+	height:30px;
+}

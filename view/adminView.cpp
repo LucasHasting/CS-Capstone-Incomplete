@@ -21,9 +21,6 @@ AdminView :: AdminView(WContainerWidget* parent) : WContainerWidget(){
 	app->useStyleSheet("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css");	
 	container = addWidget(make_unique<WContainerWidget>());
 	auto riskDetails = container->addWidget(make_unique<WContainerWidget>());
-	//auto buttons = container->addWidget(make_unique<WcontainerWidget>());
-	//auto riskReport = container->addWidget(make_unique<WContainerWidget>());
-	//auto riskMatrix = container->addWidget(make_unique<WContainerWidget>());
 
 
 	app->internalPathChanged().connect(this,&AdminView::onInternalPathChange);

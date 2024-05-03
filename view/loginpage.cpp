@@ -51,7 +51,7 @@ LoginPage :: LoginPage(const WEnvironment& env) : WApplication(env){
 	container->setStyleClass("parent");
 	createHeader();
 	loginCard();
-	//createDialog(container);
+	createDialog(container);
 	//cout<<"dilog 3"<<endl;
 }	
 
@@ -244,11 +244,13 @@ void LoginPage :: createDialog(WContainerWidget* container) {
 	});
 
 	dialog->footer()->addWidget(move(closeButton));
-	//dialog->finished().connect([=]{});
+	dialog->finished().connect([this,&dialog]{
+		dialog.reset();	
+		});
 
 	dialog->show();
 	//cout<<"First Dialogie"<<endl;
-	container->addWidget(move(dialog));
+	//container->addWidget(move(dialog));
 	//cout<<"second"<<endl;
 	//dialog->setModal(true);
 //	dialog->setStyleClass("dial");
