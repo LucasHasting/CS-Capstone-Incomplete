@@ -1,5 +1,6 @@
 #include "DatabaseConnection.h"
 #include "User.h"
+#include "Risk.h"
 #include <Wt/Dbo/Dbo.h>
 #include <Wt/Dbo/Exception.h>
 #include <Wt/Dbo/backend/MySQL.h>
