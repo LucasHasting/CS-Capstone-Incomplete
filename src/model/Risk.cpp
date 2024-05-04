@@ -1,63 +1,97 @@
-#include <Wt/Dbo/Dbo.h>
-#include <string>
+#include "Risk.h"
 
-#ifndef RISK
-#define RISK
+// Constructor
+Risk::Risk(std::string ID, std::string shortDescription,
+           std::string longDescription, int likelihoodRank, int impactRank,
+           std::string owner, std::string status, std::string notes,
+           std::string openDate, std::string closeDate) {
 
-class Risk {
-private:
-  std::string ID;
-  std::string closeDate;
-  std::string openDate;
-  std::string notes;
-  std::string status;
-  std::string owner;
-  int likelihoodRank;
-  int impactRank;
-  std::string longDescription;
-  std::string shortDescription;
+  this->ID = ID;
+  this->shortDescription = shortDescription;
+  this->longDescription = longDescription;
+  this->likelihoodRank = likelihoodRank;
+  this->impactRank = impactRank;
+  this->owner = owner;
+  this->status = status;
+  this->notes = notes;
+  this->openDate = openDate;
+  this->closeDate = closeDate;
+}
 
-public:
-  Risk(std::string ID, std::string shortDescription,
-       std::string longDescription, int likelihoodRank, int impactRank,
-       std::string owner, std::string status, std::string notes,
-       std::string openDate, std::string closeDate);
-  bool validateID();
-  bool formatDate();
-  std::string getID();
-  std::string getCloseDate();
-  std::string getOpenDate();
-  std::string getNotes();
-  std::string getStatus();
-  std::string getOwner();
-  int getLikelihoodRank();
-  int getImpactRank();
-  std::string getLongDescription();
-  std::string getShortDescription();
-  void setID(std::string);
-  void setCloseDate(std::string);
-  void setOpenDate(std::string);
-  void setNotes(std::string);
-  void setStatus(std::string);
-  void setOwner(std::string);
-  void setLikelihoodRank(int);
-  void setImpactRank(int);
-  void setLongDescription(std::string);
-  void setShortDescription(std::string);
+/* getID() returns a string representing the assigned risk ID */
+std::string Risk::getID() { return ID; }
 
+/* getShortDescription returns a string representing the short description
+ * for the risk */
+std::string Risk::getShortDescription() { return shortDescription; }
 
-  template <class Action> void persist(Action &a) {
-    Wt::Dbo::field(a, ID, "ID");
-    Wt::Dbo::field(a, closeDate, "closeDate");
-    Wt::Dbo::field(a, openDate, "openDate");
-    Wt::Dbo::field(a, notes, "notes");
-    Wt::Dbo::field(a, status, "status");
-    Wt::Dbo::field(a, owner, "owner");
-    Wt::Dbo::field(a, likelihoodRank, "likelihoodRank");
-    Wt::Dbo::field(a, impactRank, "impactRank");
-    Wt::Dbo::field(a, longDescription, "longDescription");
-    Wt::Dbo::field(a, shortDescription, "shortDescription");
-  }
-};
+/* getLongDescription() returns a string representing the long description
+ * for the risk */
+std::string Risk::getLongDescription() { return longDescription; }
 
-#endif
+/* getLikelihoodRank() returns an integer representing the likelihood
+ * that the risk will occur */
+int Risk::getLikelihoodRank() { return likelihoodRank; }
+
+/* getImpactRank() returns an integer representing the impact the
+ * risk will have if it occurs */
+int Risk::getImpactRank() { return impactRank; }
+
+/* getOwner() returns a string representing the owner of the risk */
+std::string Risk::getOwner() { return owner; }
+
+/* getStatus() returns a string representing the status of the risk */
+std::string Risk::getStatus() { return status; }
+
+/* getNotes() returns a string representing any notes made regarding
+ * the risk */
+std::string Risk::getNotes() { return notes; }
+
+/* getOpenDate() returns a string representing the date the risk was opened */
+std::string Risk::getOpenDate() { return openDate; }
+
+/* getCloseDate() returns a string representing the date the risk was closed */
+std::string Risk::getCloseDate() { return closeDate; }
+
+/* setID() takes in a string parameter for the new ID and updates the risk ID */
+void Risk::setID(std::string id) { ID = id; }
+
+/* setCloseDate() takes in a string parameter for the new closeDate and updates
+ * the risk closeDate */
+void Risk::setCloseDate(std::string cd) { closeDate = cd; }
+
+/* setOpenDate() takes in a string parameter for the new openDate and updates
+ * the risk openDate */
+void Risk::setOpenDate(std::string od) { openDate = od; }
+
+/* setNotes() takes in a string parameter for the new notes and updates the risk
+ * notes */
+void Risk::setNotes(std::string n) { notes = n; }
+
+/* setStatus() takes in a string parameter for the new status and updates the
+ * risk status */
+void Risk::setStatus(std::string s) { status = s; }
+
+/* setOwner() takes in a string parameter for the new owner and updates the risk
+ * owner */
+void Risk::setOwner(std::string o) { owner = o; }
+
+/* setLikelihoodRank() takes in a int parameter for the new likelihoodRank and
+ * updates the risk likelihoodRank */
+void Risk::setLikelihoodRank(int lr) { likelihoodRank = lr; }
+
+/* setImpactRank() takes in a int parameter for the new impactRank and updates
+ * the risk impactRank */
+void Risk::setImpactRank(int ir) { impactRank = ir; }
+
+/* setLongDescription() takes in a string parameter for the new longDescription
+ * and updates the risk longDescription*/
+void Risk::setLongDescription(std::string ld) { longDescription = ld; }
+
+/* setShortDescription() takes in a string parameter for the new
+ * shortDescription and updates the risk shortDescription */
+void Risk::setShortDescription(std::string sd) { shortDescription = sd; }
+
+/* validateID() fucntion checks for the ID entered by the user with the database
+ * to see if it actually exists. */
+bool Risk::validateID() { return !ID.empty(); }
