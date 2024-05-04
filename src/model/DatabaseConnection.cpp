@@ -183,3 +183,64 @@ std::vector<std::unique_ptr<User>> DatabaseConnection::select_all() {
     return {};
   }
 }
+
+/* addRisk will return false if a risk cannot be added, and true if it is
+ * successfully added */
+bool DatabaseConnection::addRisk(std::unique_ptr<Risk> risk) {
+  try {
+    // check to see if the risk exists
+    Wt::Dbo::Transaction transaction1(session);
+    Wt::Dbo::ptr<Risk> r =
+        session.find<Risk>().where("riskID = ?").bind(risk->getID());
+
+    // used to throw an exception if no risk is found
+    r.modify()->getID();
+
+    return false;
+  } catch (Wt::Dbo::Exception e) {
+    try {
+      // add the risk
+      Wt::Dbo::Transaction transaction2(session);
+      session.add(std::move(risk));
+    } catch (Wt::Dbo::Exception e) {
+      // something went wrong adding the risk
+      std::cout << "error adding risk" << std::endl;
+      return false;
+    }
+  }
+
+  return true;
+}
+
+
+bool DatabaseConnection::editRisk(std::string id, std::string cd,
+                                  std::string od, std::string note,
+                                  std::string stat, std::string own,
+                                  std::string ld, std::string sd, int lr,
+                                  int ir) {
+  try {
+    Wt::Dbo::Transaction transaction(session);
+
+    // check if risk exists
+    Wt::Dbo::ptr<Risk> r = session.find<Risk>().where("riskID = ?").bind(id);
+
+    // update the database with the edited risk if the risk does't exist
+    // then an exception will be thrown
+    r.modify()->setCloseDate(cd);
+    r.modify()->setOpenDate(od);
+    r.modify()->setNotes(note);
+    r.modify()->setStatus(stat);
+    r.modify()->setOwner(own);
+    r.modify()->setLikelihoodRank(lr);
+    r.modify()->setImpactRank(ir);
+    r.modify()->setLongDescription(ld);
+    r.modify()->setShortDescription(sd);
+
+  } catch (Wt::Dbo::Exception e) {
+    // something went wrong editing the risk
+    std::cout << "Error editing risk: " << e.what() << std::endl;
+    return false;
+  }
+
+  return true;
+}
