@@ -110,6 +110,44 @@ bool DatabaseConnection::addUser(std::unique_ptr<User> user) {
   return true;
 }
 
+/*
+editUser
+*/
+bool DatabaseConnection::editUser(std::string username, std::unique_ptr<User> updatedUser ){
+  try{
+    Wt::Dbo::Transaction transaction(session);
+    Wt::Dbo::ptr<User> user = session.find<User>().where("username = ?").bind(username);
+
+    user.modify()->setRole(updatedUser->getRole());
+    user.modify()->setUsername(updatedUser->getUsername());
+    user.modify()->setPassword(updatedUser->getPassword());
+    user.modify()->setEmail(updatedUser->getEmail());
+
+    return true;
+
+  } catch (Wt::Dbo::Exception e){
+    return false;
+  }
+}
+
+
+/*
+removeUser
+*/
+bool DatabaseConnection::removeUser(std::string username){
+  try{
+    Wt::Dbo::Transaction transaction(session);
+    Wt::Dbo::ptr<User> user == session.find<User>().where("username = ?").bind(username);
+
+    session.remove(user);
+    
+    return true;
+  } catch (Wt::Dbo::Exception e){
+    return false;
+  }
+}
+
+
 /* authenticateUser takes in a username and password, if authentication is
  * successful it will return a User smart pointer, otherwise it will be
  * nullptr
