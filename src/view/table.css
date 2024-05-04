@@ -6,7 +6,7 @@
 	font-family; 'Afacad', sans-serif;
 	display:flex;
 	width:100%;
-	margin-left:35px;
+	margin-left:75px;
 	margin-top:20px;
 	width:500px;
 	height:500px;
@@ -41,12 +41,86 @@
 }
 
 .Mat {
+	font-family : 'Afacad' , sans-serif;
 	width:50%;
-	background-color:orange;
+
 }
 
 .But{
+	font-family:'Afacad' ,sans-serif;
 	width:50%;
-	background-color:red;
-	border : 1px solid black;	
+	margin-right:71px;
 }
+
+.edit {
+	
+	width:100px;
+	height:40px;
+	background-color:black;
+	border: none;
+	color:white;
+	cursor:pointer;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	
+
+}
+
+.edit ::before {
+	font-family: 'Font Awesome 5 Free';
+	content : '\f007';
+	font-size : 16px;
+}
+
+.add {
+
+	width:100px;
+	height:40px;
+	background-color:black;
+	color:white;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	cursor:pointer;
+	border:none;
+}
+
+.add::before{
+	font-family: 'Font Awesome 5 Free';
+	content:'\f044  ';
+	font-size: 14px;
+}
+
+
+.delete{
+
+	width:100px;
+	height:40px;
+	background-color:red;
+	color:white;
+	cursor:pointer;
+	border:none
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.delete::before{
+
+	font-family: 'Font Awesome 5 Free';
+	content : '\f014 ';
+}
+
+
+.just-btn{
+	display:flex;
+	padding-left:20px;
+	padding-right:20px;
+	justify-content:space-around;
+	margin-top : 30%;
+}
+
+.txt {
+	font-size : 20px;
+}
+
+
+
+
+
+

@@ -30,7 +30,7 @@ void Navbar :: createHeader(){
 	
 	auto sideL = nav->addWidget(std::make_unique<Wt::WText>("dashboard"));
 	sideL->setStyleClass("side");
-	auto txt = nav->addWidget(std::make_unique<Wt::WText>("Risk Detector"));
+	auto txt = nav->addWidget(std::make_unique<Wt::WText>("Risk Manager"));
 	txt->setStyleClass("title");
 	//auto login = nav->addWidget(std::make_unique<Wt::WText>("login"));
 	//login->setStyleClass("login");
