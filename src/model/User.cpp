@@ -40,6 +40,8 @@ std::string User::getPassword() { return password; }
  */
 std::string User::getEmail() { return email; }
 
+void User::setPassword(std::string pass) { password = pass; }
+
 bool User::operator==(User user) {
   return (password == user.getPassword() && username == user.getUsername());
 }
