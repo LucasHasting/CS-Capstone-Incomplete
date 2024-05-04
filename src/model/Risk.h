@@ -24,10 +24,31 @@ public:
        std::string openDate, std::string closeDate);
   bool validateID();
   bool formatDate();
+  std::string getID();
+  std::string getCloseDate();
+  std::string getOpenDate();
+  std::string getNotes();
+  std::string getStatus();
+  std::string getOwner();
+  int getLikelihoodRank();
+  int getImpactRank();
+  std::string getLongDescription();
+  std::string getShortDescription();
+  void setID(std::string);
+  void setCloseDate(std::string);
+  void setOpenDate(std::string);
+  void setNotes(std::string);
+  void setStatus(std::string);
+  void setOwner(std::string);
+  void setLikelihoodRank(int);
+  void setImpactRank(int);
+  void setLongDescription(std::string);
+  void setShortDescription(std::string);
+
 
   template <class Action> void persist(Action &a) {
     Wt::Dbo::field(a, ID, "ID");
-    Wt::Dbo::field(a,closeDate , "closeDate");
+    Wt::Dbo::field(a, closeDate, "closeDate");
     Wt::Dbo::field(a, openDate, "openDate");
     Wt::Dbo::field(a, notes, "notes");
     Wt::Dbo::field(a, status, "status");
@@ -39,4 +60,4 @@ public:
   }
 };
 
-#endif 
+#endif
