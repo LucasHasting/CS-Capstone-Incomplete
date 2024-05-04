@@ -17,6 +17,7 @@ public:
   std::string getUsername();
   std::string getPassword();
   std::string getEmail();
+  void setPassword(std::string);
   bool saveUser();
   bool operator==(User);
   template <class Action> void persist(Action &a) {
