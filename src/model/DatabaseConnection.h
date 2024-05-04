@@ -10,13 +10,16 @@ class DatabaseConnection {
 private:
   Wt::Dbo::backend::MySQL *connection;
   Wt::Dbo::Session session;
-  Wt::Auth::MD5HashFunction hashFunction;
+  Wt::Auth::BCryptHashFunction hashFunction;
 
 public:
   DatabaseConnection();
   bool addUser(std::unique_ptr<User>);
+  bool editUser(std::string username, std::unique_ptr<User> updatedUser);
+  bool removeUser(std::string username);
   std::unique_ptr<User> authenticateUser(std::string, std::string);
-  std::unique_ptr<User> CreateUserFromDB(Wt::Dbo::ptr<User>::mutator);
+  std::unique_ptr<User> CreateUserFromDB(Wt::Dbo::ptr<User>::mutator, bool, std::string);
+  std::vector<std::unique_ptr<User>> select_all();
 };
 
 #endif
