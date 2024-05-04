@@ -36,7 +36,6 @@ void VerifyEmail::onInternalPathChange(){
 
 	cout<<"Internal pah"<<endl;
 	if(WApplication::instance()->internalPath() == "/setpassword") {
-
 		cerr<<"Show set new screen"<<endl;
 		showSetNewPassword();
 	}
@@ -69,11 +68,11 @@ void VerifyEmail::verifyEmailCodeView(){
 	oneCode_ = codeSection->addWidget(make_unique<WLineEdit>());
 
 	card->addWidget(make_unique<WBreak>());
-
+	
 	auto submitBox = card->addWidget(make_unique<WContainerWidget>());
 	auto submit = submitBox->addWidget(make_unique<WPushButton>("Reset Password"));
 	submit->setLink(WLink(LinkType::InternalPath,"/setpassword"));
-
+	
 	
 	card->setStyleClass("vEmail");
 	subTitle->setStyleClass("vText");

@@ -26,7 +26,7 @@ AdminView :: AdminView(WContainerWidget* parent) : WContainerWidget(){
 	app->internalPathChanged().connect(this,&AdminView::onInternalPathChange);
 	createHeader();
 	dashboardView(riskDetails);
-	
+	container->setStyleClass("adminContainer");	
 }
 
 
@@ -52,7 +52,7 @@ void AdminView :: createHeader(){
 void AdminView :: viewRiskReport(WContainerWidget* riskDetails) {
 	auto riskReport = riskDetails->addWidget(make_unique<WContainerWidget>());
 	riskReport->addWidget(make_unique<RiskReport>());
-	riskReport->setWidth(Wt::WLength("90%"));
+	riskReport->setWidth(Wt::WLength("93%"));
 	riskDetails->setStyleClass("riskDets");
 }
 
@@ -74,7 +74,7 @@ void AdminView :: createButtons(WContainerWidget* riskDetails){
 	popup->addItem("Rank");
 	popup->addItem("Date Added");
 
-	auto sortButton = leftButtons->addWidget(make_unique<WPushButton>());
+	auto sortButton = leftButtons->addWidget(make_unique<WPushButton>("Sort"));
 	sortButton->setMenu(move(popup));
 	auto inputId = leftButtons->addWidget(make_unique<WLineEdit>());
 	inputId->setPlaceholderText("Search Risk by ID");

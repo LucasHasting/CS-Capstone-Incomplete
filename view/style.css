@@ -502,3 +502,8 @@ body{
 	display:flex;
 	justify-content:center;
 }
+
+.adminContainer{
+	width:100%;
+	overflow-x:hidden;
+}

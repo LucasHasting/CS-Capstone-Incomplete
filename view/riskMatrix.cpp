@@ -102,7 +102,8 @@ void RiskMatrix :: createButton(WContainerWidget*But)
 
 	auto addUser = buttons->addWidget(make_unique<WPushButton>("Add"));
 	auto deleteUser = buttons->addWidget(make_unique<WPushButton>("Delete"));
-
+	
+//	dialog->setStyleClass("dialog-box");
 	editButton->setStyleClass("edit");
 	addUser->setStyleClass("add");
 	deleteUser->setStyleClass("delete");

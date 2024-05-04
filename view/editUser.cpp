@@ -30,18 +30,29 @@ EditUser :: EditUser(WContainerWidget* parent) : WContainerWidget(){
 	role->addItem("Track");
 
 	card->addWidget(make_unique<WBreak>());
+	
+
+	email = card->addWidget(make_unique<WLineEdit>());
+	email->setPlaceholderText("Email");
+	
+	card->addWidget(make_unique<WBreak>());
+
 	password = card->addWidget(make_unique<WLineEdit>());
 	password->setPlaceholderText("Password");
 	password->setEchoMode(Wt::EchoMode::Password);
 
 	card->addWidget(make_unique<WBreak>());
-	email = card->addWidget(make_unique<WLineEdit>());
-	email->setPlaceholderText("Email");
 	
-	card->addWidget(make_unique<WBreak>());
 	auto submit = card->addWidget(make_unique<WPushButton>("Update"));
 	submit->clicked().connect(this,[this]{
 			container->clear();
 	});
-
+	
+	card->setStyleClass("card-container");
+	riskId->setStyleClass("riskid");
+	userName->setStyleClass("username");
+	role->setStyleClass("role");
+	email->setStyleClass("emails");
+	password->setStyleClass("passwords");
+	submit->setStyleClass("subButton");
 }

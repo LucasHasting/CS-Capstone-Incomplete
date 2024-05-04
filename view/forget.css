@@ -71,50 +71,59 @@
 }
 
 .widCon{
+	padding:20px;
 	width:100%;
 }
 
 .id{
-
+	margin-top:10px;
 	width:90%;
 	height:30px;
 }
 
 .openClose{
+	margin-top:10px;
 	display:flex;
 	gap:10px;
+	width:90%
 }
 
 .openDate{
 	height:30px;
-	widht:50%
+	width:44%;
+	margin-right:5px;
 }
 
 .closeDate{
 	height:30px;
-	width:50%;
+	width:43%;
 }
 
 .notes{
+	margin-top:10px;
 	width:90%;
+	height:30px;
 }
 
 .statown{
+	margin-top:10px;
 	display:flex;
 	width:100%;
 }
 
 .status{
-	width:45%;
+	width:46%;
 	height:30px;
+	margin-right:5px;
 }
 
 .owner{
-	width:45%;
+	width:43%;
 	height:30px;
 }
 
 .likeImp{
+	margin-top:10px;
 	display:flex;
 	width:100%;
 }
@@ -126,15 +135,17 @@
 
 .impactRank{
 	width:50%;
-	height:30px;
+	height:36px;
 }
 
 .shortDes{
+	margin-top:10px;
 	width:90%;
 	height:30px;
 }
 
 .longDes{
+	margin-top:10px;
 	width:90%;
 	height:30px;
 }

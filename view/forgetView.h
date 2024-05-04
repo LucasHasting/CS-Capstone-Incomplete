@@ -22,7 +22,7 @@ class ForgetView : public  WContainerWidget{
 		void createHeader();
 		void showForgetView();
 		void enterEmailView();
-		
+			
 		WContainerWidget* textEr;	
 		WPushButton* submit;
 		WContainerWidget* container;

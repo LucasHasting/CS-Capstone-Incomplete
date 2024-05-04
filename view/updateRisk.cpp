@@ -25,15 +25,19 @@ UpdateRisk :: UpdateRisk(WContainerWidget* parent) : WContainerWidget(){
 	auto widCon = container->addWidget(make_unique<WContainerWidget>());
 
 	auto id = widCon->addWidget(make_unique<WLineEdit>());
-	
+ 	id->setPlaceholderText("Enter Id");	
 	auto openClose = widCon->addWidget(make_unique<WContainerWidget>());
-
+	
 	auto openDate = widCon->addWidget(make_unique<WLineEdit>());
+
+ 	openDate->setPlaceholderText("open date");	
 
 	auto closeDate = widCon->addWidget(make_unique<WLineEdit>());
 
+ 	closeDate->setPlaceholderText("Close Date");	
 	widCon->addWidget(make_unique<WBreak>());
 	auto notes = widCon->addWidget(make_unique<WLineEdit>());
+ 	notes->setPlaceholderText("Enter Notes");	
 	widCon->addWidget(make_unique<WBreak>());
 
 	auto statOwn = widCon->addWidget(make_unique<WContainerWidget>());
@@ -42,9 +46,11 @@ UpdateRisk :: UpdateRisk(WContainerWidget* parent) : WContainerWidget(){
 	status->addItem("started");
 	status->addItem("InBetween");
 	status->addItem("Complete");
+ 	id->setPlaceholderText("Status");	
 
 	 
 	auto owner = statOwn->addWidget(make_unique<WLineEdit>());
+ 	owner->setPlaceholderText("owner name");	
 	
 	widCon->addWidget(make_unique<WBreak>());
 
@@ -57,6 +63,7 @@ UpdateRisk :: UpdateRisk(WContainerWidget* parent) : WContainerWidget(){
 	likeCombo->addItem("3");
 	likeCombo->addItem("4");
 	likeCombo->addItem("5");
+ 	likeCombo->setPlaceholderText("Likelihood");	
 
 	auto impactRank = likeImp->addWidget(make_unique<WComboBox>());
 	impactRank->addItem("0");
@@ -65,6 +72,7 @@ UpdateRisk :: UpdateRisk(WContainerWidget* parent) : WContainerWidget(){
 	impactRank->addItem("3");
 	impactRank->addItem("4");
 	impactRank->addItem("5");
+ 	impactRank->setPlaceholderText("Impact Rank");	
 
 	
 	widCon->addWidget(make_unique<WBreak>());
