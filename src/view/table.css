@@ -1,0 +1,52 @@
+@import url('https://fonts.cdnfonts.com/css/rollston');
+@import url('https://fonts.cdnfonts.com/css/narnoor');
+@import url('https://fonts.cdnfonts.com/css/afacad');
+
+.MatContainer{
+	font-family; 'Afacad', sans-serif;
+	display:flex;
+	width:100%;
+	margin-left:35px;
+	margin-top:20px;
+	width:500px;
+	height:500px;
+	
+}
+
+.mat-table{
+	margin-top:30px;
+	/*background-color:aliceblue; */
+	width:400px;
+	height:400px;
+	margin-top:30px;
+}
+
+.set-border{
+
+	border: 0.5px solid #899499;
+}
+
+.set-border:nth-child(even){
+	background-color:#ghostwhite;
+}
+
+
+.userCon{
+	display:flex;
+	width:100%;
+	border-bottom : 0.1px solid rgb(232,232,232);
+	justify-content:center;
+	font-family:'Afacad' , sans-serif;
+	width:
+}
+
+.Mat {
+	width:50%;
+	background-color:orange;
+}
+
+.But{
+	width:50%;
+	background-color:red;
+	border : 1px solid black;	
+}
