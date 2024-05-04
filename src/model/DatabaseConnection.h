@@ -15,6 +15,8 @@ private:
 public:
   DatabaseConnection();
   bool addUser(std::unique_ptr<User>);
+  bool editUser(std::string username, std::unique_ptr<User> updatedUser);
+  bool removeUser(std::string username);
   std::unique_ptr<User> authenticateUser(std::string, std::string);
   std::unique_ptr<User> CreateUserFromDB(Wt::Dbo::ptr<User>::mutator, bool, std::string);
   std::vector<std::unique_ptr<User>> select_all();
