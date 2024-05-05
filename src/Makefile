@@ -1,38 +1,36 @@
-# Build Witty Pet Shop demo application
-# jajerkins, 02/20/2023
-PROG=app
-SRCS=main.cpp petShopApp.cpp \
-       pet.cpp petList.cpp petType.cpp petTypeList.cpp \
-       petForm.cpp addPetView.cpp searchPetsView.cpp
-OBJS=${SRCS:S/cpp$/o/g}
+# Generic Makefile for Wt "witty" programs on the CS server
+# 02/28/24, jajerkins@una.edu
+#
+# "make start" will compile (if needed) and launch your program
+# "make stop" will terminate your program, ALWAYS stop after you've tested
+#
+PROG= hello		# set your program name here
+PORT= 8082		# any port in the range 8080-8085 is valid
+SRCS!= ls model/*.cpp
+SRCS!+= ls view/*.cpp
+OBJS= ${SRCS:S/cpp$/o/g}
+OBJ2= ${OBJS:S/^model/./g}
+OBJ3= ${OBJ2:S/^view/./g}
 
-CXXFLAGS=-Wall -std=c++17
-CXXFLAGS+=-I/usr/local/include -I${.CURDIR}/model -I${.CURDIR}/view
-LDFLAGS=-L/usr/local/lib
-LDFLAGS+=-lwthttp -lwt
+CXXFLAGS = -Wall -std=c++20 -g -O0 
+CXXFLAGS+= -I/usr/local/include 
+LDFLAGS = -L/usr/local/lib 
+LDFLAGS+= -lwt -lwtdbo -lwtdbomysql -lwthttp
 
-.PHONY: all clean run
+.PHONY: all clean start stop
 
 all: ${PROG}
 
-${PROG}: ${OBJS}
-	${CXX} ${CXXFLAGS} -o $@ ${OBJS} ${LDFLAGS}
+${PROG}: ${OBJS} ${OBJ3}
+	${CXX} ${CXXFLAGS} -o $@ ${OBJ3} ${LDFLAGS}
 
-# model
-pet.o: model/pet.cpp model/pet.h model/petType.h
-petList.o: model/petList.cpp model/petList.h model/pet.h model/petType.h model/petTypeList.h
-petType.o: model/petType.cpp model/petType.h
-petTypeList.o: model/petTypeList.cpp model/petTypeList.h model/petType.h
+clean: 
+	@rm -f ${PROG} ${OBJ3} resources
 
-# views
-petForm.o: view/petForm.h view/petForm.cpp model/petList.h
-addPetView.o: view/addPetView.h view/addPetView.cpp model/petList.h
-searchPetsView.o: view/searchPetsView.h view/searchPetsView.cpp model/petList.h
+start: ${PROG}
+	@ln -fs /usr/local/share/Wt/resources ./resources
+	./${PROG} --docroot ./ --http-address 0.0.0.0 --http-port ${PORT} &
 
-# utilities
-clean:
-	@rm -f ${PROG} ${OBJS} *.core
-
-run: ${PROG}
-	./${PROG} --docroot ../ --http-address 0.0.0.0 --http-port 8080 &
-
+stop:
+	@rm -f resources
+	@pkill ${PROG}
