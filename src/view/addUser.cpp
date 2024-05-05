@@ -95,10 +95,9 @@ void addUser::Role()
 
 	auto rbox = container->addWidget(make_unique<Wt::WContainerWidget>()); 
 	auto cbRole = rbox->addWidget(make_unique<Wt::WComboBox>());
-	cbRole->addItem("Role");
-	cbRole->addItem("Admin");
 	cbRole->addItem("Audit");
 	cbRole->addItem("Track");
+	cbRole->addItem("Admin");
 
 //	card->setStyleClass("addcard");
 //	headcon->setStyleClass("addheadcon");

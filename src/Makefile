@@ -33,4 +33,4 @@ start: ${PROG}
 
 stop:
 	@rm -f resources
-	@pkill ${PROG}
+	@pkill -f ${PROG}

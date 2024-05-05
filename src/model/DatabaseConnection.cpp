@@ -111,6 +111,18 @@ bool DatabaseConnection::addUser(std::unique_ptr<User> user) {
   return true;
 }
 
+bool DatabaseConnection::removeUser(std::string username){
+  try {
+    Wt::Dbo::Transaction transaction(session);
+    Wt::Dbo::ptr<User> user =
+        session.find<User>().where("username = ?").bind(username);
+    user.remove();
+    session.flush();
+  } catch (Wt::Dbo::Exception e) {
+    return false;
+  }
+}
+
 /* authenticateUser takes in a username and password, if authentication is
  * successful it will return a User smart pointer, otherwise it will be
  * nullptr
@@ -159,9 +171,16 @@ DatabaseConnection::CreateUserFromDB(Wt::Dbo::ptr<User>::mutator u,
                            u->getEmail());
 }
 
+std::unique_ptr<Risk>
+DatabaseConnection::CreateRiskFromDB(Wt::Dbo::ptr<Risk>::mutator r){
+  // return the smart pointer
+  return make_unique<Risk>(r->getID(), r->getShortDescription(), r->getLongDescription(), r->getLikelihoodRank(), r->getImpactRank(), r->getOwner(), 
+    r->getStatus(), r->getNotes(), r->getOpenDate(), r->getCloseDate());
+}
+
 /* method will select all users from a database and store it into a vector
    it will return an empty vector if an error occurrs */
-std::vector<std::unique_ptr<User>> DatabaseConnection::select_all() {
+std::vector<std::unique_ptr<User>> DatabaseConnection::selectAllUser() {
   try {
     Wt::Dbo::Transaction transaction(session);
 
@@ -179,6 +198,30 @@ std::vector<std::unique_ptr<User>> DatabaseConnection::select_all() {
 
     // return the vector
     return userCollection;
+  } catch (Wt::Dbo::Exception e) {
+    // return an empty vector
+    return {};
+  }
+}
+
+std::vector<std::unique_ptr<Risk>> DatabaseConnection::selectAllRisk() {
+  try {
+    Wt::Dbo::Transaction transaction(session);
+
+    // get all the users
+    Wt::Dbo::collection<Wt::Dbo::ptr<Risk>> Risks = session.find<Risk>();
+
+    // create vector of smart pointers
+    std::vector<std::unique_ptr<Risk>> riskCollection;
+
+    // convert dbo smart pointer to user smart pointer and append to the vector
+    for (auto it = Risks.begin(); it != Risks.end(); ++it) {
+      Wt::Dbo::ptr<Risk> risk = *it;
+      riskCollection.push_back(CreateRiskFromDB(risk.modify()));
+    }
+
+    // return the vector
+    return riskCollection;
   } catch (Wt::Dbo::Exception e) {
     // return an empty vector
     return {};

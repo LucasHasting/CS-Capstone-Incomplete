@@ -5,6 +5,7 @@
 #include <Wt/WContainerWidget.h>
 #include <Wt/WLineEdit.h>
 #include <Wt/WComboBox.h>
+#include "../model/DatabaseConnection.h"
 
 using namespace std;
 using namespace Wt;
@@ -14,11 +15,14 @@ class EditUser : public WContainerWidget{
 		EditUser(WContainerWidget* parent = nullptr);
 	private:
 		WContainerWidget* container;
-		WLineEdit* userName;
+		WLineEdit* oldUserName;
+		WLineEdit* newUserName;
 		WComboBox* role;
 		WLineEdit* password;
 		WLineEdit* email;
 		WLineEdit* riskId;
+        DatabaseConnection connection;
+        void Submit();
 };
 
 #endif /*EDITUSER_H*/

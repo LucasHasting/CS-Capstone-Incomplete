@@ -16,9 +16,12 @@ private:
 public:
   DatabaseConnection();
   bool addUser(std::unique_ptr<User>);
+  bool removeUser(std::string);
   std::unique_ptr<User> authenticateUser(std::string, std::string);
   std::unique_ptr<User> CreateUserFromDB(Wt::Dbo::ptr<User>::mutator, bool, std::string);
-  std::vector<std::unique_ptr<User>> select_all();
+  std::unique_ptr<Risk> CreateRiskFromDB(Wt::Dbo::ptr<Risk>::mutator);
+  std::vector<std::unique_ptr<User>> selectAllUser();
+  std::vector<std::unique_ptr<Risk>> selectAllRisk();
   bool addRisk(std::unique_ptr<Risk>);
   bool editRisk(std::string, std::string, std::string, std::string, std::string,
                 std::string, std::string, std::string, int, int);

@@ -1,0 +1,14 @@
+model/DatabaseConnection.cpp:123:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+1 warning generated.
+view/addUser.cpp:91:7: warning: unused variable 'headcon' [-Wunused-variable]
+        auto headcon = card->addWidget(make_unique<WContainerWidget>());
+             ^
+1 warning generated.
+In file included from view/editUser.cpp:1:
+view/editUser.h:23:14: warning: private field 'riskId' is not used [-Wunused-private-field]
+                WLineEdit* riskId;
+                           ^
+1 warning generated.
+*** Signal SIGINT in /home/luhast/SRT/SRT/src (view/forgetView.o)
