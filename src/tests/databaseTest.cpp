@@ -13,6 +13,17 @@ namespace {
 	{
 		DatabaseConnection db;
 		
+		EXPECT_NE(db.session, nullptr);	
+	}
+
+	TEST(DatabaseConnection, AddUser)
+	{
+		DatabaseConnection db;
+		User user("owner", "user1", "12345!", "test@test.com");
+
+		EXPECT_EQ(db.addUser(user), true);
+
+		
 	}
 
 }
