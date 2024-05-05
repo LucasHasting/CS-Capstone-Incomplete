@@ -13,6 +13,14 @@ class AdminView : public WContainerWidget {
 	
 	public:
 		AdminView(WContainerWidget *parent = nullptr);
+	private:
+		WContainerWidget* container;
+		void createHeader();
+		void onInternalPathChange();
+		void dashboardView(WContainerWidget*);
+		void viewRiskReport(WContainerWidget*);
+		void viewRiskMatrix(WContainerWidget*);
+		void createButtons(WContainerWidget*);
 
 };
 

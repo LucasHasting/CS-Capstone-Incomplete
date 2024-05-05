@@ -6,25 +6,28 @@
 #include <Wt/WContainerWidget.h>
 #include <Wt/WLineEdit.h>
 #include <Wt/WPushButton.h>
-
+#include <Wt/WString.h>
 
 using namespace Wt;
 using namespace std;
 
-class ForgetView : public WContainerWidget{
+class ForgetView : public  WContainerWidget{
 
 	public:
 		ForgetView(Wt::WContainerWidget *parent = nullptr);
-
+		WString getEmail();
 	private:
 		void onInternalPathChange();
-		void showVerifyCode();
+		void showVerifyCode(WContainerWidget*);
 		void createHeader();
 		void showForgetView();
-		WLineEdit* email_;
 		void enterEmailView();
+		
+		WContainerWidget* textEr;	
 		WPushButton* submit;
-		WContainerWidget *container;
+		WContainerWidget* container;
+		WLineEdit* email_ ;
+		
 };
 
 

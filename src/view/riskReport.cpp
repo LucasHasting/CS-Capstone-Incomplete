@@ -1,4 +1,5 @@
 #include "riskReport.h"
+#include "updateRisk.h"
 
 #include <Wt/WApplication.h>
 #include <Wt/WContainerWidget.h>
@@ -6,6 +7,8 @@
 #include <Wt/WTable.h>
 #include <Wt/WTableCell.h>
 #include <Wt/WPushButton.h>
+#include <Wt/WDialog.h>
+
 
 using namespace std;
 using namespace Wt;
@@ -25,10 +28,10 @@ namespace{
 	};
 
 	Risk risks[] = {
-		//Risk("758943","Risk1" , "longsesc" , "shortdes" , "qwer" , 19 , "jdsklf" ),
-		//Risk("758943","Risk1" , "longsesc" , "shortdes" , "wert" , 19 , "jdsklf" ),
-		//Risk("758943","Risk1" , "longsesc" , "shortdes" , "wert" , 19 , "jdsklf" ),
-		//Risk("758943","Risk1" , "longsesc" , "shortdes" , "2w43" , 19 , "jdsklf" ),
+		Risk("758943","Risk1" , "longsesc" , "shortdes" , "qwer" , 19 , "jdsklf" ),
+		Risk("758943","Risk1" , "longsesc" , "shortdes" , "wert" , 19 , "jdsklf" ),
+		Risk("758943","Risk1" , "longsesc" , "shortdes" , "wert" , 19 , "jdsklf" ),
+		Risk("758943","Risk1" , "longsesc" , "shortdes" , "2w43" , 19 , "jdsklf" ),
 		
 	};
 
@@ -60,8 +63,9 @@ void RiskReport::showRiskReport(){
 	
 	int length = sizeof(risks)/sizeof(risks[0]);
 	auto table = container->addWidget(make_unique<WTable>());
-
+	cout<<"Length -----------------------" << length<<endl; 
 	if(length == 0) {
+		std::cerr<<"IN the lenght = 0 " <<std::endl;
 		table->setStyleClass("table table-striped table-hover table-bordered");
 		table->setHeaderCount(1);
 		table->setWidth(Wt::WLength("100%"));
@@ -81,7 +85,9 @@ void RiskReport::showRiskReport(){
 		table->elementAt(1,4)->setColumnSpan(7);
 		txt->setTextAlignment(AlignmentFlag::Center);
 	}	
-	else {  table->setStyleClass("table table-striped table-hover table-bordered");
+	else { 
+
+	  table->setStyleClass("table table-striped table-hover table-bordered");
 	  table->setHeaderCount(1);
 	  table->setWidth(Wt::WLength("100%"));
 
@@ -109,7 +115,36 @@ void RiskReport::showRiskReport(){
 		table->elementAt(row , 4)->addNew<WText>(currentRisk.likelihood);
 		table->elementAt(row , 5)->addNew<WText>(to_string(currentRisk.impact));
 		table->elementAt(row , 6)->addNew<WText>(currentRisk.status);
-		edit = table->elementAt(row , 7)->addNew<WPushButton>("Edit");
+		edit = table->elementAt(row , 7)->addNew<WPushButton>("edit");
+	
+		edit->clicked().connect(this,[this,currentRisk]{
+			if(!dialog){
+				cout<<"not exist"<<endl;
+			dialog = make_unique<WDialog>("Update Risk");
+			auto editRisk = make_unique<UpdateRisk>();
+			dialog->contents()->addWidget(move(editRisk));
+	
+			auto closeButton = make_unique<WPushButton>("X");
+			closeButton->clicked().connect([dialog = dialog.get()]{
+				dialog->accept();				
+
+			});
+			dialog->finished().connect([this]{
+				dialog.reset();		
+			});		
+
+			dialog->footer()->addWidget(move(closeButton));
+		
+		dialog->show();
+		
+		
+		//container->addWidget(move(dialog));
+		}
+		else{
+			cout<<"exist"<<endl;
+		}
+		});
+		
 	  	edit->setStyleClass("editButton");
 		delet = table->elementAt(row , 8)->addNew<WPushButton>("Delete");
 	  	delet->setStyleClass("deleteButton");

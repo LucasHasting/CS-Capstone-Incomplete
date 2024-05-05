@@ -31,6 +31,9 @@ class LoginPage : public WApplication{
 		Wt::WLineEdit* passEdit_;
         DatabaseConnection connection;
         std::unique_ptr<User> user;
+		void showPassword();
+		WContainerWidget* container;
+		void createDialog(WContainerWidget*);
 };
 
 
