@@ -1,0 +1,12 @@
+Instructions for testing:
+
+1) create your test following a similar format to the example test. Your test
+	will likely be more complex than the sample, as it was written quickly
+	to provide an example.
+
+2) add your test to the makefile.
+	You should add the file that includes your test into the SRCS line as 
+	well as any files that the test is dependent upon (a.k.a. the *.cpp file
+	you're testing.
+
+3) to run the entire test suite, run the command ./utest 
