@@ -21,9 +21,10 @@
 #include "navbar.h"
 #include "forgetView.h"
 #include "adminView.h"
+#include <Wt/Dbo/Dbo.h>
+#include <Wt/Dbo/backend/MySQL.h>
 #include "setRiskId.h"
 #include "newPassword.h"
-
 
 using namespace Wt;
 using namespace std;
@@ -42,7 +43,7 @@ using namespace std;
 LoginPage :: LoginPage(const WEnvironment& env) : WApplication(env){
 
 	
-	useStyleSheet("style.css");
+	useStyleSheet("view/style.css");
 	container = root()->addWidget(std::make_unique<Wt::WContainerWidget>());
 	
 	internalPathChanged().connect(this,&LoginPage::onInternalPathChange);
@@ -85,7 +86,6 @@ void LoginPage::loginCard(){
 	
 	auto card = container->addWidget(make_unique<WContainerWidget>());
 
-
 	auto logCon = card->addWidget(make_unique<WContainerWidget>());
 	auto loginText = logCon->addWidget(make_unique<WText>("Login"));
 	
@@ -99,13 +99,13 @@ void LoginPage::loginCard(){
 
 	auto userName = card->addWidget(make_unique<WLabel>("User Name"));
 	card->addWidget(make_unique<WBreak>());
-	auto edit_ = card->addWidget(make_unique<WLineEdit>());
+	edit_ = card->addWidget(make_unique<WLineEdit>());
 
 	userName->setBuddy(edit_);
 
 	card->addWidget(make_unique<WBreak>());
 	
-	edit_->blurred().connect([=]{
+    edit_->blurred().connect([=]{
 		if(edit_->text().empty()) edit_->setText("username");
 	});
 
@@ -116,12 +116,13 @@ void LoginPage::loginCard(){
 	
 	auto password = card->addWidget(make_unique<WLabel>("Password"));
 	card->addWidget(make_unique<WBreak>());
-	auto passEdit_ = card->addWidget(make_unique<WLineEdit>());
+	passEdit_ = card->addWidget(make_unique<WLineEdit>());
 	password->setBuddy(passEdit_);
 	passEdit_->setEchoMode(Wt::EchoMode::Password);
 	
 	card->addWidget(make_unique<WBreak>());
 	
+
 	passEdit_->blurred().connect([=]{
 		if(passEdit_->text().empty()) passEdit_->setText("password");
 	});
@@ -130,8 +131,8 @@ void LoginPage::loginCard(){
 		if(passEdit_->text() == "password") passEdit_->setText("");
 	});
 	
-	auto submit = card->addWidget(std::make_unique<Wt::WPushButton>("Login"));
-	submit->setLink(WLink(LinkType::InternalPath,"/admin"));
+	submit = card->addWidget(std::make_unique<Wt::WPushButton>("Login"));
+    submit->clicked().connect(this, &LoginPage::authenticate);
 
 	card->addWidget(make_unique<WBreak>());
 	auto forContainer = card->addWidget(make_unique<WContainerWidget>());
@@ -160,6 +161,20 @@ void LoginPage::loginCard(){
 --------------------------------------------------------------------------
  *
 */
+
+void LoginPage::authenticate(){
+    user = connection.authenticateUser(edit_->text().narrow(), passEdit_->text().narrow());
+	
+    if(user != nullptr)
+        if(user->getRole() == "Admin")
+            submit->setLink(WLink(LinkType::InternalPath,"/admin"));
+        else if (user->getRole() == "Track")
+            submit->setLink(WLink(LinkType::InternalPath,"/admin"));
+        else if (user->getRole() == "Audit")
+            submit->setLink(WLink(LinkType::InternalPath,"/admin"));
+    else {}
+        //submit->setLink(WLink(LinkType::InternalPath,"/admin"));
+}
 
 void LoginPage::onInternalPathChange(){
 	
