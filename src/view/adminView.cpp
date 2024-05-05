@@ -74,7 +74,7 @@ void AdminView :: createButtons(WContainerWidget* riskDetails){
 	popup->addItem("Rank");
 	popup->addItem("Date Added");
 
-	auto sortButton = leftButtons->addWidget(make_unique<WPushButton>());
+	auto sortButton = leftButtons->addWidget(make_unique<WPushButton>("Sort"));
 	sortButton->setMenu(move(popup));
 	auto inputId = leftButtons->addWidget(make_unique<WLineEdit>());
 	inputId->setPlaceholderText("Search Risk by ID");
