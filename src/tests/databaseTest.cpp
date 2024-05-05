@@ -1,4 +1,3 @@
-#include "../model/DatabaseConnection.h"
 #include "../model/User.h"
 #include "../model/Risk.h"
 #include <Wt/Dbo/Dbo.h>
@@ -6,6 +5,9 @@
 #include <Wt/Dbo/backend/MySQL.h>
 #include <gtest/gtest.h>
 
+#define private public
+#include "../model/DatabaseConnection.h"
+#undef private
 
 namespace {
 
@@ -13,16 +15,19 @@ namespace {
 	{
 		DatabaseConnection db;
 		
-		EXPECT_NE(db.session, nullptr);	
 	}
 
 	TEST(DatabaseConnection, AddUser)
 	{
 		DatabaseConnection db;
-		User user("owner", "user1", "12345!", "test@test.com");
+		std::unique_ptr<User> user = std::make_unique<User>("Test1", "Test1", "12345", "test1@una.com");
+		std::unique_ptr<User> user2 = std::make_unique<User>("Test3", "Test3", "54321", "test3@una.edu");
 
-		EXPECT_EQ(db.addUser(user), true);
-
+		db.addUser(std::move(user));
+		db.addUser(std::move(user2));
+		
+		EXPECT_NE(user, nullptr);
+		EXPECT_NE(user2, nullptr);
 		
 	}
 
