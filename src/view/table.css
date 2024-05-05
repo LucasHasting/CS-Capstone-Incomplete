@@ -61,7 +61,6 @@
 	color:white;
 	cursor:pointer;
 	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 	
 
 }
@@ -79,7 +78,6 @@
 	background-color:black;
 	color:white;
 	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 	cursor:pointer;
 	border:none;
 }
@@ -88,7 +86,6 @@
 	font-family: 'Font Awesome 5 Free';
 	content:'\f044  ';
 	font-size: 14px;
-	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 
@@ -99,15 +96,14 @@
 	background-color:red;
 	color:white;
 	cursor:pointer;
-	border:none;
-	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+	border:none
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .delete::before{
 
 	font-family: 'Font Awesome 5 Free';
 	content : '\f014 ';
-	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 
@@ -123,118 +119,32 @@
 	font-size : 20px;
 }
 
-.card-container{
-	width:500px;
-	height:500px;
-	padding:20px;
-}
-
-.riskid{
-	width:97%;
-	height:30px;
-	margin-top:10px;
-	margin-bottom:10px;
-	outline:none;
-	border:none;
-	border-bottom: 0.2px solid;
-}
-
-.riskid::focus{
-	outline:none;
-}
-
-
-.username{
-	width:97%;
-	height:30px;
-	margin-bottom:10px;
-	outline:none;
-	border: none;
-	border-bottom: 0.2px solid;
-	margin-left: 6px;
-}
-
-
-.role{
-	width:97%;
-	height:30px;
-	margin-bottom:10px;
-	outline:none;
-	border: none;
-	border-bottom: 0.2px solid;
-	margin-left: 6px;
-}
-
-
-.emails{
-	width:97%;
-	height:30px;
-	margin-bottom:10px;
-	outline:none;
-	border: none;
-	border-bottom: 0.2px solid;
-	margin-left: 6px;
-}
-
-
-.passwords{
-
-	width:97%;
-	height:30px;
-	margin-bottom:10px;
-	outline:none;
-	border: none;
-	border-bottom: 0.2px solid;
-	margin-left: 6px;
-}
-
-
-
-.subButton{
-
-	width:97%;
-	height:30px;
-	background-color:black;
-	color:white;
-	margin-bottom:10px;
-	border:none;
-	margin-left: 6px;
-}
-
-
 .add-background{
-	height:400px;
-	width:500px;
+	height:500px;
+	width:300px;
 	background-color:#d3d3d3;
 
 }
 
-
-
 .addrbox{
-	width:100%;
+	width:90%;
 	height:40px;
 }
 
+
 .addrole{
-	width:101%;
-	height:35px;
-	border:none;
-	border-bottom:0.2px solid ;
+	width:90%;
+	height:30px;
 }
 
 .nameMsg{
 	width:90%;	
 	height:40px;
-	border:none;
-	border-bottom:0.2px solid;
 }
 
-.userEdits{
+.userEdit{
 	width:90%;
 	height:30px;
-	border:none;
-	border-bottom:0.2px solid;
 }
 
 .passwordUser{
@@ -242,11 +152,9 @@
 	height:40px;
 }
 
-.passEdits{
+.passEdit{
 	width:90%;
 	height:30px;
-	border:none;
-	border-bottom:0.2px solid;
 
 }
 
@@ -256,11 +164,10 @@
 
 }
 
-.emailEdits{
+.emailEdit{
 	width:90%;
 	height:30px;
-	border:none;
-	border-bottom:0.2px solid;
+
 }
 
 .sub1{

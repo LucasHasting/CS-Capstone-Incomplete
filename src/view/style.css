@@ -495,16 +495,10 @@ body{
 	color:green;
 }
 
-.verrors{
-	width:100%;
-	background-color:red;
+.verror{
+	widht:100%;
+	background-color:red
 	height:10px;
 	display:flex;
 	justify-content:center;
-}
-
-.setError{
-	color:red;
-	margin-top:5px;
-	font-size:15px;
 }

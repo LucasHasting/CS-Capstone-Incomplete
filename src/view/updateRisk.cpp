@@ -77,8 +77,6 @@ UpdateRisk :: UpdateRisk(WContainerWidget* parent) : WContainerWidget(){
 	
 	longDes = widCon->addWidget(make_unique<WLineEdit>());
 	longDes->setPlaceholderText("Long Description");
-	
-	auto subButtons = widCon->addWidget(make_unique<WPushButton>("Update Risk"));
 
 	container->setStyleClass("updateContainer");
 	widCon->setStyleClass("widCon");
@@ -95,6 +93,5 @@ UpdateRisk :: UpdateRisk(WContainerWidget* parent) : WContainerWidget(){
 	impactRank->setStyleClass("impactRank");
 	shortDes->setStyleClass("shortDes");
 	longDes->setStyleClass("longDes");
-	subButtons->setStyleClass("subButtons");
 }
 

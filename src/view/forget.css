@@ -24,7 +24,7 @@
 	flex-direction:column;
 	justify-content:center;
 	margin-top:40px;
-	height:30px;
+	height:300px;
 	width:100%;
 }
 
@@ -71,90 +71,70 @@
 }
 
 .widCon{
-	padding:20px;
 	width:100%;
 }
 
 .id{
-	margin-top:10px;
+
 	width:90%;
 	height:30px;
 }
 
 .openClose{
-	margin-top:10px;
 	display:flex;
 	gap:10px;
-	width:90%	
 }
 
 .openDate{
 	height:30px;
-	width:44%;
-	margin-right:5px;
+	widht:50%
 }
 
 .closeDate{
 	height:30px;
-	width:43%;
+	width:50%;
 }
 
 .notes{
-	margin-top:10px;	
 	width:90%;
-	height:30px;
 }
 
 .statown{
-	margin-top:10px;
 	display:flex;
 	width:100%;
 }
 
 .status{
-	width:46%;
-	height:36px;
-	margin-right:5px;
+	width:45%;
+	height:30px;
 }
 
-
 .owner{
-	width:43%;
+	width:45%;
 	height:30px;
 }
 
 .likeImp{
-	margin-top:10px;
 	display:flex;
 	width:100%;
 }
 
 .likeCombo{
-	width:46%;
+	width:50%;
 	height:30px;
-	margin-right:5pc;
 }
 
 .impactRank{
-	width:45%;
+	width:50%;
 	height:30px;
 }
 
 .shortDes{
-	margin-top:10px;
 	width:90%;
 	height:30px;
 }
 
 .longDes{
-	margin-top:10px;
 	width:90%;
 	height:30px;
-}
-
-.subButtons{
-	width:90%;
-	height:40px;
-	background-color:black;
-	color:white;
 }

@@ -18,7 +18,7 @@ class EditUser : public WContainerWidget{
 		WComboBox* role;
 		WLineEdit* password;
 		WLineEdit* email;
-		WLineEdit* userNam;
+		WLineEdit* riskId;
 };
 
 #endif /*EDITUSER_H*/

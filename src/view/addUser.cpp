@@ -32,18 +32,59 @@ addUser::addUser(WContainerWidget* parent) : WContainerWidget()
 	
 	Role();
 	UserName();
-	Email();
 	Password();
-	
+	Email();
 }
 
 
 
+/*
+void addUser::onInternalPathChange()
+{
+
+	if(WApplication::instance()->internalPath() == "/loginpage")
+	{
+		showAdmin();
+	}
+	else {
+		showAdmin();
+	}
+
+
+}
+
+void addUser::subMenu()
+{
+	auto card = container->addWidget(make_unique<WContainerWidget>());
+	auto headcon = card->addWidget(make_unique<WContainerWidget>());
+
+	auto header = headcon->addWidget(make_unique<WText>("Add User"));
+	card->addWidget(make_unique<WBreak>());
+	
+
+	auto subMenu = container->addWidget(make_unique<Wt::WPopupMenu>());
+	subMenu->addItem("Add User")->triggered().connect([=] {
+			auto messageBox = subMenu->addChild(make_unique<Wt::WMessageBox>("Role", Wt::WString::fromUTF8("Role"), Wt::Icon::Information, Wt::StandardButton::Ok));
+	messageBox->show();
+	messageBox->buttonClicked().connect([=] {
+			subMenu->removeChild(messageBox);
+			});
+	});
+
+	//card->setStyleClass("Add User");
+	//headcon->setStyleClass("loginHead");
+
+
+}
+*/
 void addUser::Role()
 {
 
 	auto card = container->addWidget(make_unique<WContainerWidget>());
 	auto headcon = card->addWidget(make_unique<WContainerWidget>());
+
+//	auto header = headcon->addWidget(make_unique<WText>("Add User"));
+//	card->addWidget(make_unique<WBreak>());
 
 	auto rbox = container->addWidget(make_unique<Wt::WContainerWidget>()); 
 	auto cbRole = rbox->addWidget(make_unique<Wt::WComboBox>());
@@ -82,7 +123,7 @@ void addUser::UserName()
 
 	//card->setStyleClass("loginHead");
 	UserName->setStyleClass("nameMsg");
-	edit_ ->setStyleClass("userEdits");
+	edit_ ->setStyleClass("userEdit");
 
 }
 
@@ -111,10 +152,7 @@ void addUser::Password()
 
 	//card->setStyleClass("loginHead");
 	Password->setStyleClass("passwordUser");
-	edit_ ->setStyleClass("passEdits");
-
-	auto submit = card->addWidget(make_unique<WPushButton>("Submit"));
-	submit->setLink(WLink(LinkType::InternalPath, "loginpage"));
+	edit_ ->setStyleClass("passEdit");
 
 }
 
@@ -141,7 +179,11 @@ void addUser::Email()
 
 	//card->setStyleClass("loginHead");
 	Email->setStyleClass("userEmail");
-	edit_ ->setStyleClass("emailEdits");	
+	edit_ ->setStyleClass("emailEdit");
+	
+	auto submit = card->addWidget(make_unique<Wt::WPushButton>("Submit"));
+	submit->setLink(WLink(LinkType::InternalPath, "loginpage"));
+
 }
 
 
