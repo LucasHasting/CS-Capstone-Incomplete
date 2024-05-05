@@ -4,6 +4,7 @@
 #include <Wt/WApplication.h>
 #include <Wt/WContainerWidget.h>
 #include <Wt/WDialog.h>
+#include "../model/DatabaseConnection.h"
 
 using namespace Wt;
 using namespace std;
@@ -18,6 +19,7 @@ class RiskReport : public WContainerWidget {
 		unique_ptr<WDialog> dialog;
 		void onInternalPathChange();
 	        void showRiskReport();	
+        DatabaseConnection connection;
 };
 
 
