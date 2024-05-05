@@ -10,7 +10,7 @@
 #include <Wt/WLineEdit.h>
 #include <Wt/WPushButton.h>
 #include <Wt/WLink.h>
-
+#include <Wt/WString.h>
 
 using namespace Wt;
 using namespace std;
@@ -21,12 +21,13 @@ ForgetView :: ForgetView(WContainerWidget* parent) : WContainerWidget(){
 	WApplication::instance()->useStyleSheet("style.css");
 	
         WApplication::instance()->internalPathChanged().connect(this,&ForgetView::onInternalPathChange);	
-
+	
 	container = addWidget(make_unique<WContainerWidget>());
 	container->setStyleClass("vforget-background");
 	createHeader();
 	enterEmailView();
 	
+
 }
 
 
@@ -34,7 +35,8 @@ ForgetView :: ForgetView(WContainerWidget* parent) : WContainerWidget(){
 void ForgetView::onInternalPathChange(){
 	
 	if(WApplication::instance()->internalPath() == "/forget-password/verify-email"){
-		showVerifyCode();
+		container->clear();
+		showVerifyCode(textEr);
 	}
 	else {
 	
@@ -69,7 +71,11 @@ void ForgetView:: enterEmailView(){
 	auto submitBox = card->addWidget(make_unique<WContainerWidget>());
 	submit = submitBox->addWidget(make_unique<WPushButton>("Verify"));
 	submit->setLink(WLink(LinkType::InternalPath,"/forget-password/verify-email"));
+
 	
+	textEr = card->addWidget(make_unique<WContainerWidget>());
+        textEr->addWidget(make_unique<WText>("error"));	
+
 	card->setStyleClass("vEmail");
 	verifyText->setStyleClass("vText");
 	head1->setStyleClass("vHead1");
@@ -78,7 +84,11 @@ void ForgetView:: enterEmailView(){
 	emailTxt->setStyleClass("venterEmail");
 	submitBox->setStyleClass("vsubmitCon");
 	submit->setStyleClass("vSubmit");
-	
+	textEr->setStyleClass("verror");
+
+}
+
+WString ForgetView::getEmail(){
 
 }
 
@@ -87,10 +97,26 @@ void ForgetView::createHeader(){
 	container->addWidget(make_unique<Navbar>());
 }
 
-void ForgetView::showVerifyCode(){
-	
-	container->clear();
-	container->addWidget(make_unique<VerifyEmail>());
+void ForgetView::showVerifyCode(WContainerWidget* textEr){
+
+
+	WString emailText = email_->text();
+	cout<<"email text: "<< emailText<<endl;
+	if(!emailText.empty())
+	{
+		cout<<"got in this condiiton"<<endl;
+		auto verifyEmail = make_unique<VerifyEmail>(nullptr,emailText);
+		container->clear();
+		container->addWidget(move(verifyEmail));
+		cout<<"Naivigate to verfiy email"<<emailText<<endl;
+	}
+	else{
+		cout<<"got in this two"<<endl;
+		//card->addWidget(make_unique<WText>("Invalid Email..."));
+   		textEr->addWidget(make_unique<WText>("Error"));
+		cout<<"addede text to error"<<endl;  
+	}
+
 }
 
 void ForgetView:: showForgetView(){
