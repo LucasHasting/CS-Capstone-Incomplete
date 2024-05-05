@@ -174,9 +174,11 @@ void ForgetView::showVerifyCode(WContainerWidget* textEr){
 }
 
 void ForgetView:: showForgetView(){
-	
+	cout<<"everyhing is working till now"<<endl;
 	container->clear();
 	createHeader();
 	enterEmailView();
-
+	
 }
+
+
