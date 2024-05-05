@@ -9,7 +9,6 @@
 #include <Wt/WPopupMenu.h>
 #include <Wt/WMessageBox.h>
 #include <Wt/WComboBox.h>
-#include "../model/DatabaseConnection.h"
 
 
 using namespace Wt;
@@ -30,7 +29,7 @@ class addUser : public WContainerWidget{
 		WLineEdit* userName;
 		WLineEdit* password;
 		WLineEdit* email;
-        DatabaseConnection connection;
+
 
 		//void Head();
 		void onInternalPathChange();
@@ -38,7 +37,6 @@ class addUser : public WContainerWidget{
 		void UserName();
 		void Password();
 		void Email();
-        void Submit();
 
 };
 
