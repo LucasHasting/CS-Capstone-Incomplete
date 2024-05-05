@@ -1,6 +1,8 @@
 #ifndef LOGINPAGE_H
 #define LOGINPAGE_H
 
+#include "../model/DatabaseConnection.h"
+#include "../model/User.h"
 #include <Wt/WApplication.h>
 #include <Wt/WContainerWidget.h>
 #include <Wt/WStackedWidget.h>
@@ -22,8 +24,13 @@ class LoginPage : public WApplication{
 		void showLogin();
 		void showAdmin();
 		void onInternalPathChange();
+        void authenticate();
 		WContainerWidget* container;
-
+		Wt::WPushButton* submit;
+		Wt::WLineEdit* edit_;
+		Wt::WLineEdit* passEdit_;
+        DatabaseConnection connection;
+        std::unique_ptr<User> user;
 };
 
 
