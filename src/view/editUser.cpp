@@ -48,7 +48,7 @@ EditUser :: EditUser(WContainerWidget* parent) : WContainerWidget(){
 }
 
 void EditUser::Submit(){
-    //unique_ptr<User> user = make_unique<User>(role->currentText().narrow(), newUserName->text().narrow(), password->text().narrow(), email->text().narrow());
+    unique_ptr<User> user = make_unique<User>(role->currentText().narrow(), newUserName->text().narrow(), password->text().narrow(), email->text().narrow());
     connection.removeUser(oldUserName->text().narrow());
-    //connection.addUser(move(user));
+    connection.addUser(move(user));
 }

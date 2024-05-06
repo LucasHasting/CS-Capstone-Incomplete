@@ -4,6 +4,7 @@
 #include <Wt/Dbo/Dbo.h>
 #include <Wt/Dbo/Exception.h>
 #include <Wt/Dbo/backend/MySQL.h>
+#include <memory>
 
 /* Constructor initializes the connection to the database */
 DatabaseConnection::DatabaseConnection() {
@@ -23,7 +24,6 @@ DatabaseConnection::DatabaseConnection() {
   try {
     session.createTables();
   } catch (Wt::Dbo::Exception e) {
-  std::cout << "could not create tables: " << e.what()  << std::endl;
     }
 }
 
@@ -118,8 +118,10 @@ bool DatabaseConnection::removeUser(std::string username){
     Wt::Dbo::Transaction transaction(session);
     Wt::Dbo::ptr<User> user =
         session.find<User>().where("username = ?").bind(username);
+
     user.remove();
-    session.flush();
+    transaction.rollback();
+    return true;
   } catch (Wt::Dbo::Exception e) {
     return false;
   }
