@@ -1,6 +1,6 @@
 #include "riskReport.h"
 #include "updateRisk.h"
-
+#include "adminView.h"
 #include <Wt/WApplication.h>
 #include <Wt/WContainerWidget.h>
 #include <Wt/WText.h>
@@ -8,7 +8,7 @@
 #include <Wt/WTableCell.h>
 #include <Wt/WPushButton.h>
 #include <Wt/WDialog.h>
-
+#include <Wt/WLink.h>	
 
 using namespace std;
 using namespace Wt;
@@ -51,6 +51,17 @@ RiskReport::RiskReport(WContainerWidget* parent) : WContainerWidget()
 
 void RiskReport :: onInternalPathChange(){
 
+	if(WApplication::instance()->internalPath() == "/admin"){
+		container->clear();
+		showAdmin();
+	}
+}
+
+void RiskReport::showAdmin(){
+	
+	cout<<"Refresh done "<<endl;
+	container->clear();
+	container->addWidget(make_unique<AdminView>());
 }
 
 void RiskReport::showRiskReport(){
@@ -148,6 +159,7 @@ void RiskReport::showRiskReport(){
 	  	edit->setStyleClass("editButton");
 		delet = table->elementAt(row , 8)->addNew<WPushButton>("Delete");
 	  	delet->setStyleClass("deleteButton");
+		delet->setLink(WLink(LinkType::InternalPath,"/admin"));
 	  //table->elementAt(row , 7)->addNew<WText>(WString("{1}").arg(row));
 		//table->elementAt(row , 8)->addNew<WText>(WString("{1}").arg(row));
 	  }

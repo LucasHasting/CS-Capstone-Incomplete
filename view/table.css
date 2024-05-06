@@ -61,6 +61,7 @@
 	color:white;
 	cursor:pointer;
 	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 	
 
 }
@@ -78,6 +79,7 @@
 	background-color:black;
 	color:white;
 	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 	cursor:pointer;
 	border:none;
 }
@@ -86,6 +88,7 @@
 	font-family: 'Font Awesome 5 Free';
 	content:'\f044  ';
 	font-size: 14px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 
@@ -96,14 +99,15 @@
 	background-color:red;
 	color:white;
 	cursor:pointer;
-	border:none
-	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	border:none;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .delete::before{
 
 	font-family: 'Font Awesome 5 Free';
 	content : '\f014 ';
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 
@@ -119,32 +123,118 @@
 	font-size : 20px;
 }
 
-.add-background{
+.card-container{
+	width:500px;
 	height:500px;
-	width:300px;
+	padding:20px;
+}
+
+.riskid{
+	width:97%;
+	height:30px;
+	margin-top:10px;
+	margin-bottom:10px;
+	outline:none;
+	border:none;
+	border-bottom: 0.2px solid;
+}
+
+.riskid::focus{
+	outline:none;
+}
+
+
+.username{
+	width:97%;
+	height:30px;
+	margin-bottom:10px;
+	outline:none;
+	border: none;
+	border-bottom: 0.2px solid;
+	margin-left: 6px;
+}
+
+
+.role{
+	width:97%;
+	height:30px;
+	margin-bottom:10px;
+	outline:none;
+	border: none;
+	border-bottom: 0.2px solid;
+	margin-left: 6px;
+}
+
+
+.emails{
+	width:97%;
+	height:30px;
+	margin-bottom:10px;
+	outline:none;
+	border: none;
+	border-bottom: 0.2px solid;
+	margin-left: 6px;
+}
+
+
+.passwords{
+
+	width:97%;
+	height:30px;
+	margin-bottom:10px;
+	outline:none;
+	border: none;
+	border-bottom: 0.2px solid;
+	margin-left: 6px;
+}
+
+
+
+.subButton{
+
+	width:97%;
+	height:30px;
+	background-color:black;
+	color:white;
+	margin-bottom:10px;
+	border:none;
+	margin-left: 6px;
+}
+
+
+.add-background{
+	height:400px;
+	width:500px;
 	background-color:#d3d3d3;
 
 }
 
+
+
 .addrbox{
-	width:90%;
+	width:100%;
 	height:40px;
 }
 
-
 .addrole{
-	width:90%;
-	height:30px;
+	width:100%;
+	height:35px;
+	border:none;
+	border-bottom:0.2px solid ;
 }
 
 .nameMsg{
 	width:90%;	
 	height:40px;
+	border:none;
+	border-bottom:0.2px solid;
 }
 
-.userEdit{
+.userEdits{
 	width:90%;
 	height:30px;
+	border:none;
+	border-bottom:0.2px solid;
 }
 
 .passwordUser{
@@ -152,9 +242,11 @@
 	height:40px;
 }
 
-.passEdit{
+.passEdits{
 	width:90%;
 	height:30px;
+	border:none;
+	border-bottom:0.2px solid;
 
 }
 
@@ -164,10 +256,11 @@
 
 }
 
-.emailEdit{
+.emailEdits{
 	width:90%;
 	height:30px;
-
+	border:none;
+	border-bottom:0.2px solid;
 }
 
 .sub1{
@@ -176,8 +269,49 @@
 }
 
 .sub2{
-	background-color:red:
+	background-color:red;
 	color:white;
 }
 
 
+.IDu{
+	width:90%;
+	height:30px;
+}
+
+.sub1{
+	width:30%;
+	margin-right:10px;
+	background-color:black;
+	color:white;
+}
+
+.sub2{
+	background-color:red;
+	color:white;
+	width:30%;
+}
+
+.container1{
+	display:flex;
+	width:100%;
+}
+
+
+.sub3{
+	width:30%;
+	margin-right:10px;
+	background-color:black;
+	color:white;
+}
+
+.sub4{
+	background-color:red;
+	color:white;
+	width:30%;
+}
+
+.container2{
+	display:flex;
+	width:100%;
+}

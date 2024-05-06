@@ -15,7 +15,7 @@
 using namespace Wt;
 using namespace std;
 AdminView :: AdminView(WContainerWidget* parent) : WContainerWidget(){
-	
+
 	auto app = WApplication::instance();
 	app->useStyleSheet("style.css");
 	app->useStyleSheet("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css");	

@@ -17,7 +17,8 @@ class RiskReport : public WContainerWidget {
 		WContainerWidget* container;
 		unique_ptr<WDialog> dialog;
 		void onInternalPathChange();
-	        void showRiskReport();	
+	        void showRiskReport();
+		void showAdmin();	
 };
 
 
