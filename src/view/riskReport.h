@@ -3,7 +3,7 @@
 
 #include <Wt/WApplication.h>
 #include <Wt/WContainerWidget.h>
-
+#include <Wt/WDialog.h>
 
 using namespace Wt;
 using namespace std;
@@ -15,6 +15,7 @@ class RiskReport : public WContainerWidget {
 
 	private:
 		WContainerWidget* container;
+		unique_ptr<WDialog> dialog;
 		void onInternalPathChange();
 	        void showRiskReport();	
 };

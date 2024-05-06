@@ -15,10 +15,15 @@
 #include <Wt/WLink.h>
 #include <Wt/WStackedWidget.h>
 
+
+#include <Wt/WDialog.h>
 #include "loginpage.h"
 #include "navbar.h"
 #include "forgetView.h"
 #include "adminView.h"
+#include "setRiskId.h"
+#include "newPassword.h"
+
 
 using namespace Wt;
 using namespace std;
@@ -46,8 +51,9 @@ LoginPage :: LoginPage(const WEnvironment& env) : WApplication(env){
 	container->setStyleClass("parent");
 	createHeader();
 	loginCard();
-}
-
+	createDialog(container);
+	//cout<<"dilog 3"<<endl;
+}	
 
 /*
 -----------------------------------------------------------------------------
@@ -163,11 +169,20 @@ void LoginPage::onInternalPathChange(){
 	else if(internalPath() == "/admin"){
 		showAdmin();
 	}
-	else if(internalPath() == "/"){
-		//container->clear();i
+	else if(internalPath() == "/admin" || internalPath() == "/login" ){
+		container->clear();
 		showLogin();
 	}
+	else if(internalPath() == "/setpassword"){
+		showPassword();
+	}
 
+}
+
+void LoginPage :: showPassword(){
+
+	container->clear();
+	container->addWidget(make_unique<NewPassword>());
 }
 
 
@@ -216,3 +231,29 @@ void LoginPage::showAdmin(){
 	container->addWidget(make_unique<AdminView>());
 }
 
+void LoginPage :: createDialog(WContainerWidget* container) {
+
+	auto dialog = make_unique<WDialog>();
+	auto setRiskWidget = make_unique<SetRiskId>();
+
+	dialog->contents()->addWidget(move(setRiskWidget));
+
+	auto closeButton = make_unique<WPushButton>("X");
+	closeButton->clicked().connect([dialog = dialog.get()] {
+			dialog->accept();
+	});
+
+	dialog->footer()->addWidget(move(closeButton));
+	dialog->finished().connect([this,&dialog]{
+		dialog.reset();	
+		});
+
+	dialog->show();
+	//cout<<"First Dialogie"<<endl;
+//	container->addWidget(move(dialog));
+	//cout<<"second"<<endl;
+	//dialog->setModal(true);
+//	dialog->setStyleClass("dial");
+
+//	dialog->setAttributeValue("style" , "width:500px ; height:300px; ");
+}

@@ -1,11 +1,14 @@
 #include "riskMatrix.h"
-
+#include "editUser.h"
+#include "addUser.h"
+#include "deleteUser.h"
 #include <Wt/WApplication.h>
 #include <Wt/WContainerWidget.h>
 #include <Wt/WTable.h>
 #include <Wt/WText.h>
 #include <Wt/WVBoxLayout.h>
 #include <Wt/WPushButton.h>
+
 
 using namespace std;
 using namespace Wt;
@@ -25,6 +28,7 @@ RiskMatrix :: RiskMatrix(WContainerWidget* parent) : WContainerWidget(){
 
 
 	container->setStyleClass("MatContainer");
+	container->setWidth("100%");
 	But->setStyleClass("But");
 	Mat->setStyleClass("Mat");
 }
@@ -73,13 +77,81 @@ void RiskMatrix :: createButton(WContainerWidget*But)
 	auto butCon = But->addWidget(make_unique<WContainerWidget>());
 	auto userTitle =  butCon->addWidget(make_unique<WContainerWidget>());
 
-	auto txt = butCon->addWidget(make_unique<WText>("User Actions"));
+	auto txt = userTitle->addWidget(make_unique<WText>("User Actions"));
 
 	auto buttons = But->addWidget(make_unique<WContainerWidget>());
 
 	auto editButton = buttons->addWidget(make_unique<WPushButton>("Edit"));
-	auto addUser = buttons->addWidget(make_unique<WPushButton>("Add"));
-	auto deleteUser = buttons->addWidget(make_unique<WPushButton>("Delete"));
 
+	editButton->clicked().connect([this,But]{
+			if(!dialog){
+				cout<<"Not Exist"<<endl;
+				dialog = make_unique<WDialog>("Edit User");
+				auto editUser = make_unique<EditUser>();
+				dialog->contents()->addWidget(move(editUser));
+
+				auto closeButton = make_unique<WPushButton>("X");
+				closeButton->clicked().connect([dialog = dialog.get()]{
+						dialog->accept();
+					});
+				dialog->finished().connect([this]{
+					dialog.reset();	
+					});		
+				dialog->footer()->addWidget(move(closeButton));
+				dialog->show();
+			}
+			else cout<<"Not Exist"<<endl;
+	});
+
+	auto addButton = buttons->addWidget(make_unique<WPushButton>("Add"));
+
+	addButton->clicked().connect([this,But]{
+			if(!dialog){
+				cout<<"Not Exist"<<endl;
+				dialog = make_unique<WDialog>("Add User");
+				auto adduser = make_unique<addUser>();
+				dialog->contents()->addWidget(move(adduser));
+
+				auto closeButton = make_unique<WPushButton>("X");
+				closeButton->clicked().connect([dialog = dialog.get()]{
+						dialog->accept();
+					});
+				dialog->finished().connect([this]{
+					dialog.reset();	
+					});		
+				dialog->footer()->addWidget(move(closeButton));
+				dialog->show();
+			}
+			else cout<<"Not Exist"<<endl;
+	});
+
+	auto deleteButton = buttons->addWidget(make_unique<WPushButton>("Delete"));
+
+	deleteButton->clicked().connect([this,But]{
+			if(!dialog){
+				cout<<"Not Exist"<<endl;
+				dialog = make_unique<WDialog>("Delete User");
+				auto deleteuser = make_unique<deleteUser>();
+				dialog->contents()->addWidget(move(deleteuser));
+
+				auto closeButton = make_unique<WPushButton>("X");
+				closeButton->clicked().connect([dialog = dialog.get()]{
+						dialog->accept();
+					});
+				dialog->finished().connect([this]{
+					dialog.reset();	
+					});		
+				dialog->footer()->addWidget(move(closeButton));
+				dialog->show();
+			}
+			else cout<<"Not Exist"<<endl;
+	});
+
+
+	editButton->setStyleClass("edit");
+	addButton->setStyleClass("add");
+	deleteButton->setStyleClass("delete");
+	txt->setStyleClass("txt");
+	buttons->setStyleClass("just-btn");
 	userTitle->setStyleClass("userCon");
 }
