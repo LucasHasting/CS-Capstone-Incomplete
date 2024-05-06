@@ -24,13 +24,13 @@ deleteUser::deleteUser(WContainerWidget* parent) : WContainerWidget()
 
 
 	auto container1 = container->addWidget(make_unique<WContainerWidget>());
-	auto submit1 = container1->addWidget(make_unique<WPushButton>("cancel"));
+	//auto submit1 = container1->addWidget(make_unique<WPushButton>("cancel"));
 
 	auto submit2 = container1->addWidget(make_unique<WPushButton>("delete"));
 
 
 	userID->setStyleClass("IDu");	
-	submit1->setStyleClass("sub1");	
+	//submit1->setStyleClass("sub1");	
 	submit2->setStyleClass("sub2");
 	container1->setStyleClass("container1");
 }

@@ -18,11 +18,11 @@ deleteRisk::deleteRisk(WContainerWidget* parent) : WContainerWidget()
 
 
 	auto container2 = container->addWidget(make_unique<WContainerWidget>());
-	auto submit1 = container2->addWidget(make_unique<WPushButton>("cancel"));
+	//auto submit1 = container2->addWidget(make_unique<WPushButton>("cancel"));
 
 	auto submit2 = container2->addWidget(make_unique<WPushButton>("delete"));
         submit2->setLink(WLink(LinkType::InternalPath,"/admin"));	
-	submit1->setStyleClass("sub3");	
+	//submit1->setStyleClass("sub3");	
 	submit2->setStyleClass("sub4");
 	container2->setStyleClass("container2");
 }
