@@ -23,6 +23,7 @@
 #include "adminView.h"
 #include "setRiskId.h"
 #include "newPassword.h"
+#include "trackView.h"
 
 
 using namespace Wt;
@@ -228,7 +229,7 @@ void LoginPage::showLogin(){
 void LoginPage::showAdmin(){
 
 	container->clear();
-	container->addWidget(make_unique<AdminView>());
+	container->addWidget(make_unique<TrackView>());
 }
 
 void LoginPage :: createDialog(WContainerWidget* container) {

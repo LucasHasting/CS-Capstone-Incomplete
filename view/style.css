@@ -369,7 +369,7 @@ body{
 	height:350px;
 	padding-left:10px;
 	padding-right:10px;
-	background-color:#C0C0C0;
+/*	background-color:#C0C0C0; */
 	width:93%;
 	margin-left:auto;
 	margin-right:auto;
@@ -481,6 +481,12 @@ body{
 	width:94%;
 	margin-left:22px;
 	margin-right:auto;
+	flex:1;
+}
+
+.tabl{
+	flex:1;
+	margin-top:30px;
 }
 
 .Wt-dialog .dialog-style{
@@ -501,4 +507,27 @@ body{
 	height:10px;
 	display:flex;
 	justify-content:center;
+}
+
+.dashContain{
+	display:flex;
+	margin-top:50px;
+}
+
+.addSort{
+	width:85px;
+	height:30px;
+	background-color:black;
+	border-radius:5px;
+	color:white;
+	cursor:pointer;
+	outline:none;
+	border:none;
+}
+	
+
+.butto{
+	display:flex;
+	justify-content:space-around;
+	margin-top:100px;
 }

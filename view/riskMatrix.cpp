@@ -1,11 +1,14 @@
 #include "riskMatrix.h"
 #include "editUser.h"
+#include "addUser.h"
+//#include "deleteUser.h"
 #include <Wt/WApplication.h>
 #include <Wt/WContainerWidget.h>
 #include <Wt/WTable.h>
 #include <Wt/WText.h>
 #include <Wt/WVBoxLayout.h>
 #include <Wt/WPushButton.h>
+
 
 using namespace std;
 using namespace Wt;
@@ -100,12 +103,54 @@ void RiskMatrix :: createButton(WContainerWidget*But)
 			else cout<<"Not Exist"<<endl;
 	});
 
-	auto addUser = buttons->addWidget(make_unique<WPushButton>("Add"));
-	auto deleteUser = buttons->addWidget(make_unique<WPushButton>("Delete"));
+	auto addButton = buttons->addWidget(make_unique<WPushButton>("Add"));
+
+	addButton->clicked().connect([this,But]{
+			if(!dialog){
+				cout<<"Not Exist"<<endl;
+				dialog = make_unique<WDialog>("Add User");
+				auto adduser = make_unique<addUser>();
+				dialog->contents()->addWidget(move(adduser));
+
+				auto closeButton = make_unique<WPushButton>("X");
+				closeButton->clicked().connect([dialog = dialog.get()]{
+						dialog->accept();
+					});
+				dialog->finished().connect([this]{
+					dialog.reset();	
+					});		
+				dialog->footer()->addWidget(move(closeButton));
+				dialog->show();
+			}
+			else cout<<"Not Exist"<<endl;
+	});
+
+	auto deleteButton = buttons->addWidget(make_unique<WPushButton>("Delete"));
+
+	/*deleteButton->clicked().connect([this,But]{
+			if(!dialog){
+				cout<<"Not Exist"<<endl;
+				dialog = make_unique<WDialog>("Delete User");
+				auto deleteuser = make_unique<deleteUser>();
+				dialog->contents()->addWidget(move(deleteuser));
+
+				auto closeButton = make_unique<WPushButton>("X");
+				closeButton->clicked().connect([dialog = dialog.get()]{
+						dialog->accept();
+					});
+				dialog->finished().connect([this]{
+					dialog.reset();	
+					});		
+				dialog->footer()->addWidget(move(closeButton));
+				dialog->show();
+			}
+			else cout<<"Not Exist"<<endl;
+	});
+*/
 
 	editButton->setStyleClass("edit");
-	addUser->setStyleClass("add");
-	deleteUser->setStyleClass("delete");
+	addButton->setStyleClass("add");
+	deleteButton->setStyleClass("delete");
 	txt->setStyleClass("txt");
 	buttons->setStyleClass("just-btn");
 	userTitle->setStyleClass("userCon");
