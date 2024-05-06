@@ -23,7 +23,8 @@ DatabaseConnection::DatabaseConnection() {
   try {
     session.createTables();
   } catch (Wt::Dbo::Exception e) {
-  }
+  std::cout << "could not create tables: " << e.what()  << std::endl;
+    }
 }
 
 /* addUser will return false if a user cannot be added, and true if it is

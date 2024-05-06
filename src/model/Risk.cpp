@@ -6,7 +6,7 @@ Risk::Risk(std::string ID, std::string shortDescription,
            std::string owner, std::string status, std::string notes,
            std::string openDate, std::string closeDate) {
 
-  this->ID = ID;
+  this->RID = ID;
   this->shortDescription = shortDescription;
   this->longDescription = longDescription;
   this->likelihoodRank = likelihoodRank;
@@ -19,7 +19,7 @@ Risk::Risk(std::string ID, std::string shortDescription,
 }
 
 Risk::Risk() {
-  this->ID = "";
+  this->RID = "";
   this->shortDescription = "";
   this->longDescription = "";
   this->likelihoodRank = 0;
@@ -32,7 +32,7 @@ Risk::Risk() {
 }
 
 /* getID() returns a string representing the assigned risk ID */
-std::string Risk::getID() { return ID; }
+std::string Risk::getID() { return RID; }
 
 /* getShortDescription returns a string representing the short description
  * for the risk */
@@ -67,7 +67,7 @@ std::string Risk::getOpenDate() { return openDate; }
 std::string Risk::getCloseDate() { return closeDate; }
 
 /* setID() takes in a string parameter for the new ID and updates the risk ID */
-void Risk::setID(std::string id) { ID = id; }
+void Risk::setID(std::string id) { RID = id; }
 
 /* setCloseDate() takes in a string parameter for the new closeDate and updates
  * the risk closeDate */
@@ -107,4 +107,4 @@ void Risk::setShortDescription(std::string sd) { shortDescription = sd; }
 
 /* validateID() fucntion checks for the ID entered by the user with the database
  * to see if it actually exists. */
-bool Risk::validateID() { return !ID.empty(); }
+bool Risk::validateID() { return !RID.empty(); }

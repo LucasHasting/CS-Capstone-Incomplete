@@ -6,7 +6,7 @@
 
 class Risk {
 private:
-  std::string ID;
+  std::string RID;
   std::string closeDate;
   std::string openDate;
   std::string notes;
@@ -48,7 +48,7 @@ public:
 
 
   template <class Action> void persist(Action &a) {
-    Wt::Dbo::field(a, ID, "ID");
+    Wt::Dbo::field(a, RID, "RID");
     Wt::Dbo::field(a, closeDate, "closeDate");
     Wt::Dbo::field(a, openDate, "openDate");
     Wt::Dbo::field(a, notes, "notes");
