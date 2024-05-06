@@ -52,6 +52,9 @@ void addUser::Role()
 	cbRole->addItem("Audit");
 	cbRole->addItem("Track");
 
+//	card->setStyleClass("addcard");
+//	headcon->setStyleClass("addheadcon");
+//	header->setStyleClass("");
 	rbox->setStyleClass("addrbox");
 	cbRole->setStyleClass("addrole");
 
@@ -106,6 +109,7 @@ void addUser::Password()
 	});
 
 
+	//card->setStyleClass("loginHead");
 	Password->setStyleClass("passwordUser");
 	edit_ ->setStyleClass("passEdits");
 
@@ -135,9 +139,9 @@ void addUser::Email()
 	});
 
 
+	//card->setStyleClass("loginHead");
 	Email->setStyleClass("userEmail");
 	edit_ ->setStyleClass("emailEdits");	
 }
-
 
 

@@ -25,7 +25,7 @@ clean:
 	@rm -f ${PROG} ${OBJS} resources
 
 start: ${PROG}
-	@ln -fs /usr/local/share/Wt/resources ./resources
+	#@ln -fs /usr/local/share/Wt/resources ./resources
 	./${PROG} --docroot ./ --http-address 0.0.0.0 --http-port ${PORT} &
 
 stop:

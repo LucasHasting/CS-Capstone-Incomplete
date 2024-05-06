@@ -1,15 +1,15 @@
 #include "riskMatrix.h"
 #include "editUser.h"
 #include "addUser.h"
-#include "deleteUser.h"
+//#include "deleteUser.h"
 #include <Wt/WApplication.h>
 #include <Wt/WContainerWidget.h>
 #include <Wt/WTable.h>
 #include <Wt/WText.h>
 #include <Wt/WVBoxLayout.h>
 #include <Wt/WPushButton.h>
-#include <Wt/WString.h>
-#include <string.h>
+
+
 using namespace std;
 using namespace Wt;
 
@@ -40,24 +40,19 @@ void RiskMatrix :: createMatrix(WContainerWidget* Mat){
 	auto table = matrix->addWidget(std::make_unique<WTable>());
 	table->setHeaderCount(1,Orientation::Horizontal);
 	
-	for(int col = 1; col <= 5 ; col++){
-		auto title = make_unique<WText>(to_string(col));
+	for(int col = 1; col <= 7 ; col++){
+		auto title = make_unique<WText>("X");
 		table->elementAt(0,col)->addWidget(move(title));
 	}
 
-	for(int row = 1 ; row <= 5 ; row++){
-		table->elementAt(row , 0)->addNew<WText>(to_string(6-row));
+	for(int row = 1 ; row <= 7 ; row++){
+		table->elementAt(row , 0)->addNew<WText>("Y");
 	}
 
 	
-	for(int row = 1; row <= 5 ; row++){
-		 for(int col = 1; col <= 5 ; col++){
-	   			
-			 int r = 6 - row;
-			 
-		 		if(r*col <= 8 &&  r*col >= 1) table->elementAt(row,col)->setStyleClass("set-border green"); 
-       				else if( r*col > 8 && r*col <= 18) table->elementAt(row,col)->setStyleClass("set-border yellow");
-       				else if(r*col > 18 && r*col <= 25) table->elementAt(row,col)->setStyleClass("set-border red");		 	
+	for(int row = 1; row <= 7 ; row++){
+		 for(int col = 1; col <= 7 ; col++){
+	   	table->elementAt(row,col)->setStyleClass("set-border");
 	   }
 	}
 
@@ -74,18 +69,6 @@ void RiskMatrix :: createMatrix(WContainerWidget* Mat){
 
 	table->setStyleClass("mat-table");
 	//Mat->setLayout(move(matrix));
-	
-	auto inputsContainer = Mat->addWidget(make_unique<WContainerWidget>());
-
-	auto inputEdit = inputsContainer->addWidget(make_unique<WLineEdit>());
-	auto textBox = inputsContainer->addWidget(make_unique<WText>());
-	
-	auto button = inputsContainer->addWidget(make_unique<WPushButton>("Check"));
-	
-	inputEdit->setPlaceholderText("Risk Id");
-	inputEdit->setStyleClass("riskInputMat");
-	inputsContainer->setStyleClass("inputsCon");
-	button->setStyleClass("buttos");
 
 }
 
@@ -130,7 +113,7 @@ void RiskMatrix :: createButton(WContainerWidget*But)
 				dialog->contents()->addWidget(move(adduser));
 
 				auto closeButton = make_unique<WPushButton>("X");
-		   closeButton->clicked().connect([dialog = dialog.get()]{
+				closeButton->clicked().connect([dialog = dialog.get()]{
 						dialog->accept();
 					});
 				dialog->finished().connect([this]{
@@ -144,7 +127,7 @@ void RiskMatrix :: createButton(WContainerWidget*But)
 
 	auto deleteButton = buttons->addWidget(make_unique<WPushButton>("Delete"));
 
-	deleteButton->clicked().connect([this,But]{
+	/*deleteButton->clicked().connect([this,But]{
 			if(!dialog){
 				cout<<"Not Exist"<<endl;
 				dialog = make_unique<WDialog>("Delete User");
@@ -163,7 +146,7 @@ void RiskMatrix :: createButton(WContainerWidget*But)
 			}
 			else cout<<"Not Exist"<<endl;
 	});
-
+*/
 
 	editButton->setStyleClass("edit");
 	addButton->setStyleClass("add");

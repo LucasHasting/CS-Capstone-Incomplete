@@ -263,9 +263,9 @@
 	border-bottom:0.2px solid;
 }
 
-.sub1{
-	background-color:black;
-	color:white;
+.container1{
+	display:flex;
+	width:100%;
 }
 
 .sub2{
@@ -278,6 +278,14 @@
 }
 .red{
 	background-color:red;
+}
+.container2{
+	display:flex;
+	width:100%;
+}
+.sub4{
+	background-color:red;
+	color:white;
 }
 
 .yellow{
@@ -297,4 +305,11 @@
 	display:flex;
 	width:100%;
 	justify-content:center;
+}
+
+.buttos{
+	width:50px;
+	height:40px;
+	background-color:black;
+	color:white;
 }

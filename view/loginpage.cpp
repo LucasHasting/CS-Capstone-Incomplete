@@ -25,6 +25,7 @@
 #include "newPassword.h"
 #include "trackView.h"
 
+
 using namespace Wt;
 using namespace std;
 
@@ -228,7 +229,7 @@ void LoginPage::showLogin(){
 void LoginPage::showAdmin(){
 
 	container->clear();
-	container->addWidget(make_unique<AdminView>());
+	container->addWidget(make_unique<TrackView>());
 }
 
 void LoginPage :: createDialog(WContainerWidget* container) {
@@ -250,7 +251,7 @@ void LoginPage :: createDialog(WContainerWidget* container) {
 
 	dialog->show();
 	//cout<<"First Dialogie"<<endl;
-//	container->addWidget(move(dialog));
+	//container->addWidget(move(dialog));
 	//cout<<"second"<<endl;
 	//dialog->setModal(true);
 //	dialog->setStyleClass("dial");

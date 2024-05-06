@@ -5,7 +5,6 @@
 body{
     padding: 0;
     margin : 0;
-    overflow-x :hidden;
 }
 
 .navbar{
@@ -319,15 +318,13 @@ body{
 	margin-right:75px;
 }
 
-.arghtbtn::before{
+.arghtbtn::before , arghtbtn:hover{
 	content: "\f234";
 	font-family:'Font Awesome 5 Free';
 	font-weight:900;
 	margin-right:10px;
 	cursor:pointer;
 }
-
-
 
 .Wt-popupmenu{
 	background-color:#E5E4E2;
@@ -372,7 +369,7 @@ body{
 	height:350px;
 	padding-left:10px;
 	padding-right:10px;
-/*	background-color:#C0C0C0;  */
+/*	background-color:#C0C0C0; */
 	width:93%;
 	margin-left:auto;
 	margin-right:auto;
@@ -487,11 +484,6 @@ body{
 	flex:1;
 }
 
-.dashContain{
-	display:flex;
-	margin-top:50px;
-}
-
 .tabl{
 	flex:1;
 	margin-top:30px;
@@ -509,20 +501,18 @@ body{
 	color:green;
 }
 
-.verrors, .verror{
-	width:100%;
-	background-color:red;
+.verror{
+	widht:100%;
+	background-color:red
 	height:10px;
 	display:flex;
 	justify-content:center;
 }
 
-.setError{
-	color:red;
-	margin-top:5px;
-	font-size:15px;
+.dashContain{
+	display:flex;
+	margin-top:50px;
 }
-
 
 .addSort{
 	width:85px;

@@ -25,12 +25,13 @@ class addUser : public WContainerWidget{
 		WPushButton* submit;
 		WContainerWidget* container;
 
-		//WComboBox* role;
-		//WLineEdit* userName;
-		//WLineEdit* password;
-		//WLineEdit* email;
+		WComboBox* role;
+		WLineEdit* userName;
+		WLineEdit* password;
+		WLineEdit* email;
 
 
+		//void Head();
 		void onInternalPathChange();
 		void Role();
 		void UserName();
@@ -40,3 +41,4 @@ class addUser : public WContainerWidget{
 };
 
 #endif /*ADDUSER_H*/
+
