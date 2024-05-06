@@ -17,6 +17,8 @@ int main() {
   connection.addUser(std::move(user3));
   connection.addUser(std::move(user4));
   connection.addUser(std::move(user5));
+  connection.removeUser("Track");
+  std::cout << "Test" << std::endl;
 
   if (user4 == nullptr)
     std::cout << "passed" << std::endl;
@@ -31,11 +33,12 @@ int main() {
   else
     std::cout << user2->getRole() << std::endl;
 
-  std::vector<std::unique_ptr<User>> users = connection.select_all();
+  std::vector<std::unique_ptr<User>> users = connection.selectAllUser();
 
   for (auto it = users.begin(); it != users.end(); ++it) {
     std::cout << "NAME: " << (*it)->getUsername()
               << "\t Password: " << (*it)->getPassword() << std::endl;
   }
+
   return 0;
 }

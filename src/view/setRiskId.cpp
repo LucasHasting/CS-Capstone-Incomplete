@@ -6,7 +6,9 @@
 #include <Wt/WBreak.h>
 #include <Wt/WText.h>
 #include <Wt/WPushButton.h>
-
+#include "../model/User.h"
+#include "../model/Risk.h"
+#include "../model/DatabaseConnection.h"
 
 using namespace std;
 using namespace Wt;
@@ -44,6 +46,7 @@ SetRiskId :: SetRiskId(WContainerWidget* parent ) : WContainerWidget() {
 	auto userEdit = userN->addWidget(make_unique<WLineEdit>());
  	userEdit->setPlaceholderText("username");
 	userEdit->setStyleClass("userEd");
+    username = userEdit;
 	editContainer->addWidget(make_unique<WBreak>());
 
 	//User Password
@@ -58,6 +61,7 @@ SetRiskId :: SetRiskId(WContainerWidget* parent ) : WContainerWidget() {
 	passEdit->setEchoMode(EchoMode::Password);
 	passEdit->setStyleClass("userEd");
         userPassword->addWidget(make_unique<WBreak>());
+    password = passEdit;
 
 	auto passwordLabel1 = userPassword->addWidget(make_unique<WText>("confirm Password"));
 	userPassword->addWidget(make_unique<WBreak>());
@@ -68,6 +72,7 @@ SetRiskId :: SetRiskId(WContainerWidget* parent ) : WContainerWidget() {
 	passEdit1->setEchoMode(EchoMode::Password);
 	passEdit1->setStyleClass("userEd");
 	editContainer->addWidget(make_unique<WBreak>());
+    password1 = passEdit1;
 
 	//setRiskIdContainer(editContainer);
 	
@@ -82,12 +87,23 @@ SetRiskId :: SetRiskId(WContainerWidget* parent ) : WContainerWidget() {
 
 	editContainer->addWidget(make_unique<WBreak>());	
 	auto submitButton = editContainer->addWidget(make_unique<WPushButton>("Create"));
+    submitButton->clicked().connect(this, &SetRiskId::Submit);
 
 	submitButton->setStyleClass("sub");
 	//nav->setStyleClass("nav");
 	//txt->setStyleClass("txt");
 
 
+}
+
+void SetRiskId::Submit(){
+    if(password->text().narrow() == password1->text().narrow()){
+        unique_ptr<Risk> risk = make_unique<Risk>("format", "", "", 0, 0, "", "", "", "", "");
+        unique_ptr<User> user = make_unique<User>("Admin", username->text().narrow(), password->text().narrow(), "default@email.com");
+
+        connection.addUser(move(user));
+        connection.addRisk(move(risk));
+    }
 }
 
 //void SetRiskId :: showRiskView(){

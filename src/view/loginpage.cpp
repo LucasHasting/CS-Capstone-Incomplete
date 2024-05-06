@@ -42,12 +42,10 @@ using namespace std;
 */
 LoginPage :: LoginPage(const WEnvironment& env) : WApplication(env){
 
-	
 	useStyleSheet("view/style.css");
 	container = root()->addWidget(std::make_unique<Wt::WContainerWidget>());
 	
-	internalPathChanged().connect(this,&LoginPage::onInternalPathChange);
-	
+	internalPathChanged().connect(this,&LoginPage::onInternalPathChange);	
 
 	container->setStyleClass("parent");
 	createHeader();
@@ -82,9 +80,9 @@ void LoginPage::createHeader(){
  *
 */
 
-void LoginPage::loginCard(){
-	
-	auto card = container->addWidget(make_unique<WContainerWidget>());
+void LoginPage::loginCard(){ 
+
+    auto card = container->addWidget(make_unique<WContainerWidget>());
 
 	auto logCon = card->addWidget(make_unique<WContainerWidget>());
 	auto loginText = logCon->addWidget(make_unique<WText>("Login"));
@@ -167,13 +165,12 @@ void LoginPage::authenticate(){
 	
     if(user != nullptr)
         if(user->getRole() == "Admin")
-            submit->setLink(WLink(LinkType::InternalPath,"/admin"));
+            setInternalPath("/admin");
         else if (user->getRole() == "Track")
             submit->setLink(WLink(LinkType::InternalPath,"/admin"));
         else if (user->getRole() == "Audit")
             submit->setLink(WLink(LinkType::InternalPath,"/admin"));
-    else {}
-        //submit->setLink(WLink(LinkType::InternalPath,"/admin"));
+    onInternalPathChange(); 
 }
 
 void LoginPage::onInternalPathChange(){
