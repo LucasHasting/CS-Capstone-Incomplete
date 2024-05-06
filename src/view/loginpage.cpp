@@ -23,7 +23,7 @@
 #include "adminView.h"
 #include "setRiskId.h"
 #include "newPassword.h"
-
+#include "trackView.h"
 
 using namespace Wt;
 using namespace std;
