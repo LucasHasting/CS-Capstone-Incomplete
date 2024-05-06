@@ -24,3 +24,4 @@ Risk::Risk(std::string ID, std::string shortDescription,
 // to see if it actually exists.
 
 bool Risk::vaidateID() { return !ID.empty(); }
+

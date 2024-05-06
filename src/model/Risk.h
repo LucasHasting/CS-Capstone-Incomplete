@@ -1,5 +1,9 @@
-#include "DatabaseConnection.h"
 #include <string>
+#include<Wt/Dbo/Dbo.h>
+
+#ifndef RISK_H
+#define RISK_H
+
 
 class Risk {
 private:
@@ -24,5 +28,17 @@ public:
   bool vaidateID();
   bool formatDate();
 
-  template <class Action> void persist(Action &a);
+  bool operator==(Risk);
+  template <class Action> void persist(Action &a){
+	Wt::Dbo::field(a,ID,"ID");
+	Wt::Dbo::field(a,closeDate,"closeDate");
+	Wt::Dbo::field(a,openDate,"openDate");
+	Wt::Dbo::field(a,notes,"notes");
+	Wt::Dbo::field(a,status,"status");
+	Wt::Dbo::field(a,owner,"owner");
+	Wt::Dbo::field(a,likelihood,"likelihood");
+	Wt::Dbo::field(a,impactRank,"impactRank");
+	Wt::Dbo::field(a,longDescription,"longDescription");
+	Wt::Dbo::field(a,shortDescription,"shortDescription");
+}
 };
