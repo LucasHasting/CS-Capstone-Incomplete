@@ -67,7 +67,6 @@
 .updateContainer{
 	margin-left:auto;
 	margin-right:auto;
-	background:gold;
 }
 
 .widCon{
@@ -132,7 +131,7 @@
 .likeCombo{
 	width:46%;
 	height:30px;
-	margin-right:5pc;
+	margin-right:5px;
 }
 
 .impactRank{
@@ -157,4 +156,17 @@
 	height:40px;
 	background-color:black;
 	color:white;
+	margin-top:21px;
+}
+
+.Wt-dialog .movable .titlebar {
+    cursor: move;
+    background-color: black;
+}
+
+.Wt-dialog .titlebar {
+    background: #888888;
+    color: #FFFFFF;
+    padding: 2px 6px 3px;
+    font-family: 'Afacad', sans-serif;
 }

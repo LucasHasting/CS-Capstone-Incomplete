@@ -250,7 +250,7 @@ void LoginPage :: createDialog(WContainerWidget* container) {
 
 	dialog->show();
 	//cout<<"First Dialogie"<<endl;
-	//container->addWidget(move(dialog));
+//	container->addWidget(move(dialog));
 	//cout<<"second"<<endl;
 	//dialog->setModal(true);
 //	dialog->setStyleClass("dial");
