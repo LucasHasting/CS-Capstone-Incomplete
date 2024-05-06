@@ -5,6 +5,7 @@
 body{
     padding: 0;
     margin : 0;
+    overflow-x :hidden;
 }
 
 .navbar{
@@ -318,13 +319,15 @@ body{
 	margin-right:75px;
 }
 
-.arghtbtn::before , arghtbtn:hover{
+.arghtbtn::before{
 	content: "\f234";
 	font-family:'Font Awesome 5 Free';
 	font-weight:900;
 	margin-right:10px;
 	cursor:pointer;
 }
+
+
 
 .Wt-popupmenu{
 	background-color:#E5E4E2;

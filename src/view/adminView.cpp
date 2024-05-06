@@ -2,7 +2,7 @@
 #include "navbar.h"
 #include "riskReport.h"
 #include "riskMatrix.h"
-
+#include "addRisk.h"
 #include <Wt/WApplication.h>
 #include <Wt/WContainerWidget.h>
 #include <Wt/WText.h>
@@ -80,7 +80,29 @@ void AdminView :: createButtons(WContainerWidget* riskDetails){
 	inputId->setPlaceholderText("Search Risk by ID");
 	
 	auto rightButton = buttons->addWidget(make_unique<WPushButton>("Add"));
-	rightButton->setLink(WLink(LinkType::InternalPath,"/add-user"));
+	rightButton->clicked().connect(this,[this]{
+		if(!dialog){
+			cout<<"Clicked"<<endl;
+			dialog = make_unique<WDialog>("Add Risk");
+			auto addrisk = make_unique<AddRiskView>();
+			dialog->contents()->addWidget(move(addrisk));
+
+			auto closeButton = make_unique<WPushButton>("X");
+
+
+			closeButton->clicked().connect([dialog = dialog.get()]{
+				dialog->accept();		
+			});
+
+			dialog->finished().connect([this]{
+				dialog.reset();		
+			});
+
+			dialog->footer()->addWidget(move(closeButton));
+			dialog->show();
+		}		
+		else cout<<"Not exist"<<endl;	
+	});
 	buttons->setStyleClass("abtnContainer");
 	leftButtons->setStyleClass("left-btn");
 	sortButton->setStyleClass("asortBtn");
