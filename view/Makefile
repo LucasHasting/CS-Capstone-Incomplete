@@ -5,7 +5,7 @@
 # "make stop" will terminate your program, ALWAYS stop after you've tested
 #
 PROG= hello		# set your program name here
-PORT= 8082		# any port in the range 8080-8085 is valid
+PORT= 8088		# any port in the range 8080-8085 is valid
 SRCS!= ls *.cpp
 OBJS= ${SRCS:S/cpp$/o/g}
 

@@ -1,0 +1,33 @@
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.datesContainer, .statOwnerContainer, .ranksContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type="text"], select {
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    width: 49%;
+}
+
+.addButton {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+

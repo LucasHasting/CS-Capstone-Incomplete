@@ -18,6 +18,7 @@
 
 #include <Wt/WDialog.h>
 #include "loginpage.h"
+#include "addRisk.h"
 #include "navbar.h"
 #include "forgetView.h"
 #include "adminView.h"
@@ -228,7 +229,7 @@ void LoginPage::showLogin(){
 void LoginPage::showAdmin(){
 
 	container->clear();
-	container->addWidget(make_unique<AdminView>());
+	container->addWidget(make_unique<AddRiskView>());
 }
 
 void LoginPage :: createDialog(WContainerWidget* container) {
