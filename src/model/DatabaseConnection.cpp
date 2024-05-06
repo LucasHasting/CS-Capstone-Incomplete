@@ -16,6 +16,7 @@ DatabaseConnection::DatabaseConnection() {
   session.setConnection(connection->clone());
 
   // mapt the User class to the user table in the database
+  session.mapClass<Risk>("risk");
   session.mapClass<User>("user");
 
   // if the table does not exist make it

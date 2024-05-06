@@ -22,6 +22,7 @@ public:
        std::string longDescription, int likelihoodRank, int impactRank,
        std::string owner, std::string status, std::string notes,
        std::string openDate, std::string closeDate);
+  Risk();
   bool validateID();
   bool formatDate();
   std::string getID();

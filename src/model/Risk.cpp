@@ -18,6 +18,19 @@ Risk::Risk(std::string ID, std::string shortDescription,
   this->closeDate = closeDate;
 }
 
+Risk::Risk() {
+  this->ID = "";
+  this->shortDescription = "";
+  this->longDescription = "";
+  this->likelihoodRank = 0;
+  this->impactRank = 0;
+  this->owner = "";
+  this->status = "";
+  this->notes = "";
+  this->openDate = "";
+  this->closeDate = "";
+}
+
 /* getID() returns a string representing the assigned risk ID */
 std::string Risk::getID() { return ID; }
 
