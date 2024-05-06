@@ -6,7 +6,7 @@
 	font-family; 'Afacad', sans-serif;
 	display:flex;
 	width:100%;
-	margin-left:35px;
+	margin-left:75px;
 	margin-top:20px;
 	width:500px;
 	height:500px;
@@ -41,12 +41,244 @@
 }
 
 .Mat {
+	font-family : 'Afacad' , sans-serif;
 	width:50%;
-	background-color:orange;
+
 }
 
 .But{
+	font-family:'Afacad' ,sans-serif;
 	width:50%;
-	background-color:red;
-	border : 1px solid black;	
+	margin-right:71px;
 }
+
+.edit {
+	
+	width:100px;
+	height:40px;
+	background-color:black;
+	border: none;
+	color:white;
+	cursor:pointer;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+	
+
+}
+
+.edit ::before {
+	font-family: 'Font Awesome 5 Free';
+	content : '\f007';
+	font-size : 16px;
+}
+
+.add {
+
+	width:100px;
+	height:40px;
+	background-color:black;
+	color:white;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+	cursor:pointer;
+	border:none;
+}
+
+.add::before{
+	font-family: 'Font Awesome 5 Free';
+	content:'\f044  ';
+	font-size: 14px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+.delete{
+
+	width:100px;
+	height:40px;
+	background-color:red;
+	color:white;
+	cursor:pointer;
+	border:none;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.delete::before{
+
+	font-family: 'Font Awesome 5 Free';
+	content : '\f014 ';
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+
+.just-btn{
+	display:flex;
+	padding-left:20px;
+	padding-right:20px;
+	justify-content:space-around;
+	margin-top : 30%;
+}
+
+.txt {
+	font-size : 20px;
+}
+
+.card-container{
+	width:500px;
+	height:500px;
+	padding:20px;
+}
+
+.riskid{
+	width:97%;
+	height:30px;
+	margin-top:10px;
+	margin-bottom:10px;
+	outline:none;
+	border:none;
+	border-bottom: 0.2px solid;
+}
+
+.riskid::focus{
+	outline:none;
+}
+
+
+.username{
+	width:97%;
+	height:30px;
+	margin-bottom:10px;
+	outline:none;
+	border: none;
+	border-bottom: 0.2px solid;
+	margin-left: 6px;
+}
+
+
+.role{
+	width:97%;
+	height:30px;
+	margin-bottom:10px;
+	outline:none;
+	border: none;
+	border-bottom: 0.2px solid;
+	margin-left: 6px;
+}
+
+
+.emails{
+	width:97%;
+	height:30px;
+	margin-bottom:10px;
+	outline:none;
+	border: none;
+	border-bottom: 0.2px solid;
+	margin-left: 6px;
+}
+
+
+.passwords{
+
+	width:97%;
+	height:30px;
+	margin-bottom:10px;
+	outline:none;
+	border: none;
+	border-bottom: 0.2px solid;
+	margin-left: 6px;
+}
+
+
+
+.subButton{
+
+	width:97%;
+	height:30px;
+	background-color:black;
+	color:white;
+	margin-bottom:10px;
+	border:none;
+	margin-left: 6px;
+}
+
+
+.add-background{
+	height:400px;
+	width:500px;
+	background-color:#d3d3d3;
+
+}
+
+
+
+.addrbox{
+	width:100%;
+	height:40px;
+}
+
+.addrole{
+	width:101%;
+	height:35px;
+	border:none;
+	border-bottom:0.2px solid ;
+}
+
+.nameMsg{
+	width:90%;	
+	height:40px;
+	border:none;
+	border-bottom:0.2px solid;
+}
+
+.userEdits{
+	width:90%;
+	height:30px;
+	border:none;
+	border-bottom:0.2px solid;
+}
+
+.passwordUser{
+	width:90%;
+	height:40px;
+}
+
+.passEdits{
+	width:90%;
+	height:30px;
+	border:none;
+	border-bottom:0.2px solid;
+
+}
+
+.userEmail{
+	width:90%;
+	height:40px;
+
+}
+
+.emailEdits{
+	width:90%;
+	height:30px;
+	border:none;
+	border-bottom:0.2px solid;
+}
+
+.container1{
+	display:flex;
+	width:100%;
+}
+
+.sub2{
+	background-color:red;
+	color:white;
+}
+
+.container2{
+	display:flex;
+	width:100%;
+}
+.sub4{
+	background-color:red;
+	color:white;
+}
+

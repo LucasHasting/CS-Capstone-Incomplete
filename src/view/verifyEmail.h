@@ -1,6 +1,8 @@
 #ifndef VERIFYEMAIL_H
 #define VERIFYEMAIL_H
 
+#include "forgetView.h"
+
 #include <Wt/WApplication.h>
 #include <Wt/WContainerWidget.h>
 #include <Wt/WLineEdit.h>
@@ -10,14 +12,16 @@ using namespace Wt;
 
 class VerifyEmail : public WContainerWidget {
 	
+
 	public:
-		VerifyEmail(WContainerWidget* parent = nullptr);
+		VerifyEmail(WContainerWidget* parent = nullptr, const WString& email= "");
 	
 	private:
+		WString email_;
 		WLineEdit* oneCode_;
 		WContainerWidget* container;
 		void createHeader();
-		void showAdmin();
+		void showSetNewPassword();
 		void showVerifyScreen();
 		void verifyEmailCodeView();
 		void onInternalPathChange();
