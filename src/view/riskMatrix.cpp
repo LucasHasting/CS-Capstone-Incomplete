@@ -61,7 +61,7 @@ void RiskMatrix :: createMatrix(WContainerWidget* Mat){
 	   }
 	}
 
-	matrix->addWidget(make_unique<WText>("Overall X"));
+	//matrix->addWidget(make_unique<WText>("Overall X"));
 
 
 	auto yLabelCon = make_unique<WContainerWidget>();
@@ -78,9 +78,10 @@ void RiskMatrix :: createMatrix(WContainerWidget* Mat){
 	auto inputsContainer = Mat->addWidget(make_unique<WContainerWidget>());
 
 	auto inputEdit = inputsContainer->addWidget(make_unique<WLineEdit>());
-	auto textBox = inputsContainer->addWidget(make_unique<WText>());
 	
 	auto button = inputsContainer->addWidget(make_unique<WPushButton>("Check"));
+	auto textBox = inputsContainer->addWidget(make_unique<WText>("Text"));
+	
 	
 	inputEdit->setPlaceholderText("Risk Id");
 	inputEdit->setStyleClass("riskInputMat");

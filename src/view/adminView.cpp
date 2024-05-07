@@ -52,7 +52,7 @@ void AdminView :: createHeader(){
 void AdminView :: viewRiskReport(WContainerWidget* riskDetails) {
 	auto riskReport = riskDetails->addWidget(make_unique<WContainerWidget>());
 	riskReport->addWidget(make_unique<RiskReport>());
-	riskReport->setWidth(Wt::WLength("90%"));
+	riskReport->setWidth(Wt::WLength("93%"));
 	riskDetails->setStyleClass("riskDets");
 }
 
