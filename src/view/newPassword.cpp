@@ -25,7 +25,7 @@ NewPassword::NewPassword(WContainerWidget* parent) : WContainerWidget() {
 
 
 	app->internalPathChanged().connect(this , &NewPassword::onInternalPathChange);
-	app->useStyleSheet("view/forget.css");
+	app->useStyleSheet("view/style.css");
 	createHeader();
 	viewPasswordCard();
 	container->setStyleClass("container");
@@ -72,13 +72,13 @@ void NewPassword::viewPasswordCard(){
 	auto submit = passwords->addWidget(make_unique<WPushButton>("Set Password"));
 	submit->setStyleClass("submitB");
 	submit->setLink(WLink(LinkType::InternalPath,"/login"));
-	card->setStyleClass("card");
+	card->setStyleClass("loginHead");
 	headCon->setStyleClass( "headContainer");
 	text->setStyleClass("text");
-	passwords->setStyleClass( "passwords" );
+	passwords->setStyleClass( "userEdit" );
 	label->setStyleClass("label");
-	passEdit->setStyleClass("passEdit");
-	passEdit1->setStyleClass("passEdit");	
+	passEdit->setStyleClass("userEdit");
+	passEdit1->setStyleClass("userEdit");	
 }
 
 void NewPassword::showLoginPage(){
