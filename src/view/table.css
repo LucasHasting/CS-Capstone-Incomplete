@@ -170,14 +170,53 @@
 
 }
 
-.sub1{
-	background-color:black;
-	color:white;
+.container1{
+	display:flex;
+	width:100%;
 }
 
 .sub2{
-	background-color:red:
+	background-color:red;
 	color:white;
 }
 
+.green{
+	background-color:green;
+}
+.red{
+	background-color:red;
+}
+.container2{
+	display:flex;
+	width:100%;
+}
+.sub4{
+	background-color:red;
+	color:white;
+}
 
+.yellow{
+	background-color:yellow;
+}
+
+.yLabel{
+	transform:rotate(-90deg);
+}
+
+.riskInputMat{
+	height:40px;
+	width:50px;
+}
+
+.inputsCon{
+	display:flex;
+	width:100%;
+	justify-content:center;
+}
+
+.buttos{
+	width:50px;
+	height:40px;
+	background-color:black;
+	color:white;
+}

@@ -5,6 +5,7 @@
 #include <Wt/WContainerWidget.h>
 #include <Wt/WText.h>
 #include <Wt/WDialog.h>
+#include "../model/DatabaseConnection.h"
 using namespace std;
 using namespace Wt;
 
@@ -17,6 +18,10 @@ class RiskMatrix : public WContainerWidget {
 		void createMatrix(WContainerWidget*);
 		void createButton(WContainerWidget*);
 		unique_ptr<WDialog> dialog;
+	    WText* textBox;
+	    WLineEdit* inputEdit;
+        DatabaseConnection connection;
+        void Submit();
 };
 
 #endif /* RISKMATRIX_H */

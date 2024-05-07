@@ -21,7 +21,7 @@ class AdminView : public WContainerWidget {
 		void viewRiskReport(WContainerWidget*);
 		void viewRiskMatrix(WContainerWidget*);
 		void createButtons(WContainerWidget*);
-
+		unique_ptr<WDialog> dialog;
 };
 
 #endif /*ADMINVIEW_H*/

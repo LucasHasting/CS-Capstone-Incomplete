@@ -114,13 +114,13 @@ bool DatabaseConnection::addUser(std::unique_ptr<User> user) {
 }
 
 bool DatabaseConnection::removeUser(std::string username){
+  std::cout << username << std::endl;
   try {
     Wt::Dbo::Transaction transaction(session);
     Wt::Dbo::ptr<User> user =
         session.find<User>().where("username = ?").bind(username);
 
     user.remove();
-    transaction.rollback();
     return true;
   } catch (Wt::Dbo::Exception e) {
     return false;
@@ -239,7 +239,7 @@ bool DatabaseConnection::addRisk(std::unique_ptr<Risk> risk) {
     // check to see if the risk exists
     Wt::Dbo::Transaction transaction1(session);
     Wt::Dbo::ptr<Risk> r =
-        session.find<Risk>().where("riskID = ?").bind(risk->getID());
+        session.find<Risk>().where("RID = ?").bind(risk->getID());
 
     // used to throw an exception if no risk is found
     r.modify()->getID();
@@ -260,6 +260,18 @@ bool DatabaseConnection::addRisk(std::unique_ptr<Risk> risk) {
   return true;
 }
 
+int DatabaseConnection::riskPriority(std::string RiskID){
+  try {
+    // check to see if the risk exists
+    Wt::Dbo::Transaction transaction1(session);
+    Wt::Dbo::ptr<Risk> r =
+        session.find<Risk>().where("RID = ?").bind(RiskID);
+
+    return r.modify()->getLikelihoodRank() * r.modify()->getImpactRank();
+  } catch (Wt::Dbo::Exception e) {
+      return 0;
+    }
+}
 
 bool DatabaseConnection::editRisk(std::string id, std::string cd,
                                   std::string od, std::string note,

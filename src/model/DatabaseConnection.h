@@ -22,6 +22,7 @@ public:
   std::unique_ptr<Risk> CreateRiskFromDB(Wt::Dbo::ptr<Risk>::mutator);
   std::vector<std::unique_ptr<User>> selectAllUser();
   std::vector<std::unique_ptr<Risk>> selectAllRisk();
+  int riskPriority(std::string);
   bool addRisk(std::unique_ptr<Risk>);
   bool editRisk(std::string, std::string, std::string, std::string, std::string,
                 std::string, std::string, std::string, int, int);

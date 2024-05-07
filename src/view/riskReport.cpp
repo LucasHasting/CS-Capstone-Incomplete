@@ -2,7 +2,7 @@
 #include "updateRisk.h"
 #include "../model/Risk.h"
 #include "../model/DatabaseConnection.h"
-
+#include "deleteRisk.h"
 #include <Wt/WApplication.h>
 #include <Wt/WContainerWidget.h>
 #include <Wt/WText.h>
@@ -20,6 +20,8 @@ RiskReport::RiskReport(WContainerWidget* parent) : WContainerWidget()
 	  auto app = WApplication::instance();
 	  app->useStyleSheet("style.css");
 	  
+
+
 	  app->internalPathChanged().connect(this,&RiskReport::onInternalPathChange);
 	  container = addWidget(make_unique<WContainerWidget>());
 	  container->setStyleClass("riskReport");
@@ -130,6 +132,32 @@ void RiskReport::showRiskReport(){
 	  	edit->setStyleClass("editButton");
 		delet = table->elementAt(row , 11)->addNew<WPushButton>("Delete");
 	  	delet->setStyleClass("deleteButton");
+
+		
+	//auto deleteButton = buttons->addWidget(make_unique<WPushButton>("Delete"));
+
+	//auto butCon = But->addWidget(make_unique<WContainerWidget>());
+	delet->clicked().connect([=]{
+			if(!dialog){
+				cout<<"Not Exist"<<endl;
+				dialog = make_unique<WDialog>("Delete Risk");
+				auto deleterisk = make_unique<deleteRisk>();
+				dialog->contents()->addWidget(move(deleterisk));
+
+				auto closeButton = make_unique<WPushButton>("X");
+				closeButton->clicked().connect([dialog = dialog.get()]{
+						dialog->accept();
+					});
+				dialog->finished().connect([this]{
+					dialog.reset();	
+					});		
+				dialog->footer()->addWidget(move(closeButton));
+				dialog->show();
+			}
+			else cout<<"Not Exist"<<endl;
+	});
+
+
 	  //table->elementAt(row , 7)->addNew<WText>(WString("{1}").arg(row));
 		//table->elementAt(row , 8)->addNew<WText>(WString("{1}").arg(row));
 	  }

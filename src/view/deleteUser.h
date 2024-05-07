@@ -7,12 +7,16 @@
 #include <Wt/WPopupMenu.h>
 #include <Wt/WPushButton.h>
 #include <Wt/WMessageBox.h>
+#include "../model/DatabaseConnection.h"
 
 using namespace Wt;
 using namespace std;
 
 
 class deleteUser : public WContainerWidget {
+	WLineEdit* username;
+    DatabaseConnection connection;
+    void Submit();
 	
 	public:
 		deleteUser(WContainerWidget *parent = nullptr);

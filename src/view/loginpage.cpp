@@ -25,6 +25,7 @@
 #include <Wt/Dbo/backend/MySQL.h>
 #include "setRiskId.h"
 #include "newPassword.h"
+#include "trackView.h"
 
 using namespace Wt;
 using namespace std;
@@ -262,7 +263,7 @@ void LoginPage :: createDialog(WContainerWidget* container) {
 
 	dialog->show();
 	//cout<<"First Dialogie"<<endl;
-	//container->addWidget(move(dialog));
+//	container->addWidget(move(dialog));
 	//cout<<"second"<<endl;
 	//dialog->setModal(true);
 //	dialog->setStyleClass("dial");

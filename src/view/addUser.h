@@ -32,7 +32,6 @@ class addUser : public WContainerWidget{
 		WLineEdit* email;
         DatabaseConnection connection;
 
-		//void Head();
 		void onInternalPathChange();
 		void Role();
 		void UserName();
