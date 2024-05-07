@@ -25,7 +25,7 @@ using namespace std;
 addUser::addUser(WContainerWidget* parent) : WContainerWidget()
 {
 
-	WApplication::instance()->useStyleSheet("table.css");
+	WApplication::instance()->useStyleSheet("view/table.css");
 
 	//WApplication::instance()->internalPathChanged().connect(this, &addUser::onInternalPathChange);
 

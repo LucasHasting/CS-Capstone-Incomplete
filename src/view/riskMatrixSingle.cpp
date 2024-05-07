@@ -14,7 +14,7 @@ using namespace Wt;
 RiskMatrixSingle :: RiskMatrixSingle(WContainerWidget* parent) : WContainerWidget(){
 
 	auto app = WApplication::instance();
-	app->useStyleSheet("table.css");
+	app->useStyleSheet("view/table.css");
 
 	container = addNew <WContainerWidget>();
 	

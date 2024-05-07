@@ -24,7 +24,7 @@ RiskReport::RiskReport(WContainerWidget* parent) : WContainerWidget()
 
 	  app->internalPathChanged().connect(this,&RiskReport::onInternalPathChange);
 	  container = addWidget(make_unique<WContainerWidget>());
-	  container->setStyleClass("riskReport");
+	  container->setStyleClass("view/riskReport");
 	  
 	  showRiskReport();
 }

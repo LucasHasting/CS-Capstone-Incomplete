@@ -18,7 +18,7 @@ using namespace std;
 ForgetView :: ForgetView(WContainerWidget* parent) : WContainerWidget(){
 
 
-	WApplication::instance()->useStyleSheet("style.css");
+	WApplication::instance()->useStyleSheet("view/style.css");
 	
         WApplication::instance()->internalPathChanged().connect(this,&ForgetView::onInternalPathChange);	
 	

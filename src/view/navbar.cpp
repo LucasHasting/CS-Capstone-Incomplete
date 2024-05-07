@@ -21,7 +21,7 @@ void Navbar :: createHeader(){
 	
 	auto nav = addWidget(std::make_unique<Wt::WContainerWidget>());
 	
-	WApplication::instance()->useStyleSheet("style.css");
+	WApplication::instance()->useStyleSheet("view/style.css");
 
 	
 	nav->setStyleClass("navbar");

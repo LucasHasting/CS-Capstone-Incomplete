@@ -20,7 +20,7 @@ UpdateRisk :: UpdateRisk(WContainerWidget* parent) : WContainerWidget(){
 	
 	auto app = WApplication::instance();
 	
-	app->useStyleSheet("forget.css");
+	app->useStyleSheet("view/forget.css");
 
 	auto widCon = container->addWidget(make_unique<WContainerWidget>());
 

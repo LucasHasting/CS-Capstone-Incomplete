@@ -16,7 +16,7 @@ using namespace std;
 
 TrackView::TrackView(WContainerWidget* parent) : WContainerWidget() {
     auto app = WApplication::instance();
-    app->useStyleSheet("style.css");
+    app->useStyleSheet("view/style.css");
     app->useStyleSheet("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css");
     container = addWidget(make_unique<WContainerWidget>());
     auto riskDetails = container->addWidget(make_unique<WContainerWidget>());

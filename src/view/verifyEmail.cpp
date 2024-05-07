@@ -18,7 +18,7 @@ using namespace Wt;
 VerifyEmail :: VerifyEmail (WContainerWidget* parent , const WString& email) :  WContainerWidget() , email_(email){
 	
 	auto app = WApplication::instance();	
-	app->useStyleSheet("style.css");
+	app->useStyleSheet("views/style.css");
 
 
 	cout<<"Recived " <<email_<<endl;

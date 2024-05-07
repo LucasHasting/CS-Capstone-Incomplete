@@ -15,7 +15,7 @@ using namespace std;
 AddRiskView::AddRiskView() : WContainerWidget() {
     container = addWidget(std::make_unique<WContainerWidget>());
     auto app = WApplication::instance();
-    app->useStyleSheet("styles.css");
+    app->useStyleSheet("view/styles.css");
 
 
     auto heading = container->addWidget(make_unique<WText>("Add Risk Details"));
