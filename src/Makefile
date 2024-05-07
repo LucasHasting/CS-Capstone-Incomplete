@@ -4,7 +4,7 @@
 # "make start" will compile (if needed) and launch your program
 # "make stop" will terminate your program, ALWAYS stop after you've tested
 #
-PROG= hello		# set your program name here
+PROG= SRT		# set your program name here
 PORT= 8083		# any port in the range 8080-8085 is valid
 SRCS!= ls model/*.cpp
 SRCS!+= ls view/*.cpp

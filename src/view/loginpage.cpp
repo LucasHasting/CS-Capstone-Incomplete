@@ -5,34 +5,29 @@
 -------------------------------------
 */
 
-
-#include <memory>
 #include <Wt/WApplication.h>
-#include <Wt/WText.h>
 #include <Wt/WLabel.h>
 #include <Wt/WLineEdit.h>
-#include <Wt/WPushButton.h>
 #include <Wt/WLink.h>
+#include <Wt/WPushButton.h>
 #include <Wt/WStackedWidget.h>
+#include <Wt/WText.h>
+#include <memory>
 
-
-#include <Wt/WDialog.h>
+#include "Audit.h"
+#include "adminView.h"
+#include "forgetView.h"
 #include "loginpage.h"
 #include "navbar.h"
-#include "forgetView.h"
-#include "adminView.h"
+#include "newPassword.h"
+#include "setRiskId.h"
+#include "trackView.h"
 #include <Wt/Dbo/Dbo.h>
 #include <Wt/Dbo/backend/MySQL.h>
-#include "setRiskId.h"
-#include "newPassword.h"
-#include "trackView.h"
-#include "Audit.h"
+#include <Wt/WDialog.h>
 
 using namespace Wt;
 using namespace std;
-
-
-
 
 /*
 --------------------------------------------------------------------------
@@ -42,19 +37,19 @@ using namespace std;
 --------------------------------------------------------------------------
  *
 */
-LoginPage :: LoginPage(const WEnvironment& env) : WApplication(env){
+LoginPage ::LoginPage(const WEnvironment &env) : WApplication(env) {
 
-	useStyleSheet("view/style.css");
-	container = root()->addWidget(std::make_unique<Wt::WContainerWidget>());
-	
-	internalPathChanged().connect(this,&LoginPage::onInternalPathChange);	
+  useStyleSheet("view/style.css");
+  container = root()->addWidget(std::make_unique<Wt::WContainerWidget>());
 
-	container->setStyleClass("parent");
-	createHeader();
-	loginCard();
-	createDialog(container);
-	//cout<<"dilog 3"<<endl;
-}	
+  internalPathChanged().connect(this, &LoginPage::onInternalPathChange);
+
+  container->setStyleClass("parent");
+  createHeader();
+  loginCard();
+  createDialog(container);
+  // cout<<"dilog 3"<<endl;
+}
 
 /*
 -----------------------------------------------------------------------------
@@ -64,14 +59,11 @@ LoginPage :: LoginPage(const WEnvironment& env) : WApplication(env){
  *
 */
 
+void LoginPage::createHeader() {
 
-void LoginPage::createHeader(){
-
-	auto nav = std::make_unique<Navbar>();
-	container->addWidget(move(nav));
+  auto nav = std::make_unique<Navbar>();
+  container->addWidget(move(nav));
 }
-
-
 
 /*
 --------------------------------------------------------------------------
@@ -82,145 +74,137 @@ void LoginPage::createHeader(){
  *
 */
 
-void LoginPage::loginCard(){ 
+void LoginPage::loginCard() {
 
-    auto card = container->addWidget(make_unique<WContainerWidget>());
+  auto card = container->addWidget(make_unique<WContainerWidget>());
 
-	auto logCon = card->addWidget(make_unique<WContainerWidget>());
-	auto loginText = logCon->addWidget(make_unique<WText>("Login"));
-	
-	card->addWidget(make_unique<WBreak>());
-	
-	auto msg = card->addWidget(make_unique<WContainerWidget>());
-	auto welMsg = msg->addWidget(make_unique<WText>("Hi! Welcome Back \U0001F44B "));
-	
-	
-	card->addWidget(make_unique<WBreak>());
+  auto logCon = card->addWidget(make_unique<WContainerWidget>());
+  auto loginText = logCon->addWidget(make_unique<WText>("Login"));
 
-	auto userName = card->addWidget(make_unique<WLabel>("User Name"));
-	card->addWidget(make_unique<WBreak>());
-	edit_ = card->addWidget(make_unique<WLineEdit>());
+  card->addWidget(make_unique<WBreak>());
 
-	userName->setBuddy(edit_);
+  auto msg = card->addWidget(make_unique<WContainerWidget>());
+  auto welMsg =
+      msg->addWidget(make_unique<WText>("Hi! Welcome Back \U0001F44B "));
 
-	card->addWidget(make_unique<WBreak>());
-	
-    edit_->blurred().connect([=]{
-		if(edit_->text().empty()) edit_->setText("username");
-	});
+  card->addWidget(make_unique<WBreak>());
 
-	edit_->focussed().connect([=]{
-		if(edit_->text() == "username") edit_->setText("");
-	});
+  auto userName = card->addWidget(make_unique<WLabel>("User Name"));
+  card->addWidget(make_unique<WBreak>());
+  edit_ = card->addWidget(make_unique<WLineEdit>());
 
-	
-	auto password = card->addWidget(make_unique<WLabel>("Password"));
-	card->addWidget(make_unique<WBreak>());
-	passEdit_ = card->addWidget(make_unique<WLineEdit>());
-	password->setBuddy(passEdit_);
-	passEdit_->setEchoMode(Wt::EchoMode::Password);
-	
-	card->addWidget(make_unique<WBreak>());
-	
+  userName->setBuddy(edit_);
 
-	passEdit_->blurred().connect([=]{
-		if(passEdit_->text().empty()) passEdit_->setText("password");
-	});
+  card->addWidget(make_unique<WBreak>());
 
-	passEdit_->focussed().connect([=]{
-		if(passEdit_->text() == "password") passEdit_->setText("");
-	});
-	
-	submit = card->addWidget(std::make_unique<Wt::WPushButton>("Login"));
-    submit->clicked().connect(this, &LoginPage::authenticate);
+  edit_->blurred().connect([=] {
+    if (edit_->text().empty())
+      edit_->setText("username");
+  });
 
+  edit_->focussed().connect([=] {
+    if (edit_->text() == "username")
+      edit_->setText("");
+  });
 
-    	passEdit_->enterPressed().connect(this, &LoginPage::authenticate);
+  auto password = card->addWidget(make_unique<WLabel>("Password"));
+  card->addWidget(make_unique<WBreak>());
+  passEdit_ = card->addWidget(make_unique<WLineEdit>());
+  password->setBuddy(passEdit_);
+  passEdit_->setEchoMode(Wt::EchoMode::Password);
 
+  card->addWidget(make_unique<WBreak>());
 
-	card->addWidget(make_unique<WBreak>());
-	auto forContainer = card->addWidget(make_unique<WContainerWidget>());
-	forContainer->addWidget(make_unique<WText>("Forgot Password? "));
-	auto forget = forContainer->addWidget(std::make_unique<Wt::WAnchor>(Wt::WLink(Wt::LinkType::InternalPath , "/forget-password"),"Click Here"));	
-	//styling classes
-	
+  passEdit_->blurred().connect([=] {
+    if (passEdit_->text().empty())
+      passEdit_->setText("password");
+  });
 
-	card->setStyleClass("loginHead");	
-	logCon->setStyleClass("text");
-	welMsg->setStyleClass("welcome");
-	userName->setStyleClass("msg");
-	edit_ ->setStyleClass("userEdit");
-	passEdit_->setStyleClass("pasEdit");
-	submit->setStyleClass("submit");
-	forContainer->setStyleClass("forContainer");
-	forget->setStyleClass("forget");
+  passEdit_->focussed().connect([=] {
+    if (passEdit_->text() == "password")
+      passEdit_->setText("");
+  });
 
+  submit = card->addWidget(std::make_unique<Wt::WPushButton>("Login"));
+  submit->clicked().connect(this, &LoginPage::authenticate);
+
+  passEdit_->enterPressed().connect(this, &LoginPage::authenticate);
+
+  card->addWidget(make_unique<WBreak>());
+  auto forContainer = card->addWidget(make_unique<WContainerWidget>());
+  forContainer->addWidget(make_unique<WText>("Forgot Password? "));
+  auto forget = forContainer->addWidget(std::make_unique<Wt::WAnchor>(
+      Wt::WLink(Wt::LinkType::InternalPath, "/forget-password"), "Click Here"));
+  // styling classes
+
+  card->setStyleClass("loginHead");
+  logCon->setStyleClass("text");
+  welMsg->setStyleClass("welcome");
+  userName->setStyleClass("msg");
+  edit_->setStyleClass("userEdit");
+  passEdit_->setStyleClass("pasEdit");
+  submit->setStyleClass("submit");
+  forContainer->setStyleClass("forContainer");
+  forget->setStyleClass("forget");
 }
-
 
 /*
 --------------------------------------------------------------------------
 |    Function Name   |  onInternalPathChange			         |
-|    Description     |  Mantains the paths to the different pages. 	 |			 
+|    Description     |  Mantains the paths to the different pages. 	 |
 --------------------------------------------------------------------------
  *
 */
 
-void LoginPage::authenticate(){
-    user = connection.authenticateUser(edit_->text().narrow(), passEdit_->text().narrow());
-	
-    if(user != nullptr)
-        if(user->getRole() == "Admin")
-            setInternalPath("/admin");
-        else if (user->getRole() == "Track")
-            submit->setLink(WLink(LinkType::InternalPath,"/track"));
-        else if (user->getRole() == "Audit")
-            submit->setLink(WLink(LinkType::InternalPath,"/audit"));
-        //else if (user->getRole() == "Track")
-             // submit->setLink(WLink(LinkType::InternalPath,   
- onInternalPathChange(); 
+void LoginPage::authenticate() {
+  user = connection.authenticateUser(edit_->text().narrow(),
+                                     passEdit_->text().narrow());
+
+  if (user != nullptr)
+    if (user->getRole() == "Admin")
+      setInternalPath("/admin");
+    else if (user->getRole() == "Track")
+      submit->setLink(WLink(LinkType::InternalPath, "/track"));
+    else if (user->getRole() == "Audit")
+      submit->setLink(WLink(LinkType::InternalPath, "/audit"));
+  // else if (user->getRole() == "Track")
+  //  submit->setLink(WLink(LinkType::InternalPath,
+  onInternalPathChange();
 }
 
-void LoginPage::onInternalPathChange(){
-	
-	if(internalPath() == "/forget-password"){
-		showForget();
-	}
-	else if(internalPath() == "/admin"){
-		showAdmin();
-	}
-	else if(internalPath() == "/track"){
-		showTrack();
-	}
-	else if(internalPath() == "/audit"){
-		showAudit();
-	}
-	else if(internalPath() == "/admin" || internalPath() == "/login" ){
-		container->clear();
-		showLogin();
-	}
-	else if(internalPath() == "/setpassword"){
-		showPassword();
-	}
+void LoginPage::onInternalPathChange() {
 
-}
-
-void LoginPage::showTrack(){
+  if (internalPath() == "/forget-password") {
+    showForget();
+  } else if (internalPath() == "/admin") {
+    showAdmin();
+  } else if (internalPath() == "/track") {
+    showTrack();
+  } else if (internalPath() == "/audit") {
+    showAudit();
+  } else if (internalPath() == "/admin" || internalPath() == "/login") {
     container->clear();
-    container->addWidget(make_unique<TrackView>());
+    showLogin();
+  } else if (internalPath() == "/setpassword") {
+    showPassword();
+  }
 }
 
-void LoginPage::showAudit(){
-    container->clear();
-    container->addWidget(make_unique<Audit>());
+void LoginPage::showTrack() {
+  container->clear();
+  container->addWidget(make_unique<TrackView>());
 }
 
-void LoginPage :: showPassword(){
-
-	container->clear();
-	container->addWidget(make_unique<NewPassword>());
+void LoginPage::showAudit() {
+  container->clear();
+  container->addWidget(make_unique<Audit>());
 }
 
+void LoginPage ::showPassword() {
+
+  container->clear();
+  container->addWidget(make_unique<NewPassword>());
+}
 
 /*
 --------------------------------------------------------------------------
@@ -230,10 +214,10 @@ void LoginPage :: showPassword(){
  *
 */
 
-void LoginPage::showForget(){
-	
-	 container->clear();
-	 container->addWidget(make_unique<ForgetView>());
+void LoginPage::showForget() {
+
+  container->clear();
+  container->addWidget(make_unique<ForgetView>());
 }
 
 /*
@@ -245,51 +229,46 @@ void LoginPage::showForget(){
  *
 */
 
-void LoginPage::showLogin(){
-	
-	container->clear();
-	createHeader();
-	loginCard();
+void LoginPage::showLogin() {
 
-}	
+  container->clear();
+  createHeader();
+  loginCard();
+}
 
 /*
 ----------------------------------------------------------------------------
 |    Function Name   |  showAdmin 			         	   |
-|    Description     |  If user login succesfully call show the Admin View |	
+|    Description     |  If user login succesfully call show the Admin View |
 --------------------------------------------------------------------------
  *
 */
 
-void LoginPage::showAdmin(){
+void LoginPage::showAdmin() {
 
-	container->clear();
-	container->addWidget(make_unique<AdminView>());
+  container->clear();
+  container->addWidget(make_unique<AdminView>());
 }
 
-void LoginPage :: createDialog(WContainerWidget* container) {
+void LoginPage ::createDialog(WContainerWidget *container) {
 
-	auto dialog = make_unique<WDialog>();
-	auto setRiskWidget = make_unique<SetRiskId>();
+  auto dialog = make_unique<WDialog>();
+  auto setRiskWidget = make_unique<SetRiskId>();
 
-	dialog->contents()->addWidget(move(setRiskWidget));
+  dialog->contents()->addWidget(move(setRiskWidget));
 
-	auto closeButton = make_unique<WPushButton>("X");
-	closeButton->clicked().connect([dialog = dialog.get()] {
-			dialog->accept();
-	});
+  auto closeButton = make_unique<WPushButton>("X");
+  closeButton->clicked().connect([dialog = dialog.get()] { dialog->accept(); });
 
-	dialog->footer()->addWidget(move(closeButton));
-	dialog->finished().connect([this,&dialog]{
-		dialog.reset();	
-		});
+  dialog->footer()->addWidget(move(closeButton));
+  dialog->finished().connect([this, &dialog] { dialog.reset(); });
 
-	dialog->show();
-	//cout<<"First Dialogie"<<endl;
-//	container->addWidget(move(dialog));
-	//cout<<"second"<<endl;
-	//dialog->setModal(true);
-//	dialog->setStyleClass("dial");
+  dialog->show();
+  // cout<<"First Dialogie"<<endl;
+  //	container->addWidget(move(dialog));
+  // cout<<"second"<<endl;
+  // dialog->setModal(true);
+  //	dialog->setStyleClass("dial");
 
-//	dialog->setAttributeValue("style" , "width:500px ; height:300px; ");
+  //	dialog->setAttributeValue("style" , "width:500px ; height:300px; ");
 }

@@ -1,6 +1,6 @@
 #include "DatabaseConnection.h"
-#include "User.h"
 #include "Risk.h"
+#include "User.h"
 #include <Wt/Dbo/Dbo.h>
 #include <Wt/Dbo/Exception.h>
 #include <Wt/Dbo/backend/MySQL.h>
@@ -24,7 +24,7 @@ DatabaseConnection::DatabaseConnection() {
   try {
     session.createTables();
   } catch (Wt::Dbo::Exception e) {
-    }
+  }
 }
 
 /* addUser will return false if a user cannot be added, and true if it is
@@ -113,7 +113,7 @@ bool DatabaseConnection::addUser(std::unique_ptr<User> user) {
   return true;
 }
 
-bool DatabaseConnection::removeUser(std::string username){
+bool DatabaseConnection::removeUser(std::string username) {
   std::cout << username << std::endl;
   try {
     Wt::Dbo::Transaction transaction(session);
@@ -176,10 +176,12 @@ DatabaseConnection::CreateUserFromDB(Wt::Dbo::ptr<User>::mutator u,
 }
 
 std::unique_ptr<Risk>
-DatabaseConnection::CreateRiskFromDB(Wt::Dbo::ptr<Risk>::mutator r){
+DatabaseConnection::CreateRiskFromDB(Wt::Dbo::ptr<Risk>::mutator r) {
   // return the smart pointer
-  return make_unique<Risk>(r->getID(), r->getShortDescription(), r->getLongDescription(), r->getLikelihoodRank(), r->getImpactRank(), r->getOwner(), 
-    r->getStatus(), r->getNotes(), r->getOpenDate(), r->getCloseDate());
+  return make_unique<Risk>(r->getID(), r->getShortDescription(),
+                           r->getLongDescription(), r->getLikelihoodRank(),
+                           r->getImpactRank(), r->getOwner(), r->getStatus(),
+                           r->getNotes(), r->getOpenDate(), r->getCloseDate());
 }
 
 /* method will select all users from a database and store it into a vector
@@ -260,17 +262,16 @@ bool DatabaseConnection::addRisk(std::unique_ptr<Risk> risk) {
   return true;
 }
 
-int DatabaseConnection::riskPriority(std::string RiskID){
+int DatabaseConnection::riskPriority(std::string RiskID) {
   try {
     // check to see if the risk exists
     Wt::Dbo::Transaction transaction1(session);
-    Wt::Dbo::ptr<Risk> r =
-        session.find<Risk>().where("RID = ?").bind(RiskID);
+    Wt::Dbo::ptr<Risk> r = session.find<Risk>().where("RID = ?").bind(RiskID);
 
     return r.modify()->getLikelihoodRank() * r.modify()->getImpactRank();
   } catch (Wt::Dbo::Exception e) {
-      return 0;
-    }
+    return 0;
+  }
 }
 
 bool DatabaseConnection::editRisk(std::string id, std::string cd,
