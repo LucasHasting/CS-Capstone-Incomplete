@@ -168,10 +168,12 @@ void LoginPage::authenticate(){
         if(user->getRole() == "Admin")
             setInternalPath("/admin");
         else if (user->getRole() == "Track")
-            submit->setLink(WLink(LinkType::InternalPath,"/admin"));
+            submit->setLink(WLink(LinkType::InternalPath,"/track"));
         else if (user->getRole() == "Audit")
-            submit->setLink(WLink(LinkType::InternalPath,"/admin"));
-    onInternalPathChange(); 
+            submit->setLink(WLink(LinkType::InternalPath,"/audit"));
+        //else if (user->getRole() == "Track")
+             // submit->setLink(WLink(LinkType::InternalPath,   
+ onInternalPathChange(); 
 }
 
 void LoginPage::onInternalPathChange(){
@@ -180,6 +182,12 @@ void LoginPage::onInternalPathChange(){
 		showForget();
 	}
 	else if(internalPath() == "/admin"){
+		showAdmin();
+	}
+	else if(internalPath() == "/track"){
+		showTrack();
+	}
+	else if(internalPath() == "/audit"){
 		showAdmin();
 	}
 	else if(internalPath() == "/admin" || internalPath() == "/login" ){
@@ -192,6 +200,10 @@ void LoginPage::onInternalPathChange(){
 
 }
 
+void LoginPage::showTrack(){
+    container->clear();
+    container->addWidget(make_unique<TrackView>());
+}
 void LoginPage :: showPassword(){
 
 	container->clear();
