@@ -26,6 +26,7 @@ class LoginPage : public WApplication{
 		void onInternalPathChange();
         void authenticate();
         void showTrack();
+        void showAudit();
 		Wt::WPushButton* submit;
 		Wt::WLineEdit* edit_;
 		Wt::WLineEdit* passEdit_;

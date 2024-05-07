@@ -26,6 +26,7 @@
 #include "setRiskId.h"
 #include "newPassword.h"
 #include "trackView.h"
+#include "Audit.h"
 
 using namespace Wt;
 using namespace std;
@@ -188,7 +189,7 @@ void LoginPage::onInternalPathChange(){
 		showTrack();
 	}
 	else if(internalPath() == "/audit"){
-		showAdmin();
+		showAudit();
 	}
 	else if(internalPath() == "/admin" || internalPath() == "/login" ){
 		container->clear();
@@ -204,6 +205,12 @@ void LoginPage::showTrack(){
     container->clear();
     container->addWidget(make_unique<TrackView>());
 }
+
+void LoginPage::showAudit(){
+    container->clear();
+    container->addWidget(make_unique<Audit>());
+}
+
 void LoginPage :: showPassword(){
 
 	container->clear();
