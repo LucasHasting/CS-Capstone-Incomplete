@@ -62,7 +62,7 @@ void RiskMatrix :: createMatrix(WContainerWidget* Mat){
 	   }
 	}
 
-	matrix->addWidget(make_unique<WText>("Overall X"));
+	//matrix->addWidget(make_unique<WText>("Overall X"));
 
 
 	auto yLabelCon = make_unique<WContainerWidget>();
