@@ -134,6 +134,10 @@ void LoginPage::loginCard(){
 	submit = card->addWidget(std::make_unique<Wt::WPushButton>("Login"));
     submit->clicked().connect(this, &LoginPage::authenticate);
 
+
+    	passEdit_->enterPressed().connect(this, &LoginPage::authenticate);
+
+
 	card->addWidget(make_unique<WBreak>());
 	auto forContainer = card->addWidget(make_unique<WContainerWidget>());
 	forContainer->addWidget(make_unique<WText>("Forgot Password? "));
