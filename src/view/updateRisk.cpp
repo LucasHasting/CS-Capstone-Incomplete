@@ -25,19 +25,20 @@ UpdateRisk :: UpdateRisk(WContainerWidget* parent) : WContainerWidget(){
 	auto widCon = container->addWidget(make_unique<WContainerWidget>());
 
 	auto id = widCon->addWidget(make_unique<WLineEdit>());
-	
+	id->setPlaceholderText("Risk Id");	
 	auto openClose = widCon->addWidget(make_unique<WContainerWidget>());
 
 	auto openDate = widCon->addWidget(make_unique<WLineEdit>());
-
+	openDate->setPlaceholderText("Open Date");
 	auto closeDate = widCon->addWidget(make_unique<WLineEdit>());
-
+	closeDate->setPlaceholderText(" Close Date ");
 	widCon->addWidget(make_unique<WBreak>());
 	auto notes = widCon->addWidget(make_unique<WLineEdit>());
+	notes->setPlaceholderText("Notes");
 	widCon->addWidget(make_unique<WBreak>());
 
 	auto statOwn = widCon->addWidget(make_unique<WContainerWidget>());
-
+	
 	auto status = statOwn->addWidget(make_unique<WComboBox>());
 	status->addItem("started");
 	status->addItem("InBetween");
@@ -45,7 +46,7 @@ UpdateRisk :: UpdateRisk(WContainerWidget* parent) : WContainerWidget(){
 
 	 
 	auto owner = statOwn->addWidget(make_unique<WLineEdit>());
-	
+	owner->setPlaceholderText("Owner");
 	widCon->addWidget(make_unique<WBreak>());
 
 	auto likeImp = widCon->addWidget(make_unique<WContainerWidget>()); 

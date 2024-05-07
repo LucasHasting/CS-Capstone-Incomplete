@@ -37,7 +37,7 @@
 	border-bottom : 0.1px solid rgb(232,232,232);
 	justify-content:center;
 	font-family:'Afacad' , sans-serif;
-	width:
+	width: 90%;
 }
 
 .Mat {
@@ -86,6 +86,7 @@
 	font-family: 'Font Awesome 5 Free';
 	content:'\f044  ';
 	font-size: 14px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 
@@ -97,6 +98,7 @@
 	color:white;
 	cursor:pointer;
 	border:none;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .delete::before{
@@ -118,9 +120,85 @@
 	font-size : 20px;
 }
 
-.add-background{
-	height:500px;
+.card-container{
+	padding:20px;
+	background:#dedede;
+	height: 400px;
+	width: 500px;
+	background-color: #d3d3d3;
+}
+
+.deleteBackground{
+	
 	width:300px;
+	height:100px;
+	background-color:#dedede;
+
+}
+
+.riskid{
+	width:97%;
+	height:30px;
+	margin-top:10px;
+	margin-bottom:10px;
+	outline:none;
+	border:none;
+	border-bottom: 0.2px solid;
+}
+
+.riskid::focus{
+	outline:none;
+}
+
+.username{
+	width:97%;
+	height:30px;
+	margin-bottom:10px;
+	outline:none;
+	border: none;
+	border-bottom: 0.2px solid;
+	margin-left: 6px;
+}
+
+
+
+.role{
+	width:98%;
+	height:33px;
+	margin-bottom:10px;
+	outline:none;
+	border: none;
+	border-bottom: 0.2px solid;
+	margin-left: 6px;
+}
+
+
+.emails{
+	width:97%;
+	height:30px;
+	margin-bottom:-5px;								 outline:none;
+	border: none;
+	border-bottom: 0.2px solid;							 margin-left: 6px;
+										
+}
+
+
+.passwordss{
+
+	width:97%;
+	height:30px;
+	margin-bottom:10px;
+	outline:none;
+	border: none;
+	border-bottom: 0.2px solid;
+	margin-left: 6px;
+}
+
+
+.add-background{
+	height:400px;
+	width:500px;
+	padding:11px;
 	background-color:#d3d3d3;
 
 }
@@ -130,32 +208,46 @@
 	height:40px;
 }
 
-
 .addrole{
-	width:90%;
-	height:30px;
+	width:101%;
+	height:35px;
+	margin-left:20px;
+	border:none;
+	border-bottom:0.2px solid ;
+	margin-top:7px;
 }
+
 
 .nameMsg{
 	width:90%;	
 	height:40px;
+	border:none;
+	border-bottom:0.2px solid;
 }
 
-.userEdit{
+
+.userEdits{
 	width:90%;
 	height:30px;
+	border:none;
+	border-bottom:0.2px solid;
+	margin-left:20px;
 }
+
 
 .passwordUser{
 	width:90%;
 	height:40px;
 }
 
-.passEdit{
+.passEdits{
 	width:90%;
 	height:30px;
-
+	border:none;
+	border-bottom:0.2px solid;
+	margin-left:20px;
 }
+
 
 .userEmail{
 	width:90%;
@@ -163,20 +255,39 @@
 
 }
 
-.emailEdit{
+.emailEdits{
 	width:90%;
 	height:30px;
+	margin-left:20px;
+	border:none;
+	border-bottom:0.2px solid;
 
 }
 
 .container1{
 	display:flex;
 	width:100%;
+	
+}
+
+.sub1{
+	background-color:black;
+	color:white;
+	height:20px;
+	width:30%;
 }
 
 .sub2{
 	background-color:red;
 	color:white;
+	height:20px;
+	width:84%;
+	display:flex;
+	justify-content:center;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+	border:none;
 }
 
 .green{
@@ -227,3 +338,52 @@
 }
 
 
+/*.Wt-dialog .movable .titlebar {
+	    cursor: move;
+	    background-color: black;
+}
+*/
+
+.Wt-dialog  .titlebar {
+	background: black;
+	color: #FFFFFF;
+	font-family: 'Afacad', sans-serif;
+}
+
+.Wt-dialog{
+	background-color:#DEDEDE;
+}
+
+.IDu{
+	height:30px;
+	width:80%;
+	margin-left:20px;
+	margin-top:10px;
+	outline:none;
+	margin-right:auto;
+}
+
+.subButton{
+	width:99%;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:black;
+	color:white;
+	height:30px;
+}
+
+.golden{
+
+	background-color:gold;
+}
+
+.buttoni{
+	margin-left:20px;
+	margin-top:20px;
+	width:91%;
+	height:35px;
+	border:none;
+	background-color:black;
+	color:white;
+	font-family:'Afacad',sans-serif;
+}

@@ -34,8 +34,8 @@ addUser::addUser(WContainerWidget* parent) : WContainerWidget()
 	
 	Role();
 	UserName();
-	Password();
 	Email();
+	Password();
 }
 
 void addUser::Submit(){
@@ -101,7 +101,7 @@ void addUser::Role()
 
 	rbox->setStyleClass("addrbox");
 	cbRole->setStyleClass("addrole");
-    this->role = cbRole;
+    	this->role = cbRole;
 }	
 
 void addUser::UserName()
@@ -125,8 +125,8 @@ void addUser::UserName()
 
 	//card->setStyleClass("loginHead");
 	UserName->setStyleClass("nameMsg");
-	user_edit_ ->setStyleClass("userEdit");
-    this->userName = user_edit_;
+	user_edit_ ->setStyleClass("userEdits");
+    	this->userName = user_edit_;
 }
 
 
@@ -153,8 +153,13 @@ void addUser::Password()
 
 
 	Password->setStyleClass("passwordUser");
-	pass_edit_ ->setStyleClass("passEdit");
+	pass_edit_ ->setStyleClass("passEdits");
     this->password = pass_edit_;
+
+    	auto submit = card->addWidget(make_unique<WPushButton>("Submit"));
+	submit->setLink(WLink(LinkType::InternalPath,"loginpage"));
+	submit->setStyleClass("buttoni");
+	submit->clicked().connect(this,&addUser::Submit);
 }
 
 
@@ -179,12 +184,12 @@ void addUser::Email()
 
 
 	Email->setStyleClass("userEmail");
-	email_edit_ ->setStyleClass("emailEdit");
+	email_edit_ ->setStyleClass("emailEdits");
 	
-	auto submit = card->addWidget(make_unique<Wt::WPushButton>("Submit"));
-	submit->setLink(WLink(LinkType::InternalPath, "loginpage"));
+	//auto submit = card->addWidget(make_unique<Wt::WPushButton>("Submit"));
+	//submit->setLink(WLink(LinkType::InternalPath, "loginpage"));
     this->email = email_edit_;
-    submit->clicked().connect(this, &addUser::Submit);
+    //submit->clicked().connect(this, &addUser::Submit);
 }
 
 

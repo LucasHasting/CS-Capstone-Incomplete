@@ -17,7 +17,7 @@ deleteUser::deleteUser(WContainerWidget* parent) : WContainerWidget()
 	
 	
 	auto userID = container->addWidget(make_unique<WLineEdit>());
- 	userID->setPlaceholderText("Username");
+ 	userID->setPlaceholderText("Usernames");
     username = userID;
 
         container->addWidget(make_unique<WBreak>());
@@ -31,11 +31,12 @@ deleteUser::deleteUser(WContainerWidget* parent) : WContainerWidget()
 	auto submit2 = container1->addWidget(make_unique<WPushButton>("delete"));
 
 
+	container->setStyleClass("deleteBackground");
 	userID->setStyleClass("IDu");	
 	//submit1->setStyleClass("sub1");	
 	submit2->setStyleClass("sub2");
 	container1->setStyleClass("container1");
-    submit2->clicked().connect(this, &deleteUser::Submit);
+        submit2->clicked().connect(this, &deleteUser::Submit);
 }
 
 void deleteUser::Submit(){

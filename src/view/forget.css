@@ -6,7 +6,6 @@
 	margin-left:auto;
 	margin-right:auto;
 	width:500px;
-	background-color:red;
 	height:500px;
 }
 
@@ -67,26 +66,33 @@
 .updateContainer{
 	margin-left:auto;
 	margin-right:auto;
+	background-color:white;
 }
 
 .widCon{
+	padding:20px;
 	width:100%;
 }
 
 .id{
-
+	margin-top:10px;
 	width:90%;
 	height:30px;
 }
 
 .openClose{
+	margin-top:10px;
 	display:flex;
 	gap:10px;
+	width:90%;
 }
 
 .openDate{
+
 	height:30px;
-	width:50%
+	width:50%;
+	margin-right:5px;
+
 }
 
 .closeDate{
@@ -95,46 +101,53 @@
 }
 
 .notes{
+	margin-top:10px;
 	width:90%;
+	height:30px;
 }
 
 .statown{
+	margin-top:10px;
 	display:flex;
 	width:100%;
 }
 
 .status{
-	width:45%;
-	height:30px;
+	width:46%;
+	height:36px;
+	margin-right:5px;
 }
 
 .owner{
-	width:45%;
+	width:43%;
 	height:30px;
 }
 
 .likeImp{
+	margin-top:10px;
 	display:flex;
 	width:100%;
 }
 
 .likeCombo{
-	width:50%;
+	width:46%;
 	height:30px;
 	margin-right:5px;
 }
 
 .impactRank{
-	width:50%;
+	width:45%;
 	height:30px;
 }
 
 .shortDes{
+	margin-top:10px;
 	width:90%;
 	height:30px;
 }
 
 .longDes{
+	margin-top:10px;
 	width:90%;
 	height:30px;
 }
@@ -147,14 +160,19 @@
 	margin-top:21px;
 }
 
-.Wt-dialog .movable .titlebar {
+.Wt-dialog{
+	background-color:#dedede;
+}
+
+.Wt-dialog .titlebar {
     cursor: move;
     background-color: black;
 }
 
-.Wt-dialog .titlebar {
-    background: #888888;
+.Wt-dialog{
+    background: #dedede;
     color: #FFFFFF;
-    padding: 2px 6px 3px;
     font-family: 'Afacad', sans-serif;
+    display:flex;
+    justify-content:center;
 }

@@ -116,8 +116,10 @@ void RiskMatrix :: createButton(WContainerWidget*But)
 				dialog->finished().connect([this]{
 					dialog.reset();	
 					});		
+				dialog->setStyleClass("golden");
 				dialog->footer()->addWidget(move(closeButton));
 				dialog->show();
+
 			}
 			else cout<<"Not Exist"<<endl;
 	});

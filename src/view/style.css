@@ -6,6 +6,22 @@ body{
     padding: 0;
     margin : 0;
     overflow-x :hidden;
+
+}
+
+/* .Wt-dialog , .movable .titlebar{
+
+	cursor:move;
+	background-color:black;
+}
+*/
+.Wt-dialog .titlebar{
+
+	background :#dedede;
+	color:#FFFFFF;
+	padding: 2px 6px 3px;
+	font-family: 'Afacad' , sans-serif;
+	
 }
 
 .navbar{
@@ -317,6 +333,7 @@ body{
 	color:white;
 	border-radius:5px;
 	margin-right:75px;
+	cursor:pointer;
 }
 
 .arghtbtn::before{
@@ -346,7 +363,12 @@ body{
 .Wt-popupmenu ul li a{
 	 background-color: #D3D3D3;
 	color: black;
+	list-style:none;
+	text-decoration :none;
+}
 
+.ul{
+	list-style:none;
 }
 
 .Wt-popupmenu li a {
@@ -354,6 +376,7 @@ body{
 	color:black;
 	text-decoration:none;
 	background-color:#E5E4E2;
+	list-style:none;
 }
 
 .Wt-popupmenu li :hover{
@@ -372,7 +395,6 @@ body{
 	height:350px;
 	padding-left:10px;
 	padding-right:10px;
-	background-color:#C0C0C0;
 	width:93%;
 	margin-left:auto;
 	margin-right:auto;
@@ -509,13 +531,14 @@ body{
 	color:green;
 }
 
-.verrors, .verror{
+.verrors {
 	width:100%;
 	background-color:red;
 	height:10px;
 	display:flex;
 	justify-content:center;
 }
+
 
 .setError{
 	color:red;
@@ -526,7 +549,8 @@ body{
 
 .addSort{
 	width:85px;
-	height:30px;
+	height:44px;
+	font-family:'Afacad',sans-serif;
 	background-color:black;
 	border-radius:5px;
 	color:white;
@@ -540,4 +564,10 @@ body{
 	display:flex;
 	justify-content:space-around;
 	margin-top:100px;
+}
+
+.total{
+
+	margin-top:128px;
+	margin-left:38px;
 }

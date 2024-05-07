@@ -38,25 +38,29 @@ void RiskMatrixSingle :: createMatrix(WContainerWidget* Mat){
 	auto table = matrix->addWidget(std::make_unique<WTable>());
 	table->setHeaderCount(1,Orientation::Horizontal);
 	
-	for(int col = 1; col <= 7 ; col++){
-		auto title = make_unique<WText>("X");
+
+	for(int col = 1; col <= 5 ; col++){
+		auto title = make_unique<WText>(to_string(col));
 		table->elementAt(0,col)->addWidget(move(title));
 	}
 
-	for(int row = 1 ; row <= 7 ; row++){
-		table->elementAt(row , 0)->addNew<WText>("Y");
+	for(int row = 1 ; row <= 5 ; row++){
+		table->elementAt(row , 0)->addNew<WText>(to_string(6-row));
 	}
 
 	
-	for(int row = 1; row <= 7 ; row++){
-		 for(int col = 1; col <= 7 ; col++){
-	   	table->elementAt(row,col)->setStyleClass("set-border");
+	for(int row = 1; row <= 5 ; row++){
+		 for(int col = 1; col <= 5 ; col++){
+	   			
+			 int r = 6 - row;
+			 
+		 		if(r*col <= 8 &&  r*col >= 1) table->elementAt(row,col)->setStyleClass("set-border green"); 
+       				else if( r*col > 8 && r*col <= 18) table->elementAt(row,col)->setStyleClass("set-border yellow");
+       				else if(r*col > 18 && r*col <= 25) table->elementAt(row,col)->setStyleClass("set-border red");		 	
 	   }
 	}
 
-	matrix->addWidget(make_unique<WText>("Overall X"));
-
-
+	
 	auto yLabelCon = make_unique<WContainerWidget>();
         auto yLabel = make_unique<WText>("over y");
 	

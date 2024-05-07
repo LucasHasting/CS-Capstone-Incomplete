@@ -62,7 +62,7 @@ void Audit:: createDashboard(WContainerWidget* container2){
     btn1->addItem("Heavy");
     btn1->addItem("Medium");
     btn1->addItem("Light");
-    btn1->setCurrentIndex(1); // Show 'Medium' initially.
+    btn1->setCurrentIndex(1);
     btn1->setMargin(10, Wt::Side::Right);
 
     

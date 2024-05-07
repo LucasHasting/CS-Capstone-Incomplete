@@ -11,14 +11,14 @@
 #include <Wt/WPushButton.h>
 #include <Wt/WLink.h>
 #include <Wt/WString.h>
-
+#include <string>
 using namespace Wt;
 using namespace std;
 
 ForgetView :: ForgetView(WContainerWidget* parent) : WContainerWidget(){
 
 
-	WApplication::instance()->useStyleSheet("view/style.css");
+	WApplication::instance()->useStyleSheet("style.css");
 	
         WApplication::instance()->internalPathChanged().connect(this,&ForgetView::onInternalPathChange);	
 	
@@ -45,6 +45,52 @@ void ForgetView::onInternalPathChange(){
 	}
 }
 
+bool isAtPresent(string str){
+	for(int i = 0 ; i < str.size() ; i++){
+		cout<<"entered"<<endl;
+		cout<<str[i]<<endl;
+		if(str[i] == '@') 
+		{
+			cout<<"@ is presnent"<<endl;
+			return true;
+		}
+	}
+	cout<<"@ not present"<<endl;
+	return false;
+}
+
+bool isDotPresent(string str){
+	for(int i = 0 ; i < str.size(); i++){
+		if(str[i] == '.') {return true;
+		cout<<". is present"<<endl;
+		}
+	}
+	cout<<"dot is not present"<<endl;
+	return false;
+}
+
+bool verifyEmail(WString str){
+	
+	//auto wstr = static_cast<wstring>(str);
+	//string email(wstr.begin(), wstr.end());
+	string email  = str.toUTF8();
+	cout<<"Email: hwq"<<email<<endl;
+	int dot = -1 , At = -1;
+	cout<<"Rmail " <<str<<endl;
+	if(!isAtPresent(email))return false;
+	if(!isDotPresent(email)) return false;
+	
+	auto size = static_cast<int>(email.size());
+
+	for(int i = 0 ; i < size; i++){
+		if(email[i] == '.') dot = i;
+		else if(email[i] == '@') At = i;
+	}
+
+	if(At > dot) return false;
+	cout<<str<<" is valid email"<<endl;
+	return true;
+}
 	
 
 
@@ -65,16 +111,26 @@ void ForgetView:: enterEmailView(){
 	
 	email_ = emailSection->addWidget(make_unique<WLineEdit>());
 
-	
+			
 	card->addWidget(make_unique<WBreak>());
 
 	auto submitBox = card->addWidget(make_unique<WContainerWidget>());
 	submit = submitBox->addWidget(make_unique<WPushButton>("Verify"));
-	submit->setLink(WLink(LinkType::InternalPath,"/forget-password/verify-email"));
-
 	
 	textEr = card->addWidget(make_unique<WContainerWidget>());
-        textEr->addWidget(make_unique<WText>("error"));	
+
+	submit->clicked().connect(this,[this]{
+		
+		WString emailText = email_->text();
+		bool ans = verifyEmail(emailText);
+		if(ans)	
+		submit->setLink(WLink(LinkType::InternalPath,"/forget-password/verify-email"));
+		else{
+			textEr->addWidget(make_unique<WText>("Email is Invalid! Try again.."));	
+		}			
+	});
+	
+	
 
 	card->setStyleClass("vEmail");
 	verifyText->setStyleClass("vText");
@@ -113,16 +169,17 @@ void ForgetView::showVerifyCode(WContainerWidget* textEr){
 	else{
 		cout<<"got in this two"<<endl;
 		//card->addWidget(make_unique<WText>("Invalid Email..."));
-   		textEr->addWidget(make_unique<WText>("Error"));
+		auto color = textEr->addWidget(make_unique<WText>("Error"));
+		color->setStyleClass("setError");
 		cout<<"addede text to error"<<endl;  
 	}
 
 }
 
 void ForgetView:: showForgetView(){
-	
+	cout<<"everyhing is working till now"<<endl;
 	container->clear();
 	createHeader();
 	enterEmailView();
-
+	
 }

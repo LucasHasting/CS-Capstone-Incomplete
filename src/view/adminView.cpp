@@ -70,11 +70,12 @@ void AdminView :: createButtons(WContainerWidget* riskDetails){
 	auto result = make_unique<WTemplate>(WString::tr("appendedDropdownButton-template"));
 
 	auto popup = make_unique<WPopupMenu>();
+	popup->addItem("Role");
 	popup->addItem("Author Name");
 	popup->addItem("Rank");
 	popup->addItem("Date Added");
 
-	auto sortButton = leftButtons->addWidget(make_unique<WPushButton>());
+	auto sortButton = leftButtons->addWidget(make_unique<WPushButton>("Sort"));
 	sortButton->setMenu(move(popup));
 	auto inputId = leftButtons->addWidget(make_unique<WLineEdit>());
 	inputId->setPlaceholderText("Search Risk by ID");
