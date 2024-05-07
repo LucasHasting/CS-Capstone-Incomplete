@@ -1,0 +1,96 @@
+@import url('https://fonts.cdnfonts.com/css/afacad');
+.inputriskid{
+	
+	width:97%;
+	height:30px;
+}
+
+.formContainer{
+	font-family:'Afacad',sans-serif;
+	width:400px;
+	height:320px;
+	padding:20px;
+}
+
+.datesContainer{
+	
+	margin-top:10px;
+	display:flex;
+	width:100%;
+	justify-content:space-around;
+}
+
+.openDates{
+	width:49%;
+	height:30px;
+}
+
+.closeDates{
+	width:45%;
+	height:30px;
+}
+
+.notes{
+	margin-top:10px;
+	width:97%;
+	height:30px;
+}
+
+.statOwnerContainer{
+	margin-top:10px;
+	display:flex;
+	width:100%;
+	justify-content:space-around;
+}
+
+.ranksContainer{
+	display:flex;
+	width:100%;
+	margin-top:10px;
+}
+.impRank{
+	width:46%;
+	height:35px;
+}
+
+.liklihood{
+	width:51%;
+	height:34px;
+	margin-right:10px;
+}
+
+
+.shortD{
+	margin-top:10px;
+	width: 97.5%;
+	height:30px;
+}
+
+
+.longD{
+	margin-top:10px;
+	width:97.5%;
+	height;30px;
+}
+
+
+.addButtons{
+	width:99.5%;
+	margin-top:10px;
+	height:30px;
+	background:black;
+	color:white;
+	outline:none;
+}
+
+.ownerisks{
+
+	width:43%;
+	height:30px;
+}
+
+.statuss{
+
+	width:78%;
+	height:30px;
+}

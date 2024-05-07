@@ -1,0 +1,389 @@
+@import url('https://fonts.cdnfonts.com/css/rollston');
+@import url('https://fonts.cdnfonts.com/css/narnoor');
+@import url('https://fonts.cdnfonts.com/css/afacad');
+
+.MatContainer{
+	font-family; 'Afacad', sans-serif;
+	display:flex;
+	width:100%;
+	margin-left:75px;
+	margin-top:20px;
+	width:500px;
+	height:500px;
+	
+}
+
+.mat-table{
+	margin-top:30px;
+	/*background-color:aliceblue; */
+	width:400px;
+	height:400px;
+	margin-top:30px;
+}
+
+.set-border{
+
+	border: 0.5px solid #899499;
+}
+
+.set-border:nth-child(even){
+	background-color:#ghostwhite;
+}
+
+
+.userCon{
+	display:flex;
+	width:100%;
+	border-bottom : 0.1px solid rgb(232,232,232);
+	justify-content:center;
+	font-family:'Afacad' , sans-serif;
+	width: 90%;
+}
+
+.Mat {
+	font-family : 'Afacad' , sans-serif;
+	width:50%;
+
+}
+
+.But{
+	font-family:'Afacad' ,sans-serif;
+	width:50%;
+	margin-right:71px;
+}
+
+.edit {
+	
+	width:100px;
+	height:40px;
+	background-color:black;
+	border: none;
+	color:white;
+	cursor:pointer;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	
+
+}
+
+.edit ::before {
+	font-family: 'Font Awesome 5 Free';
+	content : '\f007';
+	font-size : 16px;
+}
+
+.add {
+
+	width:100px;
+	height:40px;
+	background-color:black;
+	color:white;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	cursor:pointer;
+	border:none;
+}
+
+.add::before{
+	font-family: 'Font Awesome 5 Free';
+	content:'\f044  ';
+	font-size: 14px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+.delete{
+
+	width:100px;
+	height:40px;
+	background-color:red;
+	color:white;
+	cursor:pointer;
+	border:none;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.delete::before{
+
+	font-family: 'Font Awesome 5 Free';
+	content : '\f014  ';
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.just-btn{
+	display:flex;
+	padding-left:20px;
+	padding-right:20px;
+	justify-content:space-around;
+	margin-top : 30%;
+}
+
+.txt {
+	font-size : 20px;
+}
+
+.card-container{
+	padding:20px;
+	background:#dedede;
+	height: 400px;
+	width: 500px;
+	background-color: #d3d3d3;
+}
+
+.deleteBackground{
+	
+	width:300px;
+	height:100px;
+	background-color:#dedede;
+
+}
+
+.riskid{
+	width:97%;
+	height:30px;
+	margin-top:10px;
+	margin-bottom:10px;
+	outline:none;
+	border:none;
+	border-bottom: 0.2px solid;
+}
+
+.riskid::focus{
+	outline:none;
+}
+
+.username{
+	width:97%;
+	height:30px;
+	margin-bottom:10px;
+	outline:none;
+	border: none;
+	border-bottom: 0.2px solid;
+	margin-left: 6px;
+}
+
+
+
+.role{
+	width:98%;
+	height:33px;
+	margin-bottom:10px;
+	outline:none;
+	border: none;
+	border-bottom: 0.2px solid;
+	margin-left: 6px;
+}
+
+
+.emails{
+	width:97%;
+	height:30px;
+	margin-bottom:-5px;								 outline:none;
+	border: none;
+	border-bottom: 0.2px solid;							 margin-left: 6px;
+										
+}
+
+
+.passwordss{
+
+	width:97%;
+	height:30px;
+	margin-bottom:10px;
+	outline:none;
+	border: none;
+	border-bottom: 0.2px solid;
+	margin-left: 6px;
+}
+
+
+.add-background{
+	height:400px;
+	width:500px;
+	padding:11px;
+	background-color:#d3d3d3;
+
+}
+
+.addrbox{
+	width:90%;
+	height:40px;
+}
+
+.addrole{
+	width:101%;
+	height:35px;
+	margin-left:20px;
+	border:none;
+	border-bottom:0.2px solid ;
+	margin-top:7px;
+}
+
+
+.nameMsg{
+	width:90%;	
+	height:40px;
+	border:none;
+	border-bottom:0.2px solid;
+}
+
+
+.userEdits{
+	width:90%;
+	height:30px;
+	border:none;
+	border-bottom:0.2px solid;
+	margin-left:20px;
+}
+
+
+.passwordUser{
+	width:90%;
+	height:40px;
+}
+
+.passEdits{
+	width:90%;
+	height:30px;
+	border:none;
+	border-bottom:0.2px solid;
+	margin-left:20px;
+}
+
+
+.userEmail{
+	width:90%;
+	height:40px;
+
+}
+
+.emailEdits{
+	width:90%;
+	height:30px;
+	margin-left:20px;
+	border:none;
+	border-bottom:0.2px solid;
+
+}
+
+.container1{
+	display:flex;
+	width:100%;
+	
+}
+
+.sub1{
+	background-color:black;
+	color:white;
+	height:20px;
+	width:30%;
+}
+
+.sub2{
+	background-color:red;
+	color:white;
+	height:20px;
+	width:84%;
+	display:flex;
+	justify-content:center;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+	border:none;
+}
+
+.green{
+	background-color:green;
+}
+.red{
+	background-color:red;
+}
+.container2{
+	display:flex;
+	width:100%;
+}
+.sub4{
+	background-color:red;
+	color:white;
+}
+
+.yellow{
+	background-color:yellow;
+}
+
+.yLabel{
+	transform:rotate(-90deg);
+}
+
+.riskInputMat{
+	height:26px;
+	width:106px;
+	background-color:white;
+	border:0.5px solid black;
+}
+
+
+.inputsCon{
+	margin-top:10px;
+	display:flex;
+	width:65%;
+	justify-content:center;
+	gap:17px;
+}
+.buttos{
+	width:77px;
+	height:40px;
+	background-color:black;
+	color:white;
+	outline:none;
+	cursor:pointer;
+}
+
+
+/*.Wt-dialog .movable .titlebar {
+	    cursor: move;
+	    background-color: black;
+}
+*/
+
+.Wt-dialog  .titlebar {
+	background: black;
+	color: #FFFFFF;
+	font-family: 'Afacad', sans-serif;
+}
+
+.Wt-dialog{
+	background-color:#DEDEDE;
+}
+
+.IDu{
+	height:30px;
+	width:80%;
+	margin-left:20px;
+	margin-top:10px;
+	outline:none;
+	margin-right:auto;
+}
+
+.subButton{
+	width:99%;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:black;
+	color:white;
+	height:30px;
+}
+
+.golden{
+
+	background-color:gold;
+}
+
+.buttoni{
+	margin-left:20px;
+	margin-top:20px;
+	width:91%;
+	height:35px;
+	border:none;
+	background-color:black;
+	color:white;
+	font-family:'Afacad',sans-serif;
+}

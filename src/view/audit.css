@@ -1,0 +1,44 @@
+.reportMatrix{
+    margin-top:100px;
+     display:flex;
+     width:100%;
+     justify-content: space-evenly;
+     align-content: stretch;
+     flex-wrap: wrap;
+}
+
+.report{
+    width:800px;
+}
+
+.rep{
+    
+    height:700px;
+}
+
+.matrix{
+    width:400px;
+    
+}
+
+
+.btncont{
+    display:flex;
+    padding:20px;
+    justify-content:center;
+}
+
+.butn1{
+    background-color:black;
+    color:white;
+    width:80px;
+    height:50px;
+}
+
+.butn2{
+    color:black;
+    width:80px;
+    height:50px;
+    border:0.5px solid;
+	
+}
