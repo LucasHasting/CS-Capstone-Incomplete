@@ -16,7 +16,7 @@ EditUser :: EditUser(WContainerWidget* parent) : WContainerWidget(){
 	container = addWidget(make_unique<WContainerWidget>());
 
 	auto app = WApplication::instance();
-	app->useStyleSheet("table.css");
+	app->useStyleSheet("view/table.css");
 
 	auto card = container->addWidget(make_unique<WContainerWidget>());
 

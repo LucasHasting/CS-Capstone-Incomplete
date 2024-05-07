@@ -11,7 +11,7 @@ using namespace std;
 
 deleteUser::deleteUser(WContainerWidget* parent) : WContainerWidget()
 {
-	WApplication::instance()->useStyleSheet("table.css");
+	WApplication::instance()->useStyleSheet("view/table.css");
 
 	auto container = addWidget(make_unique<WContainerWidget>());
 	

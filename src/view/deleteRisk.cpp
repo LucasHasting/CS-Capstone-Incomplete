@@ -10,7 +10,7 @@ using namespace std;
 
 deleteRisk::deleteRisk(WContainerWidget* parent) : WContainerWidget()
 {
-	WApplication::instance()->useStyleSheet("table.css");
+	WApplication::instance()->useStyleSheet("view/table.css");
 
 	auto container = addWidget(make_unique<WContainerWidget>());
 	auto edit = container->addNew<WText>();

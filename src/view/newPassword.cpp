@@ -25,7 +25,7 @@ NewPassword::NewPassword(WContainerWidget* parent) : WContainerWidget() {
 
 
 	app->internalPathChanged().connect(this , &NewPassword::onInternalPathChange);
-	app->useStyleSheet("forget.css");
+	app->useStyleSheet("view/forget.css");
 	createHeader();
 	viewPasswordCard();
 	container->setStyleClass("container");

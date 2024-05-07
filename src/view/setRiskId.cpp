@@ -19,7 +19,7 @@ SetRiskId :: SetRiskId(WContainerWidget* parent ) : WContainerWidget() {
 	container = addWidget(make_unique<WContainerWidget>());
 	
 	auto app = WApplication::instance();
-	app->useStyleSheet("riskId.css");
+	app->useStyleSheet("view/riskId.css");
 
 	container->setStyleClass("contain");
 

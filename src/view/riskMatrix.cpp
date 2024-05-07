@@ -17,7 +17,7 @@ using namespace Wt;
 RiskMatrix :: RiskMatrix(WContainerWidget* parent) : WContainerWidget(){
 
 	auto app = WApplication::instance();
-	app->useStyleSheet("table.css");
+	app->useStyleSheet("view/table.css");
 
 	container = addNew <WContainerWidget>();
 	
@@ -62,7 +62,7 @@ void RiskMatrix :: createMatrix(WContainerWidget* Mat){
 	   }
 	}
 
-	matrix->addWidget(make_unique<WText>("Overall X"));
+	//matrix->addWidget(make_unique<WText>("Overall X"));
 
 
 	auto yLabelCon = make_unique<WContainerWidget>();
